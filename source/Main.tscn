@@ -16,6 +16,7 @@ tile_data = PoolIntArray( 524292, 7, 0, 524293, 6, 0, 524294, 6, 0, 524295, 6, 0
 [node name="Hero" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 219.391, 371.191 )
+allow_wall_climbing = true
 
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true

@@ -16,6 +16,7 @@ var jump_timeout : float = 0
 
 
 func _process(delta: float) -> void:
+	#	change sprite facing whenever linear velocity is different than zero
 	if linear_velocity.x != 0:
 		$Sprite.flip_h = linear_velocity.x < 0
 	
@@ -24,18 +25,23 @@ func _process(delta: float) -> void:
 		jump_timeout -= delta
 
 func _physics_process(delta: float) -> void:
-	#	process gravity
-	linear_velocity.y += gravity * mass * delta
-	
 	if is_on_floor():
+		#	reset jumps and do not process gravity
 		linear_velocity.y = 0
 		jumps_count = 0
+	else:
+		#	will be processed only when hero is not on ground
+		#	process gravity
+		linear_velocity.y += gravity * mass * delta
+		#	check if hero collides with wall when falling
+		#	and if wall climbing is allowed
+		if is_on_wall() and allow_wall_climbing:
+			jumps_count = 0
+			#	slows down falling when sticking to wall
+			if linear_velocity.y > 0:
+				linear_velocity.y *= 0.75
 	
-	if is_on_wall() and allow_wall_climbing:
-		jumps_count = 0
-		if linear_velocity.y > 0:
-			linear_velocity.y *= 0.75
-	
+	#	reset snap vector
 	var snap_vector := C.SNAP_VECTOR
 	
 	if Input.is_action_just_pressed("ui_select"):
@@ -45,7 +51,8 @@ func _physics_process(delta: float) -> void:
 			jump_timeout = jump_delay
 			snap_vector = C.JUMP_SNAP_VECTOR
 			
-	
+	#	reset linear velocity before setting its value
+	#	if not reset hero will keep moving
 	linear_velocity.x = 0
 	if Input.is_action_pressed("ui_left"):
 		linear_velocity.x = -movement_speed * delta * C.TILE_SIZEF
