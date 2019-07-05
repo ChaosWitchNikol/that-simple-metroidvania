@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Object",
 "class": "C",
 "language": "GDScript",
-"path": "res://scripts/_constants.gd"
+"path": "res://scripts/utils/_constants.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "EnemyBase",
@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "EnemySource",
 "language": "GDScript",
 "path": "res://scripts/resource_types/enemy_source.gd"
+}, {
+"base": "Object",
+"class": "U",
+"language": "GDScript",
+"path": "res://scripts/utils/_utils.gd"
 } ]
 _global_script_class_icons={
 "C": "",
 "EnemyBase": "",
-"EnemySource": ""
+"EnemySource": "",
+"U": ""
 }
 
 [application]
