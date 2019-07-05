@@ -5,6 +5,7 @@
 [ext_resource path="res://assets/collisions/hero.body.tres" type="Shape2D" id=3]
 
 [node name="Hero" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

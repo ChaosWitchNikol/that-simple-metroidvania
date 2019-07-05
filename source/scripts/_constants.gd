@@ -13,3 +13,5 @@ const FLOOR_VECTOR : Vector2 = Vector2(0, -1)
 
 const SNAP_VECTOR : Vector2 = Vector2(0, 24)
 const JUMP_SNAP_VECTOR : Vector2 = Vector2(0, 0)
+
+enum FACING { RIGHT=1, LEFT=-1, NONE=0 }

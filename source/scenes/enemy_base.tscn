@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/enemy_base.gd" type="Script" id=1]
+[ext_resource path="res://assets/resources/enemy_base.src.tres" type="Resource" id=2]
+[ext_resource path="res://assets/images/square.png" type="Texture" id=3]
+[ext_resource path="res://assets/collisions/enemy_base.body.tres" type="Shape2D" id=4]
+
+[node name="EnemyBase" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 1 )
+src = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 3 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = ExtResource( 4 )
