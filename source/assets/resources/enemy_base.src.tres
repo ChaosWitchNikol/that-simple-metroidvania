@@ -7,6 +7,5 @@ script = ExtResource( 1 )
 passive = false
 mass = 100.0
 movement_speed = 400.0
-view_distance = 8.0
 attack_delay = 0.01
 attack_range = 1.0

@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-passive = true
+passive = false
 mass = 100.0
-movement_speed = 200.0
+movement_speed = 460.0
 attack_delay = 0.01
 attack_range = 1.0

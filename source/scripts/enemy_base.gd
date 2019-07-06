@@ -7,14 +7,19 @@ export(Resource) var src : Resource = null
 export(float) var gravity : float = C.GRAVITY_VALUE
 export(C.FACING) var facing : int = C.FACING.RIGHT
 
+
 var linear_velocity : Vector2 = Vector2()
 var gravity_vector := C.GRAVITY_VECTOR
 var snap_vector := C.SNAP_VECTOR
 var floor_vector := C.FLOOR_VECTOR
 
+var target : Node2D
+
 func _ready() -> void:
 	print(">>> ", name)
-	pass # Replace with function body.
+	if src == null:
+		print("Source is missing")
+		queue_free()
 	
 
 
@@ -39,3 +44,11 @@ func process_gravity(delta : float, do_process : bool = true) -> void:
 
 func process_movement(delta : float) -> void:
 	pass
+
+
+
+
+func _on_View_body_entered(body: PhysicsBody2D) -> void:
+	if body.is_in_group("enemy_target") and not src.passive:
+		target = body
+		print(target.name)
