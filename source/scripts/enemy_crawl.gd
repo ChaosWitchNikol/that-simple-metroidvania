@@ -16,20 +16,16 @@ func process_movement(delta : float) -> void:
 	if is_on_floor():
 		#	rotate inner circle
 		if test_move(transform, forward_vector ):
-			print("inner")
 			position += gravity_vector
 			linear_velocity = Vector2()
 			get_next_vectors(ROTATION.INNER)
 			return
 		#	outer wiche ckeck if rotation on the outer circle is possible
 		elif not test_move(transform.translated(forward_vector * SAVE_MARGIN), gravity_vector ):
-			print("outer")
 			linear_velocity = Vector2()
 			position +=  (forward_vector  + gravity_vector) 
 			get_next_vectors(ROTATION.OUTER)
 			return
-
-
 		
 		linear_velocity = forward_vector * src.movement_speed * delta * C.TILE_SIZEF
 
