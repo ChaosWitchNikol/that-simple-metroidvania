@@ -16,6 +16,7 @@ var jump_timeout : float = 0
 
 
 func _process(delta: float) -> void:
+	print(position)
 	#	change sprite facing whenever linear velocity is different than zero
 	if linear_velocity.x != 0:
 		$Sprite.flip_h = linear_velocity.x < 0
