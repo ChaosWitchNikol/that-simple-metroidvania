@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/resources/enemy_crawl.src.tres" type="Resource" id=3]
 [ext_resource path="res://assets/collisions/enemy_crawl.body.tres" type="Shape2D" id=4]
 
-[node name="EnemyCrawl" index="0" instance=ExtResource( 1 )]
+[node name="EnemyCrawl" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 src = ExtResource( 3 )
 
