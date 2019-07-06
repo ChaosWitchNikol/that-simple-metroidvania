@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="This simple Metroidvania"
+config/name="That simple Metroidvania"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 

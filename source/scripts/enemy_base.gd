@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	process_movement(delta)
 	#	finally move
 	linear_velocity = move_and_slide_with_snap(linear_velocity, snap_vector, floor_vector)
+	#	pixel perfect snap correction
+	position = position.round()
 	
 
 func process_gravity(delta : float, do_process : bool = true) -> void:
@@ -32,6 +34,7 @@ func process_gravity(delta : float, do_process : bool = true) -> void:
 		return
 	
 	linear_velocity += gravity_vector * gravity * src.mass * delta
+	
 	
 
 func process_movement(delta : float) -> void:
