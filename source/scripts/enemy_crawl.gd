@@ -10,10 +10,6 @@ var should_flip : bool = false
 
 func _ready() -> void:
 	get_next_vectors()
-	print(transform)
-	print(transform.translated(gravity_vector * C.TILE_SIZEF))
-	print(position)
-	print(test_move(transform.translated(gravity_vector), forward_vector))
 
 ##	Override
 func process_movement(delta : float) -> void:
