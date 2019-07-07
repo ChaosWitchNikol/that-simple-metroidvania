@@ -2,11 +2,6 @@ extends EnemyBase
 
 enum ROTATION { INNER = -1, OUTER = 1, NONE = 0 }
 
-var SAVE_MARGIN : float = 1.1 + get("collision/safe_margin")
-
-var forward_vector : Vector2
-var next_rotaion : int = ROTATION.NONE
-var should_flip : bool = false
 
 func _ready() -> void:
 	get_next_vectors()
@@ -21,7 +16,7 @@ func process_movement(delta : float) -> void:
 			get_next_vectors(ROTATION.INNER)
 			return
 		#	outer wiche ckeck if rotation on the outer circle is possible
-		elif not test_move(transform.translated(forward_vector * SAVE_MARGIN), gravity_vector ):
+		elif not test_move(transform.translated(forward_vector * save_margin), gravity_vector ):
 			linear_velocity = Vector2()
 			position +=  (forward_vector  + gravity_vector) 
 			get_next_vectors(ROTATION.OUTER)

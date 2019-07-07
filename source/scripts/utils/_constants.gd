@@ -5,6 +5,8 @@ const TILE_SIZE : int = 32
 const TILE_SIZEF : float = TILE_SIZE * 1.0
 const HALF_TILE_SIZE : int = TILE_SIZE / 2
 const HALF_TILE_SIZEF : float = TILE_SIZEF / 2.0
+const Q_TILE_SIZE : int = TILE_SIZE / 4
+const Q_TILE_SIZEF : float = TILE_SIZEF / 4.0
 
 const GRAVITY_VALUE : float = 9.8
 const GRAVITY_VECTOR : Vector2 = Vector2(0, 1)
