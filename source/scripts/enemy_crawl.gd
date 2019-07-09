@@ -1,4 +1,5 @@
 extends EnemyBase
+class_name EnemyCrawl
 
 enum ROTATION { INNER = -1, OUTER = 1, NONE = 0 }
 
