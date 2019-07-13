@@ -6,8 +6,8 @@ class_name TEnemySpawner
 #==== enemy instance variables ====
 #== exports ==
 export(Resource) var enemy_source : Resource setget _set_enemy_source
-export(PackedScene) var enemy_scene : PackedScene setget _set_enemy_scene
-export(C.FACING) var enemy_facing : int = C.FACING.RIGHT
+export(PackedScene) var enemy_scene : PackedScene  
+export(C.FACING) var enemy_facing : int = C.FACING.RIGHT setget _set_enemy_facing
 export(float) var gravity_value : float = C.GRAVITY_VALUE
 export(C.GRAVITY_DIRECTION) var gravity_direction : int = C.GRAVITY_DIRECTION.DOWN setget _set_gravity_direction
 export(float, 0.01, 2048, 0.01) var respawn_timeout : float = 20
@@ -33,9 +33,9 @@ func _set_enemy_source(value : Resource) -> void:
 	enemy_source = value
 	get_node("EnemyPreview").source = value
 
-func _set_enemy_scene(value : PackedScene) -> void:
-	enemy_scene = value
-	print(value.resource_name)
+func _set_enemy_facing(value : int = C.FACING.RIGHT) -> void:
+	enemy_facing = value
+	get_node("EnemyPreview/Sprite").flip_h = value == C.FACING.LEFT
 
 func _set_gravity_direction(value : int = C.GRAVITY_DIRECTION.DOWN) -> void:
 	gravity_direction = value

@@ -6,10 +6,6 @@
 [ext_resource path="res://assets/collisions/enemy_static.body.tres" type="Shape2D" id=4]
 [ext_resource path="res://assets/collisions/enemy_static.view.tres" type="Shape2D" id=5]
 
-
-
-
-
 [node name="EnemyStatic" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 src = ExtResource( 3 )

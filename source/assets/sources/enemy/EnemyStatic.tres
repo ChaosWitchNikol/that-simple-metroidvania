@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://customTypes/EnemySource.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/square.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 96.0
+
+[resource]
+script = ExtResource( 1 )
+passive = false
+mass = 100.0
+movement_speed = 400.0
+body_shape = SubResource( 1 )
+body_offset = Vector2( 0, 0 )
+body_rotation = 0.0
+sprite = ExtResource( 2 )
+view_shape = SubResource( 2 )
+view_offset = Vector2( 0, 0 )
+view_rotation = 0.0
