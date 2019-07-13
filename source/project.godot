@@ -44,6 +44,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalk.old.gd"
 }, {
+"base": "Node2D",
+"class": "TEnemyPreview",
+"language": "GDScript",
+"path": "res://tools/EnemyPreview.gd"
+}, {
+"base": "Node2D",
+"class": "TEnemySpawner",
+"language": "GDScript",
+"path": "res://tools/EnemySpawner.gd"
+}, {
 "base": "Object",
 "class": "U",
 "language": "GDScript",
@@ -57,6 +67,8 @@ _global_script_class_icons={
 "EnemySrc": "",
 "EnemyStaticOld": "",
 "EnemyWalkOld": "",
+"TEnemyPreview": "",
+"TEnemySpawner": "",
 "U": ""
 }
 
