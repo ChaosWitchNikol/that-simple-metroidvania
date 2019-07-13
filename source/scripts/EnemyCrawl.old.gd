@@ -1,5 +1,5 @@
-extends EnemyBase
-class_name EnemyCrawl
+extends EnemyBaseOld
+class_name EnemyCrawlOld
 
 enum ROTATION { INNER = -1, OUTER = 1, NONE = 0 }
 

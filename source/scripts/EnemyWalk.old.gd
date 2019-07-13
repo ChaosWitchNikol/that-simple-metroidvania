@@ -1,5 +1,5 @@
-extends EnemyBase
-class_name EnemyWalk
+extends EnemyBaseOld
+class_name EnemyWalkOld
 
 
 func _ready() -> void:

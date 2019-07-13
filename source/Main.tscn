@@ -2,10 +2,10 @@
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/EnemyFly.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/EnemyWalk.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/EnemyCrawl.old.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/EnemyFly.old.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/EnemyWalk.old.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EnemyStatic.old.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 
@@ -30,8 +30,6 @@ position = Vector2( 320, 405.912 )
 
 [node name="EnemyFly" parent="." instance=ExtResource( 4 )]
 position = Vector2( 752, 448 )
-gravity = 9.8
-facing = 1
 
 [node name="EnemyWalk" parent="." instance=ExtResource( 5 )]
 position = Vector2( 382, 416 )

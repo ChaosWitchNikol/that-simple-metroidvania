@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name EnemyBase
+class_name EnemyBaseOld
 
 export(Resource) var src : Resource = null
 

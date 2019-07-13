@@ -1,5 +1,5 @@
-extends EnemyBase
-class_name EnemyFly
+extends EnemyBaseOld
+class_name EnemyFlyOld
 
 
 
