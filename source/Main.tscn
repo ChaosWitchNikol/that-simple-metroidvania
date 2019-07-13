@@ -30,6 +30,8 @@ position = Vector2( 320, 405.912 )
 
 [node name="EnemyFly" parent="." instance=ExtResource( 4 )]
 position = Vector2( 752, 448 )
+gravity = 9.8
+facing = 1
 
 [node name="EnemyWalk" parent="." instance=ExtResource( 5 )]
 position = Vector2( 382, 416 )
