@@ -1,5 +1,5 @@
 extends Resource
-class_name EnemySource
+class_name EnemySrc
 
 export(bool) var passive : bool = false
 export(float, 0, 1000) var mass : float = 100

@@ -30,7 +30,7 @@ _global_script_classes=[ {
 "path": "res://scripts/EnemyFly.gd"
 }, {
 "base": "Resource",
-"class": "EnemySource",
+"class": "EnemySrc",
 "language": "GDScript",
 "path": "res://scripts/resource_types/enemy_source.gd"
 }, {
@@ -54,7 +54,7 @@ _global_script_class_icons={
 "EnemyBase": "",
 "EnemyCrawl": "",
 "EnemyFly": "",
-"EnemySource": "",
+"EnemySrc": "",
 "EnemyStatic": "",
 "EnemyWalk": "",
 "U": ""
