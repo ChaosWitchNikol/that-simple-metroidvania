@@ -6,8 +6,6 @@
 [ext_resource path="res://assets/collisions/enemy_base.body.tres" type="Shape2D" id=4]
 [ext_resource path="res://assets/collisions/enemy_base.view.tres" type="Shape2D" id=5]
 
-
-
 [node name="EnemyBase" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 1 )

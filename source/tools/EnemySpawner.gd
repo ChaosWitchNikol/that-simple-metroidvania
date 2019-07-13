@@ -19,14 +19,54 @@ var gravity_vector : Vector2 = U.gravity_direction2vector(gravity_direction)
 export(Texture) var _preview_image : Texture setget _set_preview_image
 export(bool) var _preview_hide : bool = false setget _set_preview_hide
 
+#==== spawn point variables ====
+var instance
 
+#==== node functions ====
 func _ready() -> void:
 	if Engine.editor_hint:
 		pass
 	else:
 		get_node("EnemyPreview").visible = false
 		get_node("EnemyPreview").queue_free()
+		
+		if not enemy_source or not enemy_scene:
+			queue_free()
+			return
+		
+		spawn_enemy()
 
+#==== custom functions ====
+func spawn_enemy() -> void:
+	if instance:
+		return
+	# create new instance
+	instance = enemy_scene.instance()
+	# set all instance variables
+	#	set gravity variables
+	instance.gravity_value = gravity_value
+	instance.gravity_vector = gravity_vector
+	instance.mass = enemy_source.mass
+	print(instance.mass)
+	#	set movement variables
+	instance.movement_speed = enemy_source.movement_speed
+	instance.facing = enemy_facing
+	#	set life variables
+	instance.passive = enemy_source.passive
+	#	set body node variables
+	instance.get_node("Body").shape = enemy_source.body_shape
+	instance.get_node("Body").position = enemy_source.body_offset
+	instance.get_node("Body").rotation_degrees = enemy_source.body_rotation
+	#	set view node variables
+	instance.get_node("View/ViewShape").shape = enemy_source.view_shape
+	instance.get_node("View").position = enemy_source.view_offset
+	instance.get_node("View/ViewShape").rotation_degrees = enemy_source.view_rotation
+	#	set enemy sprite node
+	instance.get_node("EnemySprite").texture = enemy_source.sprite
+	
+
+	# finally add child
+	add_child(instance)
 
 #==== setters ====
 func _set_enemy_source(value : Resource) -> void:
@@ -48,5 +88,6 @@ func _set_preview_image(value : Texture) -> void:
 func _set_preview_hide(value : bool) -> void:
 	_preview_hide = value
 	get_node("EnemyPreview").visible = not value
+
 
 #==== signals ====

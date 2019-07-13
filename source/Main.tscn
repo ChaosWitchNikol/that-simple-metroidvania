@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://scenes/EnemyWalk.old.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/EnemyStatic.old.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tools/EnemySpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=8]
+[ext_resource path="res://assets/sources/enemy/EnemyWalk.tres" type="Resource" id=8]
+[ext_resource path="res://scenes/EnemyWalk.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=10]
 
 [node name="Main" type="Node2D"]
 
@@ -40,4 +42,7 @@ position = Vector2( 382, 416 )
 position = Vector2( 1152, 496 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 7 )]
-_preview_image = ExtResource( 8 )
+position = Vector2( 272, 208 )
+enemy_source = ExtResource( 8 )
+enemy_scene = ExtResource( 9 )
+_preview_image = ExtResource( 10 )

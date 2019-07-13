@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
@@ -14,7 +15,7 @@ passive = false
 mass = 100.0
 movement_speed = 400.0
 body_shape = SubResource( 1 )
-body_offset = Vector2( 16, 32 )
+body_offset = Vector2( 0, 0 )
 body_rotation = 0.0
 sprite = ExtResource( 2 )
 view_shape = SubResource( 2 )
