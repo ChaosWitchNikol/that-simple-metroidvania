@@ -2,6 +2,8 @@ tool
 extends Node2D
 class_name TEnemySpawner
 
+#==== signals ====
+signal _t_enemy_spawner_export_var_change
 
 #==== enemy instance variables ====
 #== exports ==
@@ -25,7 +27,8 @@ var instance
 #==== node functions ====
 func _ready() -> void:
 	if Engine.editor_hint:
-		pass
+		if enemy_source and not enemy_source.is_connected("ct_enemy_source_changed", self, "_on_enemy_source_change"):
+			enemy_source.connect("ct_enemy_source_changed", self, "_on_enemy_source_change")
 	else:
 		get_node("EnemyPreview").visible = false
 		get_node("EnemyPreview").queue_free()
@@ -68,26 +71,43 @@ func spawn_enemy() -> void:
 	# finally add child
 	add_child(instance)
 
+
 #==== setters ====
 func _set_enemy_source(value : Resource) -> void:
+	if Engine.editor_hint and not value:
+		if enemy_source and enemy_source.is_connected("ct_enemy_source_changed", self, "_on_enemy_source_change"):
+			enemy_source.disconnect("ct_enemy_source_changed", self, "_on_enemy_source_change")
+	
 	enemy_source = value
-	get_node("EnemyPreview").source = value
+	
+	if Engine.editor_hint:
+		if enemy_source and not enemy_source.is_connected("ct_enemy_source_changed", self, "_on_enemy_source_change"):
+			enemy_source.connect("ct_enemy_source_changed", self, "_on_enemy_source_change")
+		emit_signal("_t_enemy_spawner_export_var_change")
 
 func _set_enemy_facing(value : int = C.FACING.RIGHT) -> void:
 	enemy_facing = value
-	get_node("EnemyPreview/Sprite").flip_h = value == C.FACING.LEFT
+	if Engine.editor_hint:
+		emit_signal("_t_enemy_spawner_export_var_change")
 
 func _set_gravity_direction(value : int = C.GRAVITY_DIRECTION.DOWN) -> void:
 	gravity_direction = value
 	gravity_vector = U.gravity_direction2vector(value)
+	if Engine.editor_hint:
+		emit_signal("_t_enemy_spawner_export_var_change")
 
 func _set_preview_image(value : Texture) -> void:
 	_preview_image = value
-	get_node("EnemyPreview/Sprite").texture = _preview_image
+	if Engine.editor_hint:
+		emit_signal("_t_enemy_spawner_export_var_change")
 
 func _set_preview_hide(value : bool) -> void:
 	_preview_hide = value
-	get_node("EnemyPreview").visible = not value
+	if Engine.editor_hint:
+		emit_signal("_t_enemy_spawner_export_var_change")
 
 
 #==== signals ====
+#== editor specific signals ==
+func _on_enemy_source_change() -> void:
+	emit_signal("_t_enemy_spawner_export_var_change")

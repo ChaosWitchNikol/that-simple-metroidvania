@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
@@ -14,11 +14,6 @@
 [ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=12]
 [ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=13]
 [ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tools/DrawShape2D.tscn" type="PackedScene" id=15]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 128.0
-height = 96.0
 
 [node name="Main" type="Node2D"]
 
@@ -42,53 +37,23 @@ current = true
 position = Vector2( 560, 624 )
 enemy_source = ExtResource( 4 )
 enemy_scene = ExtResource( 5 )
-enemy_facing = 1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 _preview_image = ExtResource( 6 )
-_preview_hide = false
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 304 )
 enemy_source = ExtResource( 7 )
 enemy_scene = ExtResource( 8 )
-enemy_facing = 1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 _preview_image = ExtResource( 9 )
-_preview_hide = false
 
 [node name="EnemySpawner3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 784, 352 )
 enemy_source = ExtResource( 10 )
 enemy_scene = ExtResource( 11 )
-enemy_facing = -1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 _preview_image = ExtResource( 12 )
-_preview_hide = false
 
 [node name="EnemySpawner4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 384, 416 )
+position = Vector2( 464, 400 )
 enemy_source = ExtResource( 13 )
 enemy_scene = ExtResource( 14 )
-enemy_facing = 1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
+enemy_facing = -1
 _preview_image = ExtResource( 9 )
-_preview_hide = false
-
-[node name="DrawShape2D" parent="." instance=ExtResource( 15 )]
-rotation = -18.8496
-color = Color( 1, 1, 1, 0.1 )
-fill = true
-opacity = 0.1
-shape = SubResource( 1 )

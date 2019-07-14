@@ -4,13 +4,11 @@ class_name DrawShape2D
 
 export(Color) var color : Color = "#FFFFFF" setget set_color
 export(bool) var fill : bool = false setget set_fill
-export(float, 0, 1) var opacity : float = 0.5 setget set_opacity
 export(Shape2D) var shape : Shape2D setget set_shape
 
 #==== node functions ====
 func _ready() -> void:
 	set_color()
-	shape.connect("changed", self, "_on_shape_changed")
 
 func _draw() -> void:
 	if shape is RectangleShape2D:
@@ -21,10 +19,11 @@ func _draw() -> void:
 		shape2d_capsule()
 	else:
 		pass
+#	draw_line(position - Vector2(2, 0), position)
 
 #==== shape drawing functions ====
 func shape2d_capsule() -> void:
-	var pos : Vector2 = position
+	var pos : Vector2 = Vector2()
 	var capsule = shape as CapsuleShape2D
 	var height_vector : Vector2 = Vector2(0, capsule.height / 2)
 	var radius_vector : Vector2 = Vector2(capsule.radius, 0)
@@ -56,13 +55,13 @@ func shape2d_capsule() -> void:
 func shape2d_circle() -> void:
 	var circle = shape as CircleShape2D
 	if not fill: 
-		draw_circle_arc(position, circle.radius, 0, 360, color)
+		draw_circle_arc(Vector2(), circle.radius, 0, 360, color)
 	else:
-		draw_circle_arc_poly(position, circle.radius, 0, 360, color)
+		draw_circle_arc_poly(Vector2(), circle.radius, 0, 360, color)
 
 func shape2d_rectangle() -> void:
 	var rectangle = shape as RectangleShape2D
-	draw_rect(Rect2(position - rectangle.extents, rectangle.extents * 2), color, fill)
+	draw_rect(Rect2(-rectangle.extents, rectangle.extents * 2), color, fill)
 
 
 #==== custom drawing functions ====
@@ -93,21 +92,22 @@ func draw_circle_arc_poly(center : Vector2, radius: float, angle_start : float, 
 #==== setters ====
 func set_color(value : Color = "#FFFFFF") -> void:
 	color = value
-	color.a = opacity
 	update()
 
 func set_fill(value : bool = false) -> void:
 	fill = value
 	update()
 
-func set_opacity(value: float = 0.5) -> void:
-	opacity = value
-	color.a = opacity
-	update()
-
 func set_shape(value: Shape2D) -> void:
+	if not value:
+		if shape and shape.is_connected("changed", self, "_on_shape_changed"):
+			shape.disconnect("changed", self, "_on_shape_changed")
 	shape = value
 	update()
+	
+	if shape and not shape.is_connected("changed", self, "_on_shape_changed"):
+		shape.connect("changed", self, "_on_shape_changed")
+
 
 
 
