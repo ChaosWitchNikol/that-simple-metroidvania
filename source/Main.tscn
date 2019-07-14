@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=12]
 [ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=13]
 [ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tools/PlatformPath.gd" type="Script" id=15]
+[ext_resource path="res://tools/PlatformPathPoint.tscn" type="PackedScene" id=16]
 
 [node name="Main" type="Node2D"]
 
@@ -57,3 +59,19 @@ enemy_source = ExtResource( 13 )
 enemy_scene = ExtResource( 14 )
 enemy_facing = -1
 _preview_image = ExtResource( 9 )
+
+[node name="PlatformPath" type="Node2D" parent="."]
+position = Vector2( 848, 576 )
+script = ExtResource( 15 )
+
+[node name="PathPoint" parent="PlatformPath" instance=ExtResource( 16 )]
+position = Vector2( -96, -96 )
+
+[node name="PathPoint2" parent="PlatformPath" instance=ExtResource( 16 )]
+position = Vector2( 144, -96 )
+
+[node name="PathPoint3" parent="PlatformPath" instance=ExtResource( 16 )]
+position = Vector2( 144, 80 )
+
+[node name="PathPoint4" parent="PlatformPath" instance=ExtResource( 16 )]
+position = Vector2( -96, 80 )

@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalk.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "MovingPlatform",
+"language": "GDScript",
+"path": "res://scripts/MovingPlatform.gd"
+}, {
 "base": "Node2D",
 "class": "TEnemyPreview",
 "language": "GDScript",
@@ -58,6 +63,16 @@ _global_script_classes=[ {
 "class": "TEnemySpawner",
 "language": "GDScript",
 "path": "res://tools/EnemySpawner.gd"
+}, {
+"base": "Node2D",
+"class": "TPlatformPath",
+"language": "GDScript",
+"path": "res://tools/PlatformPath.gd"
+}, {
+"base": "Position2D",
+"class": "TPlatformPathPoint",
+"language": "GDScript",
+"path": "res://tools/PlatformPathPoint.gd"
 }, {
 "base": "Object",
 "class": "U",
@@ -73,8 +88,11 @@ _global_script_class_icons={
 "EnemyFly": "",
 "EnemyStatic": "",
 "EnemyWalk": "",
+"MovingPlatform": "",
 "TEnemyPreview": "",
 "TEnemySpawner": "",
+"TPlatformPath": "",
+"TPlatformPathPoint": "",
 "U": ""
 }
 
