@@ -19,7 +19,7 @@ func _draw() -> void:
 		shape2d_capsule()
 	else:
 		pass
-#	draw_line(position - Vector2(2, 0), position)
+
 
 #==== shape drawing functions ====
 func shape2d_capsule() -> void:

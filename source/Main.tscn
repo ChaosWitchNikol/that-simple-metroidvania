@@ -40,7 +40,7 @@ enemy_scene = ExtResource( 5 )
 _preview_image = ExtResource( 6 )
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 304 )
+position = Vector2( 336, 304 )
 enemy_source = ExtResource( 7 )
 enemy_scene = ExtResource( 8 )
 _preview_image = ExtResource( 9 )

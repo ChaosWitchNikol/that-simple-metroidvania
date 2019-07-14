@@ -17,13 +17,19 @@ func _ready() -> void:
 
 
 func _on_enemy_spawner_export_var_change() -> void:
-	print("export changed")
 	var p : TEnemySpawner = get_parent() as TEnemySpawner
 	var src : CTEnemySource = p.enemy_source as CTEnemySource
 	visible = not p._preview_hide
 	get_node("Sprite").texture = p._preview_image
 	# set view
+	get_node("View").color = "#33ff0000"
 	get_node("View").shape = src.view_shape
 	get_node("View").rotation_degrees = src.view_rotation
 	get_node("View").position = src.view_offset
+	
+	# set body
+	get_node("Body").color = "#330000ff"
+	get_node("Body").shape = src.body_shape
+	get_node("Body").rotation_degrees = src.body_rotation
+	get_node("Body").position = src.body_offset
 	
