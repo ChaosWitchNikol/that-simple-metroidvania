@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 32 )
+extents = Vector2( 32, 16 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 128.0
