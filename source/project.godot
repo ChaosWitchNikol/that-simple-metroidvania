@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utils/_constants.gd"
 }, {
+"base": "Resource",
+"class": "CTEnemySource",
+"language": "GDScript",
+"path": "res://customTypes/EnemySource.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "EnemyBase",
 "language": "GDScript",
@@ -29,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyFly.gd"
 }, {
-"base": "Resource",
-"class": "EnemySrc",
-"language": "GDScript",
-"path": "res://scripts/resource_types/enemy_source.gd"
-}, {
 "base": "EnemyBase",
 "class": "EnemyStatic",
 "language": "GDScript",
@@ -44,6 +44,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalk.gd"
 }, {
+"base": "Node2D",
+"class": "TEnemyPreview",
+"language": "GDScript",
+"path": "res://tools/EnemyPreview.gd"
+}, {
+"base": "Node2D",
+"class": "TEnemySpawner",
+"language": "GDScript",
+"path": "res://tools/EnemySpawner.gd"
+}, {
 "base": "Object",
 "class": "U",
 "language": "GDScript",
@@ -51,12 +61,14 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "C": "",
+"CTEnemySource": "",
 "EnemyBase": "",
 "EnemyCrawl": "",
 "EnemyFly": "",
-"EnemySrc": "",
 "EnemyStatic": "",
 "EnemyWalk": "",
+"TEnemyPreview": "",
+"TEnemySpawner": "",
 "U": ""
 }
 
@@ -65,6 +77,10 @@ _global_script_class_icons={
 config/name="That simple Metroidvania"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/enable=false
 
 [display]
 

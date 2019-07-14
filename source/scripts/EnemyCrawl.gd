@@ -1,38 +1,44 @@
 extends EnemyBase
 class_name EnemyCrawl
 
-enum ROTATION { INNER = -1, OUTER = 1, NONE = 0 }
+enum RotationType { INNER = -1, OUTER = 1, NONE = 0}
+const PI_HALF : float = PI / 2
 
-
+#==== node function ====
 func _ready() -> void:
-	get_next_vectors()
+	next_vectors()
 
-##	Override
+
+#==== custom processors ====
+#= @override =
 func process_movement(delta : float) -> void:
 	if is_on_floor():
-		#	rotate inner circle
-		if test_move(transform, forward_vector ):
+		# test for wall ahead of enemy
+		# do inner circle rotation
+		if test_move(global_transform, forward_vector):
+			linear_velocity = Vector2()
 			position += gravity_vector
-			linear_velocity = Vector2()
-			get_next_vectors(ROTATION.INNER)
+			next_vectors(RotationType.INNER)
 			return
-		#	outer wiche ckeck if rotation on the outer circle is possible
-		elif not test_move(transform.translated(forward_vector * save_margin), gravity_vector ):
+		# test for gap ahead of enemy
+		# do outer circle rotation
+		elif not test_move(global_transform.translated(forward_vector * save_margin), gravity_vector):
 			linear_velocity = Vector2()
-			position +=  (forward_vector  + gravity_vector) 
-			get_next_vectors(ROTATION.OUTER)
+			position += forward_vector + gravity_vector
+			next_vectors(RotationType.OUTER)
 			return
 		
-		linear_velocity = forward_vector * src.movement_speed * delta * C.TILE_SIZEF
-
-
-func get_next_vectors(rotation_type : int = ROTATION.NONE) -> void:
-	var next_gravity_vector := gravity_vector.rotated((PI / 2) * facing * rotation_type).round()
-	forward_vector = U.no_negative_zero_vector2(next_gravity_vector.rotated(-(PI / 2) * facing).round())
-	gravity_vector = U.no_negative_zero_vector2(next_gravity_vector)
+		linear_velocity = forward_vector * movement_speed * delta * C.TILE_SIZEF
+#==== custom functions ====
+func next_vectors(rotation_type : int = RotationType.NONE) -> void:
+	# calculate new gravity vector
+	var next_gavity_vector : Vector2 = gravity_vector.rotated(PI_HALF * facing * rotation_type)
+	gravity_vector = U.no_negative_zero_vector2(next_gavity_vector)
 	
+	# calculate all movement related vectors
+	forward_vector = U.no_negative_zero_vector2(next_gavity_vector.rotated(-PI_HALF * facing))	
 	snap_vector = gravity_vector * C.SNAP_VECTOR.length()
 	floor_vector = -gravity_vector
 	
-	$Sprite.rotation_degrees = round(rad2deg(forward_vector.angle()))
-
+	# rotate EnemySprite accordingly
+	get_node("EnemySprite").rotation_degrees = round(rad2deg(forward_vector.angle()))

@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/EnemyFly.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tools/EnemySpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sources/enemy/EnemyWalk.tres" type="Resource" id=4]
 [ext_resource path="res://scenes/EnemyWalk.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=6]
+[ext_resource path="res://assets/sources/enemy/EnemyStatic.tres" type="Resource" id=7]
+[ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/images/square.png" type="Texture" id=9]
+[ext_resource path="res://assets/sources/enemy/EnemyFly.tres" type="Resource" id=10]
+[ext_resource path="res://scenes/EnemyFly.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=12]
+[ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=13]
+[ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=14]
 
 [node name="Main" type="Node2D"]
 
@@ -19,22 +27,33 @@ tile_data = PoolIntArray( 393228, 7, 0, 393229, 536870918, 0, 393230, 536870918,
 
 [node name="Hero" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
-position = Vector2( 224, 352 )
+position = Vector2( 272, 400 )
 allow_wall_climbing = true
 
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true
 
-[node name="EnemyCrawl" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 405.912 )
+[node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 560, 624 )
+enemy_source = ExtResource( 4 )
+enemy_scene = ExtResource( 5 )
+_preview_image = ExtResource( 6 )
 
-[node name="EnemyFly" parent="." instance=ExtResource( 4 )]
-position = Vector2( 752, 448 )
-gravity = 9.8
-facing = 1
+[node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 304 )
+enemy_source = ExtResource( 7 )
+enemy_scene = ExtResource( 8 )
+_preview_image = ExtResource( 9 )
 
-[node name="EnemyWalk" parent="." instance=ExtResource( 5 )]
-position = Vector2( 382, 416 )
+[node name="EnemySpawner3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 784, 352 )
+enemy_source = ExtResource( 10 )
+enemy_scene = ExtResource( 11 )
+enemy_facing = -1
+_preview_image = ExtResource( 12 )
 
-[node name="EnemyStatic" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1152, 496 )
+[node name="EnemySpawner4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 416 )
+enemy_source = ExtResource( 13 )
+enemy_scene = ExtResource( 14 )
+_preview_image = ExtResource( 9 )

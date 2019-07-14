@@ -1,13 +1,11 @@
 extends EnemyBase
 class_name EnemyWalk
 
-
-func _ready() -> void:
-	forward_vector = Vector2(facing, 0)
-
+#==== custom processors ====
+#= @override =
 func process_movement(delta : float) -> void:
 	if is_on_floor():
 		if not target:
-			if not test_move(transform.translated(gravity_vector * C.TILE_SIZEF ), forward_vector * C.HALF_TILE_SIZEF) or test_move(transform, forward_vector):
+			if test_move(global_transform, forward_vector) or not test_move(global_transform.translated(gravity_vector * C.TILE_SIZEF ), forward_vector * C.HALF_TILE_SIZEF):
 				flip_facing()
-			linear_velocity = forward_vector * src.movement_speed * delta * C.TILE_SIZEF
+			linear_velocity = forward_vector * movement_speed * delta * C.TILE_SIZEF
