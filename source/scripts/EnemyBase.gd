@@ -5,6 +5,8 @@
 extends KinematicBody2D
 class_name EnemyBase
 
+#==== signals ====
+signal enemy_died
 
 #==== gravity ====
 var gravity_value : float = C.GRAVITY_VALUE
