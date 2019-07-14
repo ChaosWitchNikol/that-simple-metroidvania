@@ -29,7 +29,7 @@ func _ready() -> void:
 	set_facing(facing)
 
 func _physics_process(delta: float) -> void:
-	process_gravity(delta, not is_on_floor())
+	process_gravity(delta)
 	process_movement(delta)
 	#	finally move
 	linear_velocity = move_and_slide_with_snap(linear_velocity, snap_vector, floor_vector)
@@ -39,11 +39,7 @@ func _physics_process(delta: float) -> void:
 
 
 #==== custom processors ====
-func process_gravity(delta : float, do_process : bool = true) -> void:
-	if not do_process:
-		linear_velocity = Vector2()
-		return
-	
+func process_gravity(delta : float) -> void:
 	linear_velocity += gravity_vector * gravity_value * mass * delta
 
 func process_movement(delta : float) -> void:
