@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=13]
 [ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=14]
 [ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=15]
-[ext_resource path="res://tools/PlatformPath.gd" type="Script" id=16]
+[ext_resource path="res://tools/PlatformPath.tscn" type="PackedScene" id=16]
 [ext_resource path="res://tools/PlatformPathPoint.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -81,9 +81,8 @@ enemy_scene = ExtResource( 15 )
 enemy_facing = -1
 _preview_image = ExtResource( 10 )
 
-[node name="PlatformPath" type="Node2D" parent="."]
+[node name="PlatformPath" parent="." instance=ExtResource( 16 )]
 position = Vector2( 848, 576 )
-script = ExtResource( 16 )
 
 [node name="PathPoint" parent="PlatformPath" instance=ExtResource( 17 )]
 position = Vector2( -96, -96 )

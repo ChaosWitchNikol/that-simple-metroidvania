@@ -12,7 +12,7 @@ export(bool) var enemy_view : bool = true setget set_enemy_view
 export(bool) var enemy_body : bool = true setget set_enemy_body
 
 #==== platform preview ====
-export(bool) var platform_path : bool = true
+export(bool) var platform_path : bool = true setget set_platform_path
 export(bool) var platform_movement : bool = false
 
 #==== node functions ====
@@ -25,8 +25,10 @@ func update_enemy_previews_node(node_name : String, visibility : bool) -> void:
 	for enemy_preview in get_tree().get_nodes_in_group(GROUP_ENEMY_PREVIEW):
 		enemy_preview.get_node(node_name).visible = visibility
 
-func update_path_previews_node(node_name) -> void:
-	pass
+func update_path_previews_node(variable : String, visibility : bool) -> void:
+	for platform_path in get_tree().get_nodes_in_group(GROUP_PLATFORM_PATH):
+		platform_path.set(variable, visibility)
+
 
 #==== setters ====
 #===== enemy =====
@@ -47,3 +49,8 @@ func set_enemy_view(value : bool) -> void:
 func set_enemy_body(value : bool) -> void:
 	enemy_body = value
 	update_enemy_previews_node("Body", value)
+#===== platform path =====
+func set_platform_path(value : bool) -> void:
+	platform_path = value
+	update_path_previews_node("preview_path", value)
+
