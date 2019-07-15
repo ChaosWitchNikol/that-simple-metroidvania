@@ -3,7 +3,7 @@ extends Node2D
 class_name TPlatformPath
 
 export(float, 0.01, 1000, 0.01) var point_wait_time : float = 0.01  
-
+export(bool) var preview_path : bool = true
 
 #==== node functions ====
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	update()
 
 func _draw() -> void:
-	if not Engine.editor_hint or get_path_points().size() == 0:
+	if not Engine.editor_hint or get_path_points().size() == 0 or not preview_path:
 		return
 	var point_nodes : Array = get_path_points()
 	var zero_point : TPlatformPathPoint = point_nodes[0]
