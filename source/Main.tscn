@@ -1,22 +1,16 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tools/PreviewController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tools/EnemySpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sources/enemy/EnemyWalk.tres" type="Resource" id=5]
-[ext_resource path="res://scenes/EnemyWalk.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=7]
-[ext_resource path="res://assets/sources/enemy/EnemyStatic.tres" type="Resource" id=8]
-[ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/images/square.png" type="Texture" id=10]
-[ext_resource path="res://assets/sources/enemy/EnemyFly.tres" type="Resource" id=11]
-[ext_resource path="res://scenes/EnemyFly.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/images/rect_wide.png" type="Texture" id=13]
-[ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=14]
-[ext_resource path="res://scenes/EnemyCrawl.tscn" type="PackedScene" id=15]
-[ext_resource path="res://tools/PlatformPath.tscn" type="PackedScene" id=16]
-[ext_resource path="res://tools/PlatformPathPoint.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=6]
+[ext_resource path="res://assets/sources/enemy/EnemyStatic.tres" type="Resource" id=7]
+[ext_resource path="res://assets/sources/enemy/EnemyFly.tres" type="Resource" id=8]
+[ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=9]
+[ext_resource path="res://tools/PlatformPath.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tools/PlatformPathPoint.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -45,18 +39,16 @@ allow_wall_climbing = true
 current = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 560, 624 )
 enemy_source = ExtResource( 5 )
-enemy_scene = ExtResource( 6 )
-_preview_image = ExtResource( 7 )
 
 [node name="View" parent="EnemySpawner/EnemyPreview" index="0"]
 position = Vector2( 48, 0 )
+color = Color( 1, 0, 0, 0.2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="EnemySpawner/EnemyPreview" index="1"]
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Body" parent="EnemySpawner/EnemyPreview" index="2"]
 color = Color( 0, 0, 1, 0.2 )
@@ -64,36 +56,37 @@ shape = SubResource( 2 )
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 336, 304 )
-enemy_source = ExtResource( 8 )
-enemy_scene = ExtResource( 9 )
-_preview_image = ExtResource( 10 )
+enemy_source = ExtResource( 7 )
+enemy_type = 3
 
 [node name="EnemySpawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 784, 352 )
-enemy_source = ExtResource( 11 )
-enemy_scene = ExtResource( 12 )
-_preview_image = ExtResource( 13 )
+enemy_source = ExtResource( 8 )
+enemy_type = 2
 
 [node name="EnemySpawner4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 464, 400 )
-enemy_source = ExtResource( 14 )
-enemy_scene = ExtResource( 15 )
+enemy_source = ExtResource( 9 )
+enemy_type = 0
 enemy_facing = -1
-_preview_image = ExtResource( 10 )
 
-[node name="PlatformPath" parent="." instance=ExtResource( 16 )]
+[node name="EnemySpawner5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 624, 512 )
+enemy_source = ExtResource( 5 )
+
+[node name="PlatformPath" parent="." instance=ExtResource( 10 )]
 position = Vector2( 848, 576 )
 
-[node name="PathPoint" parent="PlatformPath" instance=ExtResource( 17 )]
+[node name="PathPoint" parent="PlatformPath" instance=ExtResource( 11 )]
 position = Vector2( -96, -96 )
 
-[node name="PathPoint2" parent="PlatformPath" instance=ExtResource( 17 )]
+[node name="PathPoint2" parent="PlatformPath" instance=ExtResource( 11 )]
 position = Vector2( 144, -96 )
 
-[node name="PathPoint3" parent="PlatformPath" instance=ExtResource( 17 )]
+[node name="PathPoint3" parent="PlatformPath" instance=ExtResource( 11 )]
 position = Vector2( 144, 80 )
 
-[node name="PathPoint4" parent="PlatformPath" instance=ExtResource( 17 )]
+[node name="PathPoint4" parent="PlatformPath" instance=ExtResource( 11 )]
 position = Vector2( -96, 80 )
 
 [editable path="EnemySpawner"]
