@@ -102,7 +102,7 @@ _global_script_class_icons={
 "MovingPlatform": "",
 "PreviewController": "",
 "TEnemyPreview": "",
-"TEnemySpawner": "",
+"TEnemySpawner": "res://assets/icons/icon_enemy_spawner.svg",
 "TPlatformPath": "",
 "TPlatformPathPoint": "",
 "U": ""
