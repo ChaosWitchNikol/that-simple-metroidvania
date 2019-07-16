@@ -24,6 +24,7 @@ func _on_enemy_spawner_export_var_change() -> void:
 	var src : CTEnemySource = p.enemy_source as CTEnemySource
 	# set sprite
 	get_node("Sprite").texture = src.sprite
+	get_node("Sprite").flip_h = p.enemy_facing == C.FACING.LEFT
 	
 	# set view
 	get_node("View").color = "#33ff0000"

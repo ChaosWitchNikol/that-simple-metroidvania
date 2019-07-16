@@ -9,7 +9,8 @@ export(bool) var preview_path : bool = true setget _set_preview_path
 func _ready() -> void:
 	if not Engine.editor_hint:
 		set_process(false)
-	set_process(false)
+		return
+	set_process(true)
 
 func _process(delta: float) -> void:
 	update()
