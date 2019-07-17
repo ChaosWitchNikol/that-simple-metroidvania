@@ -1,6 +1,6 @@
 tool
 extends Node
-class_name PreviewControl_Tool
+class_name PreviewControl_Tool, "res://assets/icons/icon_preview_control.svg"
 
 const GROUP_ENEMY_PREVIEW = "enemy_preview"
 

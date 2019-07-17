@@ -63,7 +63,7 @@ enemy_type = 2
 enemy_facing = -1
 
 [node name="EnemySpawnPoint3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 320, 368 )
+position = Vector2( 496, 384 )
 enemy_source = ExtResource( 9 )
 enemy_type = 0
 

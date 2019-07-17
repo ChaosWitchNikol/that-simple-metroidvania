@@ -1,6 +1,6 @@
 tool
 extends Node2D
-class_name EnemyPreview_Tool
+class_name EnemyPreview_Tool, "res://assets/icons/icon_preview.svg"
 
 
 var parent : EnemySpawnPoint
