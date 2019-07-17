@@ -15,3 +15,8 @@ static func gravity_direction2vector(gravity_direction : int) -> Vector2:
 	
 static func gravity_vector2forward_vector(gravity_vector : Vector2, facing : int) -> Vector2:
 	return no_negative_zero_vector2(gravity_vector.rotated(-(PI / 2) * facing).round())
+
+
+
+static func in_editor() -> bool:
+	return Engine.editor_hint

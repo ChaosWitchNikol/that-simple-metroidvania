@@ -2,13 +2,13 @@ tool
 extends Node2D
 class_name DrawShape2D
 
-export(Color) var color : Color = "#FFFFFF" setget set_color
+export(Color) var color : Color setget set_color
 export(bool) var fill : bool = false setget set_fill
 export(Shape2D) var shape : Shape2D setget set_shape
 
 #==== node functions ====
-func _ready() -> void:
-	set_color()
+#func _ready() -> void:
+#	set_color()
 
 func _draw() -> void:
 	if shape is RectangleShape2D:
@@ -90,7 +90,7 @@ func draw_circle_arc_poly(center : Vector2, radius: float, angle_start : float, 
 
 
 #==== setters ====
-func set_color(value : Color = "#FFFFFF") -> void:
+func set_color(value : Color) -> void:
 	color = value
 	update()
 
