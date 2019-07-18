@@ -3,17 +3,20 @@
 [ext_resource path="res://tools/preview/PreviewControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=3]
-[ext_resource path="res://toolsOld/PlatformPath.tscn" type="PackedScene" id=4]
-[ext_resource path="res://toolsOld/PlatformPathPoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemySpawnPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/sources/enemy/EnemyWalk.tres" type="Resource" id=7]
-[ext_resource path="res://assets/sources/enemy/EnemyFly.tres" type="Resource" id=8]
-[ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=9]
-[ext_resource path="res://assets/sources/enemy/EnemyStatic.tres" type="Resource" id=10]
+[ext_resource path="res://scenes/EnemySpawnPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sources/enemy/EnemyWalk.tres" type="Resource" id=5]
+[ext_resource path="res://assets/sources/enemy/EnemyFly.tres" type="Resource" id=6]
+[ext_resource path="res://assets/sources/enemy/EnemyCrawl.tres" type="Resource" id=7]
+[ext_resource path="res://assets/sources/enemy/EnemyStatic.tres" type="Resource" id=8]
+[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/PathwayPoint.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 
 [node name="PreviewControl" parent="." instance=ExtResource( 1 )]
+enemy_sprite = true
+enemy_view = true
+enemy_body = false
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
@@ -31,43 +34,35 @@ allow_wall_climbing = true
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true
 
-[node name="PlatformPath" parent="." instance=ExtResource( 4 )]
-editor/display_folded = true
-position = Vector2( 880, 544 )
-
-[node name="PathPoint" parent="PlatformPath" instance=ExtResource( 5 )]
-position = Vector2( -96, -96 )
-wait_time = -1.0
-
-[node name="PathPoint2" parent="PlatformPath" instance=ExtResource( 5 )]
-position = Vector2( 144, -96 )
-wait_time = -1.0
-
-[node name="PathPoint3" parent="PlatformPath" instance=ExtResource( 5 )]
-position = Vector2( 144, 80 )
-wait_time = -1.0
-
-[node name="PathPoint4" parent="PlatformPath" instance=ExtResource( 5 )]
-position = Vector2( -96, 80 )
-wait_time = -1.0
-
-[node name="EnemySpawnPoint" parent="." instance=ExtResource( 6 )]
+[node name="EnemySpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 560, 464 )
-enemy_source = ExtResource( 7 )
+enemy_source = ExtResource( 5 )
 enemy_facing = -1
 
-[node name="EnemySpawnPoint2" parent="." instance=ExtResource( 6 )]
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 800, 368 )
-enemy_source = ExtResource( 8 )
+enemy_source = ExtResource( 6 )
 enemy_type = 2
 enemy_facing = -1
 
-[node name="EnemySpawnPoint3" parent="." instance=ExtResource( 6 )]
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 496, 384 )
-enemy_source = ExtResource( 9 )
+enemy_source = ExtResource( 7 )
 enemy_type = 0
 
-[node name="EnemySpawnPoint4" parent="." instance=ExtResource( 6 )]
+[node name="EnemySpawnPoint4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 352, 304 )
-enemy_source = ExtResource( 10 )
+enemy_source = ExtResource( 8 )
 enemy_type = 3
+
+[node name="Pathway" parent="." instance=ExtResource( 9 )]
+position = Vector2( 928, 592 )
+
+[node name="PathwayPoint" parent="Pathway" instance=ExtResource( 10 )]
+position = Vector2( -96, 32 )
+
+[node name="PathwayPoint2" parent="Pathway" instance=ExtResource( 10 )]
+position = Vector2( 80, 48 )
+
+[node name="PathwayPoint3" parent="Pathway" instance=ExtResource( 10 )]
+position = Vector2( 16, -48 )

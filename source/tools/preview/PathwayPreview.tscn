@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tools/preview/PathwayPreview.gd" type="Script" id=1]
+[ext_resource path="res://tools/DrawShape2D.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="PathwayPreview" type="Node2D" groups=[
+"pathway_preview",
+]]
+script = ExtResource( 1 )
+
+[node name="DrawShape2D" parent="." instance=ExtResource( 2 )]
+color = Color( 0.14902, 1, 0, 1 )
+fill = false
+shape = SubResource( 1 )
