@@ -56,13 +56,13 @@ enemy_source = ExtResource( 8 )
 enemy_type = 3
 
 [node name="Pathway" parent="." instance=ExtResource( 9 )]
-position = Vector2( 928, 592 )
+position = Vector2( 928, 608 )
 
 [node name="PathwayPoint" parent="Pathway" instance=ExtResource( 10 )]
 position = Vector2( -96, 32 )
 
 [node name="PathwayPoint2" parent="Pathway" instance=ExtResource( 10 )]
-position = Vector2( 80, 48 )
+position = Vector2( 128, 16 )
 
 [node name="PathwayPoint3" parent="Pathway" instance=ExtResource( 10 )]
-position = Vector2( 16, -48 )
+position = Vector2( 0, -64 )

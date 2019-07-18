@@ -7,8 +7,5 @@
 "pathway",
 ]]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="PathwayPreview" parent="." instance=ExtResource( 2 )]
