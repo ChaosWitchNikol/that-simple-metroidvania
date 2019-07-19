@@ -3,6 +3,7 @@ extends Node
 class_name PreviewControl_Tool, "res://assets/icons/icon_preview_control.svg"
 
 const GROUP_ENEMY_PREVIEW = "enemy_preview"
+const GROUP_PATHWAY_PREVIEW = "pathway_preview"
 
 
 export(bool) var enemy_sprite : bool = true setget _set_enemy_sprite
