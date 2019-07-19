@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	# set wait time on points that have not wait time set
 	for point in path_points:
-		if point.wait_time == 0:
+		if point.wait_time <= 0:
 			point.wait_time = point_wait_time
 	
 

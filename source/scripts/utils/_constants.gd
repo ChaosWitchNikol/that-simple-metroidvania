@@ -17,7 +17,7 @@ const GRAVITY_VECTOR_SET = [Vector2.DOWN, Vector2.LEFT, Vector2.UP, Vector2.RIGH
 
 #==== movement ====
 const FLOOR_VECTOR : Vector2 = Vector2(0, -1)
-const SNAP_VECTOR : Vector2 = Vector2(0, 24)
+const SNAP_VECTOR : Vector2 = Vector2(0, 16)
 const JUMP_SNAP_VECTOR : Vector2 = Vector2(0, 0)
 enum FACING { RIGHT = 1, LEFT = -1 }
 

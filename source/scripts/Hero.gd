@@ -65,5 +65,3 @@ func _physics_process(delta: float) -> void:
 	
 	#	finally move
 	linear_velocity = move_and_slide_with_snap(linear_velocity, snap_vector, C.FLOOR_VECTOR)
-	#	pixel perfect snap correction
-	position = position.round()
