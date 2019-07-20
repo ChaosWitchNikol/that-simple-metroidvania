@@ -73,3 +73,4 @@ position = Vector2( 160, -144 )
 [node name="MovingPlatform" parent="." instance=ExtResource( 11 )]
 position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
+start_point_node_path = NodePath("../Pathway/PathwayPoint2")

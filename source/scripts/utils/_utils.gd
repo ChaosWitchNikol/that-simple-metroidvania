@@ -17,6 +17,34 @@ static func gravity_vector2forward_vector(gravity_vector : Vector2, facing : int
 	return no_negative_zero_vector2(gravity_vector.rotated(-(PI / 2) * facing).round())
 
 
-
 static func in_editor() -> bool:
 	return Engine.editor_hint
+
+
+
+
+#==== pathway ====
+static func get_pathway_points(pathway : Pathway) -> Array:
+	var points : Array = []
+	
+	if not pathway:
+		return points
+	
+	for child in pathway.get_children():
+		if child is PathwayPoint:
+			points.append(child)
+	
+	return points
+
+static func get_next_pathway_point(pathway : Pathway, current_point : PathwayPoint) -> PathwayPoint:
+	var points : Array = get_pathway_points(pathway)
+	
+	if points.size() == 0:
+		return null
+	
+	var index : int = points.find(current_point)
+	
+	if index == -1:
+		return points[0]
+	
+	return points[(index + 1) % points.size()]

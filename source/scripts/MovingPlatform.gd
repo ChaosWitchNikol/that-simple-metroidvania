@@ -1,4 +1,3 @@
-
 extends Node2D
 class_name MovingPlatform
 
@@ -25,6 +24,7 @@ var target_point : PathwayPoint
 func _ready() -> void:
 	set_physics_process(false)
 	visible = false
+
 	if not pathway_node_path:
 		return
 	elif not start_point_node_path:
@@ -77,7 +77,7 @@ func create_tiles() -> void:
 	if tile_width > 2:
 		for i in range(1, tile_width - 1):
 			get_node("Tiles").set_cell(i, 0, 2)
-	
+		
 
 #==== signals ====
 func _on_PointWaitTimer_timeout() -> void:
