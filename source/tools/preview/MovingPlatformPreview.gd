@@ -27,8 +27,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not _update_pathway():
 		return
-	
-	_process_ghost_movement(delta)
+	if get_node("Ghost").visible:
+		_process_ghost_movement(delta)
 
 #==== custom functions ====
 func _update_pathway() -> bool:
@@ -39,6 +39,7 @@ func _update_pathway() -> bool:
 			pathway = parent_pathway
 	else:
 		pathway = null
+		get_node("Ghost").global_position = position
 		return false
 	
 	# update start point

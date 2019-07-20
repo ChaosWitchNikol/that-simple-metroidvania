@@ -3,14 +3,14 @@
 [ext_resource path="res://tools/preview/MovingPlatformPreview.gd" type="Script" id=1]
 [ext_resource path="res://tools/DrawShape2D.tscn" type="PackedScene" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 8 )
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 8 )
+extents = Vector2( 96, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 96, 8 )
 
 [node name="MovingPlatformPreview" type="Node2D" groups=[
-"moving_platfom_preview",
+"moving_platform_preview",
 ]]
 script = ExtResource( 1 )
 
@@ -20,7 +20,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, 8 )
 color = Color( 1, 1, 1, 0.392157 )
 fill = true
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="Ghost"]
 one_shot = true
@@ -28,5 +28,5 @@ one_shot = true
 [node name="Outline" parent="." instance=ExtResource( 2 )]
 color = Color( 0.811765, 0.501961, 1, 1 )
 fill = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 [connection signal="timeout" from="Ghost/Timer" to="." method="_on_GhostTimer_timeout"]

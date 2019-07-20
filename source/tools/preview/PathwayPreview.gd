@@ -4,6 +4,7 @@ class_name PathwayPreview_Tool
 
 var parent : Pathway
 
+var hide_path : bool = false
 #==== node functions ====
 func _ready() -> void:
 	if not U.in_editor():
@@ -27,7 +28,7 @@ func _process(delta: float) -> void:
 	update()
 
 func _draw() -> void:
-	if not U.in_editor() or get_path_points().size() == 0:
+	if not U.in_editor() or get_path_points().size() == 0 or hide_path:
 		return
 	
 	var point_nodes : Array = get_path_points()
