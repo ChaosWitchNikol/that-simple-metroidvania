@@ -8,7 +8,6 @@
 script = ExtResource( 1 )
 
 [node name="Tiles" type="TileMap" parent="."]
-position = Vector2( 0, -16 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 8
@@ -20,4 +19,5 @@ format = 1
 [node name="PointWaitTimer" type="Timer" parent="."]
 
 [node name="MovingPlatformPreview" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 8 )
 [connection signal="timeout" from="PointWaitTimer" to="." method="_on_PointWaitTimer_timeout"]

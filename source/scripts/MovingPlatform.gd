@@ -14,10 +14,10 @@ export(NodePath) var pathway_node_path : NodePath
 export(NodePath) var start_point_node_path : NodePath
 
 export(int, 2, 6, 1) var tile_width : int = 2
+export(float, 0 , 1000) var movement_speed : float = 200
 
 
 #==== motion variables ====
-var movement_speed : float = 200
 var target_point : PathwayPoint 
 
 

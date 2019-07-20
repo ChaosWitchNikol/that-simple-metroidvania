@@ -54,7 +54,7 @@ enemy_source = ExtResource( 8 )
 enemy_type = 3
 
 [node name="Pathway" parent="." instance=ExtResource( 9 )]
-position = Vector2( 928, 608 )
+position = Vector2( 928, 592 )
 
 [node name="PathwayPoint" parent="Pathway" instance=ExtResource( 10 )]
 position = Vector2( -384, -144 )
@@ -71,6 +71,5 @@ wait_time = 1.0
 position = Vector2( 160, -144 )
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 11 )]
-position = Vector2( 544, 464 )
+position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
-tile_width = 3

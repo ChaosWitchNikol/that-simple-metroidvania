@@ -12,10 +12,14 @@ export(bool) var enemy_body : bool = false setget _set_enemy_body
 
 
 #==== node functions ====
+func _enter_tree() -> void:
+	if not U.in_editor():
+		queue_free()
+	else:
+		update_enemy_previews()
 func _ready() -> void:
 	if not U.in_editor():
 		queue_free()
-		return
 	else:
 		update_enemy_previews()
 
