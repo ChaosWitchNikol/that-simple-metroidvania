@@ -73,4 +73,3 @@ func set_gravity_vector(new_gravity_vector : Vector2 = C.GRAVITY_VECTOR) -> void
 func _on_View_body_entered(body: PhysicsBody2D) -> void:
 	if body.is_in_group("enemy_target") and not passive:
 		call_deferred("set_target", body as Node2D)
-		print(body.name)
