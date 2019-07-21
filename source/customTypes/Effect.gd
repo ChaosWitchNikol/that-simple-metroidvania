@@ -11,7 +11,7 @@ export(C.EFFECT_SIGN) var value_sign : int = C.EFFECT_SIGN.PLUS
 # how long will the effect last
 #	0 - when effect is instant
 #	-1 - when offect is permament
-export(float) var duration : float = -1 
+export(float) var duration : float = 0
 
 
 

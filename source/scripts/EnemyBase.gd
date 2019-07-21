@@ -8,6 +8,8 @@ class_name EnemyBase
 #==== signals ====
 signal enemy_died
 
+var AttackScene : PackedScene = preload("res://scenes/Attack.tscn") 
+
 #==== gravity ====
 var gravity_value : float = C.GRAVITY_VALUE
 var gravity_vector : Vector2 = C.GRAVITY_VECTOR setget set_gravity_vector
@@ -22,8 +24,11 @@ var facing : int = C.FACING.RIGHT setget set_facing
 #==== life ====
 var passive : bool = false
 var target : Node2D setget set_target
+#==== attack ====
+var attack_source : CTAttack
 #==== utils ====
 var save_margin : float = 1.1 + get("collision/safe_margin")
+
 
 #==== node function ====
 func _ready() -> void:
@@ -52,6 +57,16 @@ func process_movement(delta : float) -> void:
 func flip_facing() -> void:
 	set_facing(facing * -1)
 
+func do_attack() -> void:
+	if not attack_source:
+		return
+	var attack_instance : Attack = I.attack_source2instance(attack_source, AttackScene)
+	if not attack_instance:
+		return
+	attack_instance.fire()
+	get_node("/root").add_child(attack_instance)
+#	var atk : Attack = I.attack_source2instance()
+	pass
 
 #==== setters ====
 func set_target(target_node2d : Node2D = null) -> void:
@@ -69,6 +84,7 @@ func set_gravity_vector(new_gravity_vector : Vector2 = C.GRAVITY_VECTOR) -> void
 	snap_vector = gravity_vector * C.SNAP_VECTOR.length()
 	floor_vector = -gravity_vector
 	forward_vector = U.gravity_vector2forward_vector(gravity_vector, facing)
+
 
 #==== signals ====
 func _on_View_body_entered(body: PhysicsBody2D) -> void:

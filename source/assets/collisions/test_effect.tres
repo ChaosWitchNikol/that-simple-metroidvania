@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 variable = 0
 value = 0.0
 value_sign = 1
-duration = -1.0
+duration = 0.0

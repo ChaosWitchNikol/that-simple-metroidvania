@@ -1,13 +1,14 @@
 extends Object
 class_name I
 
-var AttackScene : PackedScene = preload("res://scenes/Attack.tscn") 
 
 #==== effects ====
 #=== attack ===
-static func attack_source2instance(source : CTEffect) -> Attack:
+static func attack_source2instance(source : CTAttack, scene : PackedScene) -> Attack:
+	if not source:
+		return null
 	# create blank instance
-	var instance : Attack =  AttackScene.instance()
+	var instance : Attack =  scene.instance()
 	# set instance variables
 	instance.effects = source.effects
 	instance.max_targets = source.max_targets

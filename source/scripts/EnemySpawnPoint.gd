@@ -45,6 +45,8 @@ func spawn_enemy() -> void:
 	instance.facing = enemy_facing
 	#	set life variables
 	instance.passive = enemy_source.passive
+	#	set attack source
+	instance.attack_source = enemy_source.attack
 	#	set body node variables
 	instance.get_node("Body").shape = enemy_source.body_shape
 	instance.get_node("Body").position = enemy_source.body_offset

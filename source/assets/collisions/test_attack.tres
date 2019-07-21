@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-effects = [ null ]
+variable = 0
+value = 0.0
+value_sign = 1
+duration = 0.0
+effects = [  ]
 max_targets = 1
 movement_speed = 0.0

@@ -1,4 +1,4 @@
-extends Resource
+extends CTEffect
 class_name CTAttack
 
 # TODO: add animations for the sprite
