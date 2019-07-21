@@ -21,3 +21,4 @@ sprite = ExtResource( 2 )
 view_shape = SubResource( 2 )
 view_offset = Vector2( 0, 0 )
 view_rotation = 0.0
+attack_range_offset = Vector2( 0, 0 )

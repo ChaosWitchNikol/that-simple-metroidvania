@@ -60,6 +60,9 @@ func flip_facing() -> void:
 func do_attack() -> void:
 	if not attack_source:
 		return
+	$Anims.play("attack")
+
+func fire_attack() -> void:
 	var attack_instance : Attack = I.attack_source2instance(attack_source, AttackScene)
 	if not attack_instance:
 		return
