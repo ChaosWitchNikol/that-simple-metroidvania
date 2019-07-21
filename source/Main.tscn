@@ -15,6 +15,13 @@
 [node name="Main" type="Node2D"]
 
 [node name="PreviewControl" parent="." instance=ExtResource( 1 )]
+enemy_sprite = true
+enemy_view = true
+enemy_body = false
+pathway_path = true
+pathway_handle = true
+platform_outline = true
+platform_ghost = true
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
