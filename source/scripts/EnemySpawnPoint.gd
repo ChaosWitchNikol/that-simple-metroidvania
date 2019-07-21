@@ -53,6 +53,9 @@ func spawn_enemy() -> void:
 	instance.get_node("View/ViewShape").shape = enemy_source.view_shape
 	instance.get_node("View").position = enemy_source.view_offset
 	instance.get_node("View/ViewShape").rotation_degrees = enemy_source.view_rotation
+	#	set attack node variables
+	instance.get_node("AttackRange/AttackRangeShape").shape = enemy_source.attack_range_shape
+	instance.get_node("AttackRange").position = enemy_source.attack_range_offset
 	#	set enemy sprite node
 	instance.get_node("EnemySprite").texture = enemy_source.sprite
 	# finally add child

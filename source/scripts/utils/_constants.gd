@@ -24,3 +24,7 @@ enum FACING { RIGHT = 1, LEFT = -1 }
 
 #==== enemies ====
 enum ENEMY_TYPE { CRAWL = 0, WALK = 1, FLY = 2, STATIC = 3}
+
+#==== effects ====
+enum EFFECT_VARIABLE { HEALTH, MOVEMENT_SPEED }
+enum EFFECT_SIGN { PLUS = 1, MINUS = -1}

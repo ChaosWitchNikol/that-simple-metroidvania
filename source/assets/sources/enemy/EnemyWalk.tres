@@ -1,12 +1,15 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://customTypes/EnemySource.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 32 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
 [resource]
@@ -14,10 +17,12 @@ script = ExtResource( 1 )
 passive = false
 mass = 100.0
 movement_speed = 400.0
-body_shape = SubResource( 1 )
+body_shape = SubResource( 2 )
 body_offset = Vector2( 0, 0 )
 body_rotation = 0.0
 sprite = ExtResource( 2 )
-view_shape = SubResource( 2 )
+view_shape = SubResource( 3 )
 view_offset = Vector2( 48, 0 )
 view_rotation = 0.0
+attack_range_shape = SubResource( 1 )
+attack_range_offset = Vector2( 32, 0 )

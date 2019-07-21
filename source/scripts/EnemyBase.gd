@@ -61,6 +61,7 @@ func set_facing(new_facing : int = C.FACING.RIGHT) -> void:
 	facing = new_facing
 	$EnemySprite.flip_h = facing == C.FACING.LEFT
 	$View.position.x = abs($View.position.x) * facing
+	$AttackRange.position.x = abs($AttackRange.position.x) * facing
 	forward_vector = U.gravity_vector2forward_vector(gravity_vector, facing)
 
 func set_gravity_vector(new_gravity_vector : Vector2 = C.GRAVITY_VECTOR) -> void:
@@ -71,5 +72,10 @@ func set_gravity_vector(new_gravity_vector : Vector2 = C.GRAVITY_VECTOR) -> void
 
 #==== signals ====
 func _on_View_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("enemy_target") and not passive:
+	if body and body.is_in_group("enemy_target") and not passive:
 		call_deferred("set_target", body as Node2D)
+
+func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
+	if body and body.is_in_group("enemy_target") and not passive:
+		print("do attack")
+

@@ -23,6 +23,11 @@ export(Shape2D) var view_shape : Shape2D setget _set_view_shape
 export(Vector2) var view_offset : Vector2 = Vector2() setget _set_view_offset
 export(float, 0, 360, 0.5) var view_rotation : float = 0 setget _set_view_rotation
 
+#==== attack ====
+export(Shape2D) var attack_range_shape : Shape2D
+export(Vector2) var attack_range_offset : Vector2 = Vector2()
+export(Resource) var attack : Resource
+
 
 #==== setters ====
 func _set_passive(value : bool = false) -> void:
