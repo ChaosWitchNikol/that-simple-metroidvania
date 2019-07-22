@@ -98,4 +98,3 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
 	if body and body.is_in_group("enemy_target") and not passive:
 		print("do attack")
-

@@ -1,6 +1,5 @@
-extends Object
-class_name I
-
+extends Node
+class_name In
 
 #==== effects ====
 #=== attack ===
@@ -18,11 +17,15 @@ static func attack_source2instance(source : CTAttack, scene : PackedScene) -> At
 	instance.get_node("AttackSprite").texture = source.sprite
 	return instance
 
-static func enemy_src2inst(src : ResEnemy, scene : PackedScene) -> EnemyBase:
+static func enemy_src2inst(src : ResEnemy, scene : PackedScene):
 	if not src or not scene:
 		return null
 	
-	var inst : EnemyBase = scene.instance()
+	var inst := scene.instance()
+	# set variables
+	inst.passive = src.is_passive
+	inst.mass = src.mass
+	inst.movement_speed = src.movement_speed
 	# set body
 	inst.get_node("Body").shape = src.body.shape
 	inst.get_node("Body").position = src.body.offset
@@ -36,8 +39,8 @@ static func enemy_src2inst(src : ResEnemy, scene : PackedScene) -> EnemyBase:
 	inst.get_node("EnemySprite").hframes = src.sprite.hframes
 	inst.get_node("EnemySprite").vframes = src.sprite.vframes
 	# set attack range
-	inst.get_node("AttackRange/AttackRAngeShape").shape = src.attack_range.shape
-	inst.get_node("AttackRange/AttackRAngeShape").rotation_degrees = src.attack_range.rotation_degrees
+	inst.get_node("AttackRange/AttackRangeShape").shape = src.attack_range.shape
+	inst.get_node("AttackRange/AttackRangeShape").rotation_degrees = src.attack_range.rotation_degrees
 	inst.get_node("AttackRange").position = src.attack_range.offset
 	# set attack
 	inst.attack = src.attack

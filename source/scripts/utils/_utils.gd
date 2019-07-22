@@ -1,4 +1,4 @@
-extends Object
+extends Node
 class_name U
 
 static func no_negative_zero_vector2(src : Vector2) -> Vector2:

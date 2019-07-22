@@ -39,10 +39,10 @@ func spawn_enemy() -> void:
 	#	set gravity variables
 	instance.gravity_value = gravity_value
 	instance.gravity_vector = gravity_vector
-	instance.mass = enemy_source.mass
+#	instance.mass = enemy_source.mass
 	#	set movement variables
 #	instance.movement_speed = enemy_source.movement_speed
-#	instance.facing = enemy_facing
+	instance.facing = enemy_facing
 #	#	set life variables
 #	instance.passive = enemy_source.passive
 #	#	set attack source
