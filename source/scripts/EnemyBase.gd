@@ -26,6 +26,7 @@ var passive : bool = false
 var target : Node2D setget set_target
 #==== attack ====
 var attack_source : CTAttack
+var attack : ResAttack
 #==== utils ====
 var save_margin : float = 1.1 + get("collision/safe_margin")
 

@@ -53,7 +53,7 @@ func _preview_transform_shape(node: DrawShape2D, shape : ResTransformShape2D) ->
 	node.rotation_degrees = shape.rotation_degrees
 
 func _preview_animation_sprite(node : Sprite, sprite : ResAnimationSprite) -> void:
-	node.texture = sprite.sprite
+	node.texture = sprite.texture
 	node.vframes = sprite.vframes
 	node.hframes = sprite.hframes
 
