@@ -33,7 +33,6 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 			return
 		
 		linear_velocity = forward_vector * movement_speed * delta * C.TILE_SIZEF
-		
 
 
 #==== custom functions ====
@@ -51,3 +50,4 @@ func next_vectors(rotation_type : int = RotationType.NONE) -> void:
 	$Sprite.rotation_degrees = round(rad2deg(forward_vector.angle()))
 	$AttackRange.position = forward_vector * $AttackRange.position.length()
 	$View.position = forward_vector * $View.position.length()
+

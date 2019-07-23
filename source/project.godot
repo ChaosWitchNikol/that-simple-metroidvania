@@ -223,6 +223,7 @@ I="*res://scripts/utils/_instancing.gd"
 [debug]
 
 gdscript/warnings/enable=false
+shapes/collision/shape_color=Color( 1, 1, 1, 0.392157 )
 
 [display]
 

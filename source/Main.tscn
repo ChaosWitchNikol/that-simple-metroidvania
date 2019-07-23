@@ -78,3 +78,4 @@ movement_speed = 200.0
 [node name="EnemyCrawling2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 320, 416 )
 movement_speed = 200.0
+facing = -1
