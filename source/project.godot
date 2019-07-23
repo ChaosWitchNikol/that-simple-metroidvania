@@ -114,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://OLDscripts/MovingPlatform.old.gd"
 }, {
+"base": "Node2D",
+"class": "Pathway",
+"language": "GDScript",
+"path": "res://scripts/Pathway.gd"
+}, {
 "base": "Position2D",
 "class": "PathwayPoint_old",
 "language": "GDScript",
@@ -128,6 +133,11 @@ _global_script_classes=[ {
 "class": "Pathway_old",
 "language": "GDScript",
 "path": "res://OLDscripts/Pathway.old.gd"
+}, {
+"base": "Position2D",
+"class": "Point",
+"language": "GDScript",
+"path": "res://scripts/Point.gd"
 }, {
 "base": "Node",
 "class": "PreviewControl_Tool",
@@ -196,9 +206,11 @@ _global_script_class_icons={
 "In": "",
 "MovingPlatformPreview_Tool": "",
 "MovingPlatform_old": "",
+"Pathway": "",
 "PathwayPoint_old": "",
 "PathwayPreview_Tool": "",
 "Pathway_old": "",
+"Point": "",
 "PreviewControl_Tool": "res://assets/icons/icon_preview_control.svg",
 "ResAnimationSprite_old": "",
 "ResAnimationsEnemy_old": "",

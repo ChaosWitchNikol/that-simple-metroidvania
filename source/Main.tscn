@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tools/preview/PreviewControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scenes/EnemyFlying.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node2D"]
 
@@ -59,6 +61,7 @@ position = Vector2( 160, -144 )
 [node name="MovingPlatform" parent="." instance=ExtResource( 6 )]
 position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
+start_point_node_path = NodePath("../Pathway/PathwayPoint4")
 tile_width = 6
 
 [node name="EnemyWalking" parent="." instance=ExtResource( 7 )]
@@ -79,3 +82,15 @@ movement_speed = 200.0
 position = Vector2( 320, 416 )
 movement_speed = 200.0
 facing = -1
+
+[node name="Pathway2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 720, 608 )
+
+[node name="Point" parent="Pathway2" instance=ExtResource( 12 )]
+position = Vector2( -144, 0 )
+
+[node name="Point2" parent="Pathway2" instance=ExtResource( 12 )]
+position = Vector2( -144, 32 )
+
+[node name="Point3" parent="Pathway2" instance=ExtResource( 12 )]
+position = Vector2( 0, 32 )
