@@ -31,7 +31,7 @@ func _ready() -> void:
 	if U.in_editor():
 		set_physics_process(false)
 		return
-	print(">>>", name)
+	print(">> ", name)
 
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
@@ -81,3 +81,12 @@ func set_process_gravity(value : bool) -> void:
 
 func set_pixel_snap(value : bool) -> void:
 	_pixel_snap = value
+
+
+#==== signals ====
+func _on_View_body_entered(body: PhysicsBody2D) -> void:
+	if body and not is_passive:
+		call_deferred("set_target", body)
+
+func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
+	pass # Replace with function body.

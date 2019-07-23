@@ -38,3 +38,5 @@ collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 3 )
+[connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
