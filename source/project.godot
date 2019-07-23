@@ -74,8 +74,8 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalk.gd"
 }, {
-"base": "Object",
-"class": "I",
+"base": "Node",
+"class": "In",
 "language": "GDScript",
 "path": "res://scripts/utils/_instancing.gd"
 }, {
@@ -109,7 +109,42 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://tools/preview/PreviewControl.gd"
 }, {
-"base": "Object",
+"base": "Resource",
+"class": "ResAnimationSprite",
+"language": "GDScript",
+"path": "res://types/resource/ResAnimationSprite.gd"
+}, {
+"base": "Resource",
+"class": "ResAnimationsEnemy",
+"language": "GDScript",
+"path": "res://types/resource/ResAnimationsEnemy.gd"
+}, {
+"base": "ResEffect",
+"class": "ResAttack",
+"language": "GDScript",
+"path": "res://types/resource/ResAttack.gd"
+}, {
+"base": "Resource",
+"class": "ResEffect",
+"language": "GDScript",
+"path": "res://types/resource/ResEffect.gd"
+}, {
+"base": "Resource",
+"class": "ResEnemy",
+"language": "GDScript",
+"path": "res://types/resource/ResEnemy.gd"
+}, {
+"base": "Resource",
+"class": "ResTransformShape2D",
+"language": "GDScript",
+"path": "res://types/resource/ResTransforShape2D.gd"
+}, {
+"base": "Node2D",
+"class": "ToolEnemyEdit",
+"language": "GDScript",
+"path": "res://tools/editor/EnemyEdit.gd"
+}, {
+"base": "Node",
 "class": "U",
 "language": "GDScript",
 "path": "res://scripts/utils/_utils.gd"
@@ -128,13 +163,20 @@ _global_script_class_icons={
 "EnemySpawnPoint": "res://assets/icons/icon_enemy_spawn_point.svg",
 "EnemyStatic": "",
 "EnemyWalk": "",
-"I": "",
+"In": "",
 "MovingPlatform": "",
 "MovingPlatformPreview_Tool": "",
 "Pathway": "",
 "PathwayPoint": "",
 "PathwayPreview_Tool": "",
 "PreviewControl_Tool": "res://assets/icons/icon_preview_control.svg",
+"ResAnimationSprite": "",
+"ResAnimationsEnemy": "",
+"ResAttack": "",
+"ResEffect": "",
+"ResEnemy": "",
+"ResTransformShape2D": "",
+"ToolEnemyEdit": "",
 "U": ""
 }
 
@@ -143,6 +185,10 @@ _global_script_class_icons={
 config/name="That simple Metroidvania"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+I="*res://scripts/utils/_instancing.gd"
 
 [debug]
 

@@ -36,6 +36,8 @@ func _ready() -> void:
 #==== custom funcitons ====
 #== enemy ==
 func update_enemy_previews() -> void:
+	if not U.in_editor():
+		return
 	var tree : SceneTree = get_tree()
 	if not tree:
 		return
@@ -50,6 +52,8 @@ func update_enemy_previews() -> void:
 		preview.visible = enemy_sprite or enemy_view or enemy_body
 #== pathway ==
 func update_pathway_previews() -> void:
+	if not U.in_editor():
+		return
 	var tree : SceneTree = get_tree()
 	if not tree:
 		return
@@ -64,6 +68,8 @@ func update_pathway_previews() -> void:
 		preview.visible = pathway_handle or pathway_path
 #== moving platform ==
 func update_platform_previews() -> void:
+	if not U.in_editor():
+		return
 	var tree : SceneTree = get_tree()
 	if not tree:
 		return

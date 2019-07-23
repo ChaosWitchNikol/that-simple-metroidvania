@@ -27,7 +27,6 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="View" type="Area2D" parent="."]
-editor/display_folded = true
 monitorable = false
 collision_layer = 0
 collision_mask = 3
@@ -36,7 +35,6 @@ collision_mask = 3
 shape = SubResource( 2 )
 
 [node name="AttackRange" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="AttackRangeShape" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 3 )

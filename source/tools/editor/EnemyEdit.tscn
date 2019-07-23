@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://tools/editor/EnemyEdit.gd" type="Script" id=1]
+[ext_resource path="res://assets/sources/enemies/EnemyStatic.tres" type="Resource" id=2]
+[ext_resource path="res://tools/DrawShape2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/square.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 64.0
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 64.0
+
+[sub_resource type="Animation" id=10]
+resource_name = "attack"
+
+[sub_resource type="Animation" id=11]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=12]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
+
+[node name="EnemyEdit" type="Node2D"]
+script = ExtResource( 1 )
+resource = ExtResource( 2 )
+
+[node name="View" parent="." instance=ExtResource( 3 )]
+color = Color( 1, 0, 0, 0.313726 )
+fill = true
+shape = SubResource( 9 )
+
+[node name="EnemySprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="Body" parent="." instance=ExtResource( 3 )]
+color = Color( 0, 0.0862745, 1, 0.313726 )
+fill = true
+shape = SubResource( 6 )
+
+[node name="AttackRange" parent="." instance=ExtResource( 3 )]
+color = Color( 0, 1, 0.0627451, 0.313726 )
+fill = true
+shape = SubResource( 4 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/move = SubResource( 12 )
+
+[node name="AttackEdit" type="Node2D" parent="."]
+position = Vector2( 256, 0 )
+
+[node name="AttackArea" parent="AttackEdit" instance=ExtResource( 3 )]
+color = Color( 1, 0.960784, 0, 1 )
+fill = true
+shape = SubResource( 2 )
+
+[node name="AttackSprite" type="Sprite" parent="AttackEdit"]

@@ -26,6 +26,7 @@ var passive : bool = false
 var target : Node2D setget set_target
 #==== attack ====
 var attack_source : CTAttack
+var attack : ResAttack
 #==== utils ====
 var save_margin : float = 1.1 + get("collision/safe_margin")
 
@@ -97,4 +98,3 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
 	if body and body.is_in_group("enemy_target") and not passive:
 		print("do attack")
-
