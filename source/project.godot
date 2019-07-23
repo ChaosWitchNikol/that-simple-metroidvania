@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://OLDscripts/EnemySpawnPoint.old.gd"
 }, {
+"base": "Enemy",
+"class": "EnemyStatic",
+"language": "GDScript",
+"path": "res://scripts/EnemyStatic.gd"
+}, {
 "base": "EnemyBase_old",
 "class": "EnemyStatic_old",
 "language": "GDScript",
@@ -178,6 +183,7 @@ _global_script_class_icons={
 "EnemyFlying": "",
 "EnemyPreview_Tool": "res://assets/icons/icon_preview.svg",
 "EnemySpawnPoint_old": "res://assets/icons/icon_enemy_spawn_point.svg",
+"EnemyStatic": "",
 "EnemyStatic_old": "",
 "EnemyWalk_old": "",
 "EnemyWalking": "",
