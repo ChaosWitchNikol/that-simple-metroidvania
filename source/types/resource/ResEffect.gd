@@ -1,5 +1,5 @@
 extends Resource
-class_name ResEffect
+class_name ResEffect_old
 
 # which target variable will be affected 
 export(C.EFFECT_VARIABLE) var variable : int = C.EFFECT_VARIABLE.HEALTH

@@ -3,11 +3,11 @@ class_name In
 
 #==== effects ====
 #=== attack ===
-static func attack_source2instance(source : CTAttack, scene : PackedScene) -> Attack:
+static func attack_source2instance(source : CTAttack_old, scene : PackedScene) -> Attack_old:
 	if not source:
 		return null
 	# create blank instance
-	var instance : Attack =  scene.instance()
+	var instance : Attack_old =  scene.instance()
 	# set instance variables
 	instance.effects = source.effects
 	instance.max_targets = source.max_targets
@@ -17,7 +17,7 @@ static func attack_source2instance(source : CTAttack, scene : PackedScene) -> At
 	instance.get_node("AttackSprite").texture = source.sprite
 	return instance
 
-static func enemy_src2inst(src : ResEnemy, scene : PackedScene):
+static func enemy_src2inst(src : ResEnemy_old, scene : PackedScene):
 	if not src or not scene:
 		return null
 	

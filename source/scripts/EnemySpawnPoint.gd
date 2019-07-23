@@ -1,5 +1,5 @@
 extends Node2D
-class_name EnemySpawnPoint, "res://assets/icons/icon_enemy_spawn_point.svg"
+class_name EnemySpawnPoint_old, "res://assets/icons/icon_enemy_spawn_point.svg"
 
 
 #==== enemy instance variables ====

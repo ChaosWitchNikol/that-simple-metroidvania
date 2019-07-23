@@ -1,5 +1,5 @@
-extends CTEffect
-class_name CTAttack
+extends CTEffect_old
+class_name CTAttack_old
 
 # TODO: add animations for the sprite
 # TODO: add sounds for the effect

@@ -2,7 +2,7 @@ tool
 extends Node2D
 class_name PathwayPreview_Tool
 
-var parent : Pathway
+var parent : Pathway_old
 
 var hide_path : bool = false
 #==== node functions ====
@@ -13,7 +13,7 @@ func _ready() -> void:
 		queue_free()
 	else:
 		var parent = get_parent()
-		if not parent or not (parent is Pathway):
+		if not parent or not (parent is Pathway_old):
 			set_process(false)
 			print("> preview: ", name, " parent: ", parent)
 			return
@@ -32,7 +32,7 @@ func _draw() -> void:
 		return
 	
 	var point_nodes : Array = get_path_points()
-	var zero_point : PathwayPoint = point_nodes[0]
+	var zero_point : PathwayPoint_old = point_nodes[0]
 	
 	var points : PoolVector2Array = PoolVector2Array()
 	var triangles : Array = []
@@ -77,7 +77,7 @@ func get_path_points() -> Array:
 	var points : Array = []
 	
 	for child in parent.get_children():
-		if child is PathwayPoint:
+		if child is PathwayPoint_old:
 			points.append(child)
 		
 	return points

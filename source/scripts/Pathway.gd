@@ -1,5 +1,5 @@
 extends Node2D
-class_name Pathway
+class_name Pathway_old
 
 #==== export variables ====
 export(float, 0.01, 2048, 0.01) var point_wait_time : float = 0.01
@@ -29,12 +29,12 @@ func get_path_points() -> Array:
 	path_points = []
 	# filter only PathwayPoint children
 	for child in get_children():
-		if child is PathwayPoint:
+		if child is PathwayPoint_old:
 			path_points.append(child)
 	
 	return path_points
 
-func get_next_path_point(path_point : PathwayPoint ) -> PathwayPoint:
+func get_next_path_point(path_point : PathwayPoint_old ) -> PathwayPoint_old:
 	var index : int = self.path_points.find(path_point)
 	# if the path point was not found, return first one
 	if index == -1:

@@ -1,9 +1,9 @@
 extends Node2D
-class_name MovingPlatform
+class_name MovingPlatform_old
 
 #==== onready ====
-onready var pathway : Pathway = get_node(pathway_node_path)
-onready var start_point : PathwayPoint = get_node(start_point_node_path)
+onready var pathway : Pathway_old = get_node(pathway_node_path)
+onready var start_point : PathwayPoint_old = get_node(start_point_node_path)
 
 onready var point_wait_timer : Timer = get_node("PointWaitTimer")
 
@@ -17,7 +17,7 @@ export(float, 0 , 1000) var movement_speed : float = 200
 
 
 #==== motion variables ====
-var target_point : PathwayPoint 
+var target_point : PathwayPoint_old 
 
 
 #==== node functions ====

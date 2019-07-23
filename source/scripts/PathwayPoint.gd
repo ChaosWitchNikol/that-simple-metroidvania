@@ -1,5 +1,5 @@
 extends Position2D
-class_name PathwayPoint
+class_name PathwayPoint_old
 
 
 #==== export variables ====

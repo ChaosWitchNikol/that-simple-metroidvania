@@ -35,42 +35,23 @@ current = true
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1488, 544 )
 enemy_source = ExtResource( 5 )
-enemy_type = 1
 enemy_facing = -1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 
 [node name="EnemySpawnPoint2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 800, 368 )
 enemy_source = ExtResource( 6 )
 enemy_type = 2
 enemy_facing = -1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 
 [node name="EnemySpawnPoint3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, 304 )
 enemy_source = ExtResource( 7 )
 enemy_type = 0
-enemy_facing = 1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 
 [node name="EnemySpawnPoint4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 352, 304 )
 enemy_source = ExtResource( 8 )
 enemy_type = 3
-enemy_facing = 1
-gravity_value = 9.8
-gravity_direction = 0
-respawn_timeout = 20.0
-respawn_disabled = false
 
 [node name="Pathway" parent="." instance=ExtResource( 9 )]
 position = Vector2( 928, 592 )

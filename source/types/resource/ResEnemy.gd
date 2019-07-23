@@ -1,5 +1,5 @@
 extends Resource
-class_name ResEnemy
+class_name ResEnemy_old
 
 #==== life ====
 export(bool) var is_passive : bool = false

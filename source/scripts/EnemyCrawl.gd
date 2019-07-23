@@ -1,5 +1,5 @@
-extends EnemyBase
-class_name EnemyCrawl
+extends EnemyBase_old
+class_name EnemyCrawl_old
 
 enum RotationType { INNER = -1, OUTER = 1, NONE = 0}
 const PI_HALF : float = PI / 2

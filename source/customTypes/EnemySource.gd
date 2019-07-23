@@ -1,6 +1,6 @@
 tool
 extends Resource
-class_name CTEnemySource
+class_name CTEnemySource_old
 
 #==== signals ====
 signal ct_enemy_source_changed

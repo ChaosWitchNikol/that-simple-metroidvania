@@ -1,5 +1,5 @@
-extends EnemyBase
-class_name EnemyStatic
+extends EnemyBase_old
+class_name EnemyStatic_old
 
 #==== custom processors ====
 #= @override =

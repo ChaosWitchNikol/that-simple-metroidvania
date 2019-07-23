@@ -1,5 +1,5 @@
 extends Resource
-class_name ResAnimationSprite
+class_name ResAnimationSprite_old
 
 
 export(Texture) var texture : Texture

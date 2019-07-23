@@ -3,7 +3,7 @@
 	transform is relative to the EnemySpawner parent node
 """
 extends KinematicBody2D
-class_name EnemyBase
+class_name EnemyBase_old
 
 #==== signals ====
 signal enemy_died
@@ -25,8 +25,8 @@ var facing : int = C.FACING.RIGHT setget set_facing
 var passive : bool = false
 var target : Node2D setget set_target
 #==== attack ====
-var attack_source : CTAttack
-var attack : ResAttack
+var attack_source : CTAttack_old
+var attack : ResAttack_old
 #==== utils ====
 var save_margin : float = 1.1 + get("collision/safe_margin")
 
@@ -64,7 +64,7 @@ func do_attack() -> void:
 	$Anims.play("attack")
 
 func fire_attack() -> void:
-	var attack_instance : Attack = I.attack_source2instance(attack_source, AttackScene)
+	var attack_instance : Attack_old = I.attack_source2instance(attack_source, AttackScene)
 	if not attack_instance:
 		return
 	attack_instance.fire()

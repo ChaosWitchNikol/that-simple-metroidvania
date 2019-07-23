@@ -1,5 +1,5 @@
 extends Resource
-class_name ResAnimationsEnemy
+class_name ResAnimationsEnemy_old
 
 
 export(Animation) var idle : Animation

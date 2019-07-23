@@ -1,5 +1,5 @@
-extends ResEffect
-class_name ResAttack
+extends ResEffect_old
+class_name ResAttack_old
 
 # array of aditional effects
 export(Array, Resource) var effects : Array = [] # ResEffect

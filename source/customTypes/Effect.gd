@@ -1,5 +1,5 @@
 extends Resource
-class_name CTEffect
+class_name CTEffect_old
 
 
 # which target variable will be affected 

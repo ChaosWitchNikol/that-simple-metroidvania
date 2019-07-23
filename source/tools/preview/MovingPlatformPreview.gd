@@ -3,12 +3,12 @@ extends Node2D
 class_name MovingPlatformPreview_Tool
 
 #==== parent ====
-var parent : MovingPlatform
+var parent : MovingPlatform_old
 #==== pathway variables ====
-var pathway : Pathway
+var pathway : Pathway_old
 var path_points : Array
-var target : PathwayPoint
-var start : PathwayPoint
+var target : PathwayPoint_old
+var start : PathwayPoint_old
 
 
 #==== node functions ====
@@ -33,8 +33,8 @@ func _physics_process(delta: float) -> void:
 #==== custom functions ====
 func _update_pathway() -> bool:
 	# update pathway
-	var parent_pathway : Pathway = parent.get_node(parent.pathway_node_path)
-	if parent_pathway is Pathway:
+	var parent_pathway : Pathway_old = parent.get_node(parent.pathway_node_path)
+	if parent_pathway is Pathway_old:
 		if pathway != parent_pathway:
 			pathway = parent_pathway
 	else:
@@ -43,7 +43,7 @@ func _update_pathway() -> bool:
 		return false
 	
 	# update start point
-	var parent_start : PathwayPoint
+	var parent_start : PathwayPoint_old
 	if parent.start_point_node_path:
 		parent_start = parent.get_node(parent.start_point_node_path)
 	else:
@@ -97,11 +97,11 @@ func _setup() -> void:
 		queue_free()
 	else:
 		var parent = get_parent()
-		if not parent or not (parent is MovingPlatform):
+		if not parent or not (parent is MovingPlatform_old):
 			print("> preview: ", name, " parent: ", parent)
 			return
 		else:
-			self.parent = parent as MovingPlatform
+			self.parent = parent as MovingPlatform_old
 			set_physics_process(true)
 			set_process(true)
 

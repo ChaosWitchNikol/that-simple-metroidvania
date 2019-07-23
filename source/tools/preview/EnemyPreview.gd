@@ -3,7 +3,7 @@ extends Node2D
 class_name EnemyPreview_Tool, "res://assets/icons/icon_preview.svg"
 
 
-var parent : EnemySpawnPoint
+var parent : EnemySpawnPoint_old
 
 #==== node functions ====
 func _enter_tree() -> void:
@@ -14,7 +14,7 @@ func _enter_tree() -> void:
 		queue_free()
 	else:
 		var parent = get_parent()
-		if not parent or not (parent is EnemySpawnPoint):
+		if not parent or not (parent is EnemySpawnPoint_old):
 			set_process(false)
 			print("> preview: ", name, " parent: ", parent)
 			return
@@ -37,7 +37,7 @@ func _ready() -> void:
 		queue_free()
 	else:
 		var parent = get_parent()
-		if not parent or not (parent is EnemySpawnPoint):
+		if not parent or not (parent is EnemySpawnPoint_old):
 			set_process(false)
 			print("> preview: ", name, " parent: ", parent)
 			return
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 
 
 #==== custom functions ====
-func preview_peek(src : ResEnemy) -> void:
+func preview_peek(src : ResEnemy_old) -> void:
 	if not src.sprite:
 		return
 	var peek : Sprite = get_node("Peek")
@@ -71,7 +71,7 @@ func preview_peek(src : ResEnemy) -> void:
 		peek.texture = src.sprite.texture
 	peek.flip_h = parent.enemy_facing == C.FACING.LEFT
 
-func preview_view(src : ResEnemy) -> void:
+func preview_view(src : ResEnemy_old) -> void:
 	if not src.view or not src.view.shape:
 		return
 	var view = get_node("View")
@@ -86,7 +86,7 @@ func preview_view(src : ResEnemy) -> void:
 		
 	view.position.x = abs(src.view.offset.x) * parent.enemy_facing
 
-func preview_body(src: ResEnemy) -> void:
+func preview_body(src: ResEnemy_old) -> void:
 	if not src.body or not src.body.shape:
 		return
 	var body = get_node("Body")
