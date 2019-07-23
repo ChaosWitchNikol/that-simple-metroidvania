@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/EnemyBase.old.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/EnemyWalk.old.gd" type="Script" id=2]
+[ext_resource path="res://OLDscenes/EnemyBase.old.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OLDscripts/EnemyWalk.old.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=3]
+
+
 
 
 

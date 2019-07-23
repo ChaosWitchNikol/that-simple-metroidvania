@@ -8,7 +8,7 @@ class_name EnemyBase_old
 #==== signals ====
 signal enemy_died
 
-var AttackScene : PackedScene = preload("res://scenes/Attack.old.tscn") 
+var AttackScene : PackedScene = preload("res://OLDscenes/Attack.old.tscn") 
 
 #==== gravity ====
 var gravity_value : float = C.GRAVITY_VALUE
