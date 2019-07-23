@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tools/preview/PreviewControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Platform.tscn" type="PackedScene" id=13]
 
 [node name="Main" type="Node2D"]
 
@@ -40,28 +41,28 @@ allow_wall_climbing = true
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true
 
-[node name="Pathway" parent="." instance=ExtResource( 4 )]
+[node name="PathwayOld" parent="." instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 928, 592 )
+position = Vector2( 1200, 224 )
 
-[node name="PathwayPoint" parent="Pathway" instance=ExtResource( 5 )]
+[node name="PathwayPoint" parent="PathwayOld" instance=ExtResource( 5 )]
 position = Vector2( -384, -144 )
 wait_time = 1.0
 
-[node name="PathwayPoint2" parent="Pathway" instance=ExtResource( 5 )]
+[node name="PathwayPoint2" parent="PathwayOld" instance=ExtResource( 5 )]
 position = Vector2( -384, -16 )
 
-[node name="PathwayPoint3" parent="Pathway" instance=ExtResource( 5 )]
+[node name="PathwayPoint3" parent="PathwayOld" instance=ExtResource( 5 )]
 position = Vector2( 160, -16 )
 wait_time = 1.0
 
-[node name="PathwayPoint4" parent="Pathway" instance=ExtResource( 5 )]
+[node name="PathwayPoint4" parent="PathwayOld" instance=ExtResource( 5 )]
 position = Vector2( 160, -144 )
 
-[node name="MovingPlatform" parent="." instance=ExtResource( 6 )]
-position = Vector2( 544, 448 )
-pathway_node_path = NodePath("../Pathway")
-start_point_node_path = NodePath("../Pathway/PathwayPoint4")
+[node name="MovingPlatformOld" parent="." instance=ExtResource( 6 )]
+position = Vector2( 816, 80 )
+pathway_node_path = NodePath("../PathwayOld")
+start_point_node_path = NodePath("../PathwayOld/PathwayPoint4")
 tile_width = 6
 
 [node name="EnemyWalking" parent="." instance=ExtResource( 7 )]
@@ -83,14 +84,17 @@ position = Vector2( 320, 416 )
 movement_speed = 200.0
 facing = -1
 
-[node name="Pathway2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 720, 608 )
+[node name="Pathway" parent="." instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 544, 448 )
 
-[node name="Point" parent="Pathway2" instance=ExtResource( 12 )]
-position = Vector2( -144, 0 )
+[node name="Point" parent="Pathway" instance=ExtResource( 12 )]
+position = Vector2( 0, 144 )
 
-[node name="Point2" parent="Pathway2" instance=ExtResource( 12 )]
-position = Vector2( -144, 32 )
+[node name="Point2" parent="Pathway" instance=ExtResource( 12 )]
+position = Vector2( 544, 144 )
 
-[node name="Point3" parent="Pathway2" instance=ExtResource( 12 )]
-position = Vector2( 0, 32 )
+[node name="Point3" parent="Pathway" instance=ExtResource( 12 )]
+position = Vector2( 544, 0 )
+
+[node name="Platform" parent="." instance=ExtResource( 13 )]
