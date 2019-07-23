@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/EnemyBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/EnemyWalk.gd" type="Script" id=2]
+[ext_resource path="res://scenes/EnemyBase.old.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/EnemyWalk.old.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=3]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )

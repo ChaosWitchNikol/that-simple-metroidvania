@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/PathwayPoint.gd" type="Script" id=1]
+[ext_resource path="res://scripts/PathwayPoint.old.gd" type="Script" id=1]
+
 
 [node name="PathwayPoint" type="Position2D" groups=[
 "pathway",

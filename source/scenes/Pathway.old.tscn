@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/Pathway.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Pathway.old.gd" type="Script" id=1]
 [ext_resource path="res://tools/preview/PathwayPreview.tscn" type="PackedScene" id=2]
+
 
 [node name="Pathway" type="Node2D" groups=[
 "pathway",

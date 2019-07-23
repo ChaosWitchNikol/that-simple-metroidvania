@@ -13,7 +13,7 @@ export(float, 0.01, 2048, 0.01) var respawn_timeout : float = 20 setget _set_res
 export(bool) var respawn_disabled : bool = false
 #== variables ==
 var gravity_vector : Vector2 = U.gravity_direction2vector(gravity_direction)
-var enemy_scene : PackedScene = load("res://scenes/EnemyWalk.tscn")
+var enemy_scene : PackedScene = load("res://scenes/EnemyWalk.old.tscn")
 
 
 #==== spawn point variables ====
@@ -71,13 +71,13 @@ func spawn_enemy() -> void:
 func _set_enemy_type(value : int = C.ENEMY_TYPE.WALK) -> void:
 	enemy_type = value
 	if value == C.ENEMY_TYPE.CRAWL:
-		enemy_scene = load("res://scenes/EnemyCrawl.tscn")
+		enemy_scene = load("res://scenes/EnemyCrawl.old.tscn")
 	elif value == C.ENEMY_TYPE.WALK:
-		enemy_scene = load("res://scenes/EnemyWalk.tscn")
+		enemy_scene = load("res://scenes/EnemyWalk.old.tscn")
 	elif value == C.ENEMY_TYPE.FLY:
-		enemy_scene = load("res://scenes/EnemyFly.tscn")
+		enemy_scene = load("res://scenes/EnemyFly.old.tscn")
 	elif value == C.ENEMY_TYPE.STATIC:
-		enemy_scene = load("res://scenes/EnemyStatic.tscn")
+		enemy_scene = load("res://scenes/EnemyStatic.old.tscn")
 	else:
 		print("Not an enemy type")
 

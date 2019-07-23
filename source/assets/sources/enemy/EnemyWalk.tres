@@ -1,8 +1,9 @@
 [gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://assets/sources/attacks/EnemyWalk.atk.tres" type="Resource" id=1]
-[ext_resource path="res://customTypes/EnemySource.gd" type="Script" id=2]
+[ext_resource path="res://customTypes/EnemySource.old.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
