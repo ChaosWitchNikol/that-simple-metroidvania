@@ -2,11 +2,11 @@ extends Resource
 class_name ResEffect
 
 # which variable will be affected
-export(C.EFFECT_TARGET) var target : int = C.EFFECT_TARGET.HEALTH
+export(C.EFFECT_TARGET) var target_variable : int = C.EFFECT_TARGET.HEALTH
 # how much
 export(float,0 , 8192) var amount : float = 0
 # either add or subtract
-export(C.EFFECT_SIGN) var target_sign : int = C.EFFECT_SIGN.PLUS
+export(C.EFFECT_SIGN) var variable_sign : int = C.EFFECT_SIGN.PLUS
 # how long will the effect stay active
 #	0 - effect is instant
 #	-1 - effect is permanent

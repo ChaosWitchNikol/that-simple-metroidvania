@@ -42,12 +42,14 @@ func next_vectors(rotation_type : int = RotationType.NONE) -> void:
 	gravity_vector = U.no_negative_zero_vector2(next_gavity_vector)
 	
 	# calculate all movement related vectors
-	forward_vector = U.no_negative_zero_vector2(next_gavity_vector.rotated(-PI_HALF * facing))	
+	forward_vector = U.no_negative_zero_vector2(next_gavity_vector.rotated(-PI_HALF * facing))
 	snap_vector = gravity_vector * C.SNAP_VECTOR.length()
 	floor_vector = -gravity_vector
 	
 	# rotate Sprite, ArrackRange, View accordingly
 	$Sprite.rotation_degrees = round(rad2deg(forward_vector.angle()))
+	if facing == C.FACING.LEFT:
+		$Sprite.rotation_degrees += 180
 	$AttackRange.position = forward_vector * $AttackRange.position.length()
 	$View.position = forward_vector * $View.position.length()
 
