@@ -52,13 +52,15 @@ position = Vector2( 544, 448 )
 start_wait_time = 2.0
 
 [node name="Point2" parent="Pathway" instance=ExtResource( 8 )]
+position = Vector2( 0, 128 )
+
+[node name="Point4" parent="Pathway" instance=ExtResource( 8 )]
 position = Vector2( 544, 128 )
 
 [node name="Point3" parent="Pathway" instance=ExtResource( 8 )]
 position = Vector2( 544, 0 )
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 544, 448 )
+position = Vector2( 723.999, 576 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point2")
-tile_width = 6

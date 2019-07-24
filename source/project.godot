@@ -39,11 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalking.gd"
 }, {
-"base": "Node",
-"class": "In",
-"language": "GDScript",
-"path": "res://scripts/utils/_instancing.gd"
-}, {
 "base": "Node2D",
 "class": "Pathway",
 "language": "GDScript",
@@ -59,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Point.gd"
 }, {
+"base": "Resource",
+"class": "ResEffect",
+"language": "GDScript",
+"path": "res://types/ResEffect.gd"
+}, {
 "base": "Node",
 "class": "U",
 "language": "GDScript",
@@ -71,10 +71,10 @@ _global_script_class_icons={
 "EnemyFlying": "",
 "EnemyStatic": "",
 "EnemyWalking": "",
-"In": "",
 "Pathway": "",
 "Platform": "",
 "Point": "",
+"ResEffect": "",
 "U": ""
 }
 
@@ -83,10 +83,6 @@ _global_script_class_icons={
 config/name="That simple Metroidvania"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-I="*res://scripts/utils/_instancing.gd"
 
 [debug]
 
