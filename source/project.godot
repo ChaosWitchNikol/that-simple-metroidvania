@@ -9,70 +9,35 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "Attack",
-"language": "GDScript",
-"path": "res://scripts/Attack.gd"
-}, {
 "base": "Object",
 "class": "C",
 "language": "GDScript",
 "path": "res://scripts/utils/_constants.gd"
 }, {
-"base": "CTEffect",
-"class": "CTAttack",
-"language": "GDScript",
-"path": "res://customTypes/Attack.gd"
-}, {
-"base": "Resource",
-"class": "CTEffect",
-"language": "GDScript",
-"path": "res://customTypes/Effect.gd"
-}, {
-"base": "Resource",
-"class": "CTEnemySource",
-"language": "GDScript",
-"path": "res://customTypes/EnemySource.gd"
-}, {
-"base": "Node2D",
-"class": "DrawShape2D",
-"language": "GDScript",
-"path": "res://tools/DrawShape2D.gd"
-}, {
 "base": "KinematicBody2D",
-"class": "EnemyBase",
+"class": "Enemy",
 "language": "GDScript",
-"path": "res://scripts/EnemyBase.gd"
+"path": "res://scripts/Enemy.gd"
 }, {
-"base": "EnemyBase",
-"class": "EnemyCrawl",
+"base": "Enemy",
+"class": "EnemyCrawling",
 "language": "GDScript",
-"path": "res://scripts/EnemyCrawl.gd"
+"path": "res://scripts/EnemyCrawling.gd"
 }, {
-"base": "EnemyBase",
-"class": "EnemyFly",
+"base": "Enemy",
+"class": "EnemyFlying",
 "language": "GDScript",
-"path": "res://scripts/EnemyFly.gd"
+"path": "res://scripts/EnemyFlying.gd"
 }, {
-"base": "Node2D",
-"class": "EnemyPreview_Tool",
-"language": "GDScript",
-"path": "res://tools/preview/EnemyPreview.gd"
-}, {
-"base": "Node2D",
-"class": "EnemySpawnPoint",
-"language": "GDScript",
-"path": "res://scripts/EnemySpawnPoint.gd"
-}, {
-"base": "EnemyBase",
+"base": "Enemy",
 "class": "EnemyStatic",
 "language": "GDScript",
 "path": "res://scripts/EnemyStatic.gd"
 }, {
-"base": "EnemyBase",
-"class": "EnemyWalk",
+"base": "Enemy",
+"class": "EnemyWalking",
 "language": "GDScript",
-"path": "res://scripts/EnemyWalk.gd"
+"path": "res://scripts/EnemyWalking.gd"
 }, {
 "base": "Node",
 "class": "In",
@@ -80,69 +45,19 @@ _global_script_classes=[ {
 "path": "res://scripts/utils/_instancing.gd"
 }, {
 "base": "Node2D",
-"class": "MovingPlatform",
-"language": "GDScript",
-"path": "res://scripts/MovingPlatform.gd"
-}, {
-"base": "Node2D",
-"class": "MovingPlatformPreview_Tool",
-"language": "GDScript",
-"path": "res://tools/preview/MovingPlatformPreview.gd"
-}, {
-"base": "Node2D",
 "class": "Pathway",
 "language": "GDScript",
 "path": "res://scripts/Pathway.gd"
 }, {
+"base": "Node2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://scripts/Platform.gd"
+}, {
 "base": "Position2D",
-"class": "PathwayPoint",
+"class": "Point",
 "language": "GDScript",
-"path": "res://scripts/PathwayPoint.gd"
-}, {
-"base": "Node2D",
-"class": "PathwayPreview_Tool",
-"language": "GDScript",
-"path": "res://tools/preview/PathwayPreview.gd"
-}, {
-"base": "Node",
-"class": "PreviewControl_Tool",
-"language": "GDScript",
-"path": "res://tools/preview/PreviewControl.gd"
-}, {
-"base": "Resource",
-"class": "ResAnimationSprite",
-"language": "GDScript",
-"path": "res://types/resource/ResAnimationSprite.gd"
-}, {
-"base": "Resource",
-"class": "ResAnimationsEnemy",
-"language": "GDScript",
-"path": "res://types/resource/ResAnimationsEnemy.gd"
-}, {
-"base": "ResEffect",
-"class": "ResAttack",
-"language": "GDScript",
-"path": "res://types/resource/ResAttack.gd"
-}, {
-"base": "Resource",
-"class": "ResEffect",
-"language": "GDScript",
-"path": "res://types/resource/ResEffect.gd"
-}, {
-"base": "Resource",
-"class": "ResEnemy",
-"language": "GDScript",
-"path": "res://types/resource/ResEnemy.gd"
-}, {
-"base": "Resource",
-"class": "ResTransformShape2D",
-"language": "GDScript",
-"path": "res://types/resource/ResTransforShape2D.gd"
-}, {
-"base": "Node2D",
-"class": "ToolEnemyEdit",
-"language": "GDScript",
-"path": "res://tools/editor/EnemyEdit.gd"
+"path": "res://scripts/Point.gd"
 }, {
 "base": "Node",
 "class": "U",
@@ -150,33 +65,16 @@ _global_script_classes=[ {
 "path": "res://scripts/utils/_utils.gd"
 } ]
 _global_script_class_icons={
-"Attack": "",
 "C": "",
-"CTAttack": "",
-"CTEffect": "",
-"CTEnemySource": "",
-"DrawShape2D": "",
-"EnemyBase": "",
-"EnemyCrawl": "",
-"EnemyFly": "",
-"EnemyPreview_Tool": "res://assets/icons/icon_preview.svg",
-"EnemySpawnPoint": "res://assets/icons/icon_enemy_spawn_point.svg",
+"Enemy": "",
+"EnemyCrawling": "",
+"EnemyFlying": "",
 "EnemyStatic": "",
-"EnemyWalk": "",
+"EnemyWalking": "",
 "In": "",
-"MovingPlatform": "",
-"MovingPlatformPreview_Tool": "",
 "Pathway": "",
-"PathwayPoint": "",
-"PathwayPreview_Tool": "",
-"PreviewControl_Tool": "res://assets/icons/icon_preview_control.svg",
-"ResAnimationSprite": "",
-"ResAnimationsEnemy": "",
-"ResAttack": "",
-"ResEffect": "",
-"ResEnemy": "",
-"ResTransformShape2D": "",
-"ToolEnemyEdit": "",
+"Platform": "",
+"Point": "",
 "U": ""
 }
 
@@ -193,6 +91,7 @@ I="*res://scripts/utils/_instancing.gd"
 [debug]
 
 gdscript/warnings/enable=false
+shapes/collision/shape_color=Color( 1, 1, 1, 0.392157 )
 
 [display]
 
@@ -202,6 +101,8 @@ window/stretch/aspect="keep"
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false

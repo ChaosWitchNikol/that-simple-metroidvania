@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 48.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Body" type="CollisionShape2D" parent="." groups=[
+"enemy_body",
+]]
+modulate = Color( 0, 0.6, 1, 1 )
+shape = SubResource( 1 )
+
+[node name="View" type="Area2D" parent="." groups=[
+"enemy_view",
+]]
+editor/display_folded = true
+modulate = Color( 1, 0.631373, 0, 1 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Shape" type="CollisionShape2D" parent="View"]
+shape = SubResource( 2 )
+
+[node name="AttackRange" type="Area2D" parent="." groups=[
+"enemy_attack_range",
+]]
+editor/display_folded = true
+modulate = Color( 0.992157, 0, 0, 1 )
+position = Vector2( 16, 0 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Shape" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]

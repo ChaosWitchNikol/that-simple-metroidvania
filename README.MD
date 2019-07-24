@@ -16,8 +16,7 @@ This repository should serve one simple purpose:
 - &#9745; "bounces" of the wall
 
 &#9744; **Flying**
-- &#9744; follows player once detected
-- &#9744; avoids obstacles (some sort of pathfinding)
+- &#9745; follows player once detected
 
 &#9744; **Stationary**
 - &#9745; stays in one given position

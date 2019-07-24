@@ -1,8 +1,9 @@
+tool
 extends Position2D
-class_name PathwayPoint
+class_name Point
 
 
-#==== export variables ====
+#==== wait time ====
 export(float, -1, 2048, 0.25) var wait_time : float = -1 setget _set_wait_time
 
 

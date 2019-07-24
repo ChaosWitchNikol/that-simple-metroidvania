@@ -1,7 +1,8 @@
-extends EnemyBase
+tool
+extends Enemy
 class_name EnemyStatic
 
-#==== custom processors ====
-#= @override =
-func process_gravity(delta : float) -> void:
-	pass
+
+#==== node functions ====
+func _ready() -> void:
+	set_process_gravity(false)
