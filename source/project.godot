@@ -9,10 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "Node",
 "class": "Action",
 "language": "GDScript",
 "path": "res://scripts/Action.gd"
+}, {
+"base": "Action",
+"class": "ActionRegion",
+"language": "GDScript",
+"path": "res://scripts/ActionRegion.gd"
 }, {
 "base": "Object",
 "class": "C",
@@ -76,6 +81,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action": "",
+"ActionRegion": "",
 "C": "",
 "Effect": "",
 "Enemy": "",
