@@ -1,15 +1,68 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=12]
 radius = 48.0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "attack"
+length = 0.5
+
+[sub_resource type="Animation" id=15]
+resource_name = "death"
+
+[sub_resource type="Animation" id=16]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=17]
+resource_name = "move"
+loop = true
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/attack/node = SubResource( 1 )
+states/attack/position = Vector2( 402, 57 )
+states/death/node = SubResource( 2 )
+states/death/position = Vector2( 779, 207 )
+states/idle/node = SubResource( 3 )
+states/idle/position = Vector2( 592, 131 )
+states/move/node = SubResource( 4 )
+states/move/position = Vector2( 773, 57 )
+transitions = [ "idle", "move", SubResource( 5 ), "move", "idle", SubResource( 6 ), "idle", "attack", SubResource( 7 ), "attack", "idle", SubResource( 8 ), "move", "attack", SubResource( 9 ), "idle", "death", SubResource( 10 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -21,7 +74,7 @@ script = ExtResource( 1 )
 "enemy_body",
 ]]
 modulate = Color( 0, 0.6, 1, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 11 )
 
 [node name="View" type="Area2D" parent="." groups=[
 "enemy_view",
@@ -33,7 +86,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="View"]
-shape = SubResource( 2 )
+shape = SubResource( 12 )
 
 [node name="AttackRange" type="Area2D" parent="." groups=[
 "enemy_attack_range",
@@ -46,6 +99,18 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource( 3 )
+shape = SubResource( 13 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 14 )
+anims/death = SubResource( 15 )
+anims/idle = SubResource( 16 )
+anims/move = SubResource( 17 )
+
+[node name="AnimTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../AnimPlayer")
+active = true
+parameters/playback = SubResource( 19 )
 [connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]

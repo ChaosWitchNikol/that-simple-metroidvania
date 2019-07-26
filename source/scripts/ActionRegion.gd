@@ -1,3 +1,4 @@
+tool
 extends Action
 class_name ActionRegion
 
@@ -17,9 +18,9 @@ func _physics_process(delta: float) -> void:
 
 
 #==== functions ====
-func do_fire(origin_position : Vector2, direction : Vector2) -> void:
+func fire_attack(origin_position : Vector2, target_position : Vector2) -> void:
 	self.position = origin_position
-	self.direction = direction
+	self.direction = origin_position - target_position
 
 
 #==== setters ====
@@ -35,6 +36,7 @@ func set_direction(value : Vector2) -> void:
 func _on_Region_body_entered(body: PhysicsBody2D) -> void:
 	call_deferred("set_process", false)
 	call_deferred("apply_effects", body)
+	print(body.name)
 
 func _on_RemoveTimeout_timeout() -> void:
 	call_deferred("queue_free")

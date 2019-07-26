@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Action.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ActionRegion.gd" type="Script" id=2]
+[ext_resource path="res://types/ResEffect.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+target_variable = 0
+amount = 0.0
+variable_sign = 1
+duration = 0.01
+tick_time = 0.01
 
-[node name="ActionRegion" index="0" instance=ExtResource( 1 )]
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="ActionRegion" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+effects = [ null, SubResource( 3 ) ]
 
 [node name="Region" type="Area2D" parent="." index="0"]
 editor/display_folded = true
@@ -18,9 +28,11 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Collision" type="CollisionShape2D" parent="Region" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RemoveTimeout" type="Timer" parent="." index="1"]
 wait_time = 0.01
+one_shot = true
+autostart = true
 [connection signal="body_entered" from="Region" to="." method="_on_Region_body_entered"]
 [connection signal="timeout" from="RemoveTimeout" to="." method="_on_RemoveTimeout_timeout"]
