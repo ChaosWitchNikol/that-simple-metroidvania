@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 #==== functions ====
 func fire_attack(origin_position : Vector2, target_position : Vector2) -> void:
 	self.position = origin_position
-	self.direction = origin_position - target_position
+	self.direction = target_position - origin_position
 
 
 #==== setters ====
@@ -47,6 +47,8 @@ func set_direction(value : Vector2) -> void:
 func _on_Region_body_entered(body: PhysicsBody2D) -> void:
 	call_deferred("set_process", false)
 	call_deferred("apply_effects", body)
+	if time_to_live == -1:
+		call_deferred("queue_free")
 
 func _on_RemoveTimeout_timeout() -> void:
 	call_deferred("queue_free")

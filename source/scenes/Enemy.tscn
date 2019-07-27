@@ -112,5 +112,9 @@ tree_root = SubResource( 18 )
 anim_player = NodePath("../AnimPlayer")
 active = true
 parameters/playback = SubResource( 19 )
+
+[node name="AttackTimeout" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="timeout" from="AttackTimeout" to="." method="_on_AttackTimeout_timeout"]

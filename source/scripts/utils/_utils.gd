@@ -23,13 +23,21 @@ static func setup_timer(timer_node : Timer, wait_time : float ) -> void:
 		timer_node.wait_time = wait_time
 		timer_node.start()
 
-static func node2string(node: Node) -> String:
+
+static func node2dict(node : Node, keys : Array = []) -> Dictionary:
 	var props : Dictionary = {}
 	
 	for prop in node.get_property_list():
-		props[prop.name] = node.get(prop.name)
-	
-	return to_json(props)
+		if keys and keys.size() > 0:
+			if prop.name in keys:
+				props[prop.name] = node.get(prop.name)
+		else:
+			props[prop.name] = node.get(prop.name)
+			
+	return props
+
+static func node2string(node : Node, keys : Array = []) -> String:	
+	return to_json(node2dict(node, keys))
 	
 
 #==== editor ====

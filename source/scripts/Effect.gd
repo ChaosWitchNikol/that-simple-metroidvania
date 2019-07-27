@@ -38,11 +38,10 @@ func create(source : ResEffect) -> Effect:
 	return self
 
 func apply() -> void:
-	print("apply > ", U.node2string(self))
-	pass
+	print("apply > ", U.node2string(self, ["target_variable", "amount", "variable_sign", "apply", "tick_loength", "tick_count"]))
+
 func unapply() -> void:
-	print("unapply > ", U.node2string(self))
-	pass
+	print("unapply > ", U.node2string(self, ["target_variable", "amount", "variable_sign", "apply", "tick_loength", "tick_count"]))
 
 func _handle_ready() -> void:
 	pass

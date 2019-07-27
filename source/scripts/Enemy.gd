@@ -19,8 +19,8 @@ var forward_vector : Vector2 = Vector2()
 var snap_vector : Vector2 = C.SNAP_VECTOR
 var floor_vector : Vector2 = C.FLOOR_VECTOR
 #==== attack ====
-export(PackedScene) var attack_scene : PackedScene
 export(Array, PackedScene) var attack_scenes : Array
+export(float, -1, 1024, 0.1) var attack_timeout : float = 0.1 setget _set_attack_timeout
 var attack_index : int = -1
 
 #==== utils ====
@@ -35,6 +35,12 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	print(">> ", name)
+	if attack_timeout == -1:
+		print("aloha")
+		$AttackTimeout.queue_free()
+	else:
+		$AttackTimeout.wait_time = attack_timeout
+	
 
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
@@ -79,6 +85,11 @@ func execute_attack() -> void:
 	#	the following action because of inheritance
 	elif attack_instance is Action:
 		attack_instance.apply_effects(target)
+	
+	# start attack timeout in case that there is AttackTimeout node
+	if has_node("AttackTimeout"):
+		$AttackTimeout.start()
+	
 
 
 #==== computers ====
@@ -103,6 +114,11 @@ func set_facing(value : int) -> void:
 	$AttackRange.position.x = abs($AttackRange.position.x) * facing
 	forward_vector = U.gravity_vector2forward_vector(gravity_vector, facing)
 
+func _set_attack_timeout(value : float) -> void:
+	if value < 0.01:
+		value = -1
+	attack_timeout = value
+
 func set_process_gravity(value : bool) -> void:
 	_process_gravity = value
 
@@ -116,4 +132,10 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 		call_deferred("set_target", body)
 
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
+	print("call attack")
+	call_deferred("call_attack")
+
+
+func _on_AttackTimeout_timeout() -> void:
+	print("call attack")
 	call_deferred("call_attack")
