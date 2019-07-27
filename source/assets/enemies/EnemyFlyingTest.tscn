@@ -36,7 +36,7 @@ loop = true
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[node name="EnemyFlyingTest" index="0" instance=ExtResource( 1 )]
+[node name="EnemyFlyingTest" instance=ExtResource( 1 )]
 attack_scenes = [ ExtResource( 2 ) ]
 
 [node name="Shape" parent="AttackRange" index="0"]
