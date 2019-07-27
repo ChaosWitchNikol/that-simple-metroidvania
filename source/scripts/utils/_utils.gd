@@ -16,6 +16,30 @@ static func gravity_direction2vector(gravity_direction : int) -> Vector2:
 static func gravity_vector2forward_vector(gravity_vector : Vector2, facing : int) -> Vector2:
 	return no_negative_zero_vector2(gravity_vector.rotated(-(PI / 2) * facing).round())
 
+static func setup_timer(timer_node : Timer, wait_time : float ) -> void:
+	if wait_time == -1:
+		timer_node.queue_free()
+	else:
+		timer_node.wait_time = wait_time
+		timer_node.start()
+
+
+static func node2dict(node : Node, keys : Array = []) -> Dictionary:
+	var props : Dictionary = {}
+	
+	for prop in node.get_property_list():
+		if keys and keys.size() > 0:
+			if prop.name in keys:
+				props[prop.name] = node.get(prop.name)
+		else:
+			props[prop.name] = node.get(prop.name)
+			
+	return props
+
+static func node2string(node : Node, keys : Array = []) -> String:	
+	return to_json(node2dict(node, keys))
+	
+
 #==== editor ====
 static func in_editor() -> bool:
 	return Engine.editor_hint

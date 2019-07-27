@@ -19,10 +19,14 @@ var forward_vector : Vector2 = Vector2()
 var snap_vector : Vector2 = C.SNAP_VECTOR
 var floor_vector : Vector2 = C.FLOOR_VECTOR
 #==== attack ====
-export(PackedScene) var attack_scene : PackedScene
+export(Array, PackedScene) var attack_scenes : Array
+export(float, -1, 1024, 0.1) var attack_timeout : float = 0.1 setget _set_attack_timeout
+var attack_index : int = -1
+
 #==== utils ====
 var sm : float = 1.1 + get("collision/safe_margin") 
 var _process_gravity : bool = true setget set_process_gravity
+var _can_process_movement : bool = true setget set_process_movement
 var _pixel_snap : bool = false setget set_pixel_snap
 
 
@@ -32,6 +36,12 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	print(">> ", name)
+	if attack_timeout == -1:
+		print("aloha")
+		$AttackTimeout.queue_free()
+	else:
+		$AttackTimeout.wait_time = attack_timeout
+
 
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
@@ -41,7 +51,8 @@ func _physics_process(delta: float) -> void:
 		linear_velocity += gravity_vector * gravity_value * mass * delta
 	
 	# process movement
-	_process_movement(delta, on_floor)
+	if _can_process_movement:
+		_process_movement(delta, on_floor)
 	
 	# finally move
 	linear_velocity = move_and_slide_with_snap(linear_velocity, snap_vector, floor_vector)
@@ -56,18 +67,55 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 	pass
 
 
-#==== custom functions ====
+#==== functions ====
+#	create request for attack
+func call_attack(index : int = 0, target : Node = null) -> void:
+	if not can_attack(index):
+		return
+	if target:
+		self.target = target
+	attack_index = index
+	$AnimPlayer.play("attack")
+
+
+func execute_attack() -> void:
+	var attack_instance := (attack_scenes[attack_index] as PackedScene).instance()
+	
+	get_parent().add_child(attack_instance)
+	
+	if attack_instance is ActionRegion:
+		attack_instance.fire_attack($AttackRange.global_position, target.position)
+	elif attack_instance is ActionRay:
+		attack_instance.parent = $AttackRange
+		attack_instance.target = target
+		return
+	# ALWAYS! leave base Action as last
+	#	having it checked before any action will override
+	#	the following action because of inheritance
+	elif attack_instance is Action:
+		attack_instance.apply_effects(target)
+	
+	# start attack timeout in case that there is AttackTimeout node
+	if has_node("AttackTimeout"):
+		$AttackTimeout.start()
+
+
+#==== computers ====
+func can_attack(attack_index : int) -> bool:
+	return attack_scenes.size() > 0 and attack_index >= 0 and attack_index < attack_scenes.size()
 
 
 #==== setters ====
 func set_target(value : Node2D) -> void:
 	target = value
 
+
 func set_gravity_vector(value : Vector2) -> void:
 	gravity_vector = value.normalized()
 	snap_vector = gravity_vector * C.SNAP_VECTOR.length()
 	floor_vector = -gravity_vector
 	forward_vector = U.gravity_vector2forward_vector(gravity_vector, facing)
+
 
 func set_facing(value : int) -> void:
 	facing = value
@@ -76,8 +124,19 @@ func set_facing(value : int) -> void:
 	$AttackRange.position.x = abs($AttackRange.position.x) * facing
 	forward_vector = U.gravity_vector2forward_vector(gravity_vector, facing)
 
+
+func _set_attack_timeout(value : float) -> void:
+	if value < 0.01:
+		value = -1
+	attack_timeout = value
+
+
 func set_process_gravity(value : bool) -> void:
 	_process_gravity = value
+
+
+func set_process_movement(value : bool) -> void:
+	_can_process_movement = value
 
 func set_pixel_snap(value : bool) -> void:
 	_pixel_snap = value
@@ -88,5 +147,12 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 	if body and not is_passive:
 		call_deferred("set_target", body)
 
+
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
-	pass # Replace with function body.
+	print("call attack")
+	call_deferred("call_attack")
+
+
+func _on_AttackTimeout_timeout() -> void:
+	print("call attack")
+	call_deferred("call_attack")

@@ -1,20 +1,18 @@
+tool
 extends Resource
 class_name ResEffect
 
+#==== variables ====
 # which variable will be affected
-export(C.EFFECT_TARGET) var target : int = C.EFFECT_TARGET.HEALTH
+export(C.EFFECT_TARGET) var target_variable : int = C.EFFECT_TARGET.HEALTH
 # how much
 export(float,0 , 8192) var amount : float = 0
 # either add or subtract
-export(C.EFFECT_SIGN) var target_sign : int = C.EFFECT_SIGN.PLUS
-# how long will the effect stay active
-#	0 - effect is instant
-#	-1 - effect is permanent
-export(float, -1, 1024, 0.01) var duration : float = 0 setget _set_duration
-
-
-#==== setters ====
-func _set_duration(value: float) -> void:
-	if value < 0.0:
-		value = -1
-	duration = value
+export(C.EFFECT_SIGN) var variable_sign : int = C.EFFECT_SIGN.PLUS
+# when the effect should be applied
+export(C.EFFECT_APPLY) var apply : int = C.EFFECT_APPLY.EVERY_TICK
+# how often will targeted variable be change by anount
+export(float, 0.01, 4096) var tick_length : float = 0.01
+# how many times it is possible to apply tick
+#	0 - effect will be permanent
+export(int, 0, 4096, 1) var tick_count : int = 1

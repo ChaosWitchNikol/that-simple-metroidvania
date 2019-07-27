@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Action.tscn" type="PackedScene" id=1]
+[ext_resource path="res://types/ResEffect.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+target_variable = 0
+amount = 10.0
+variable_sign = -1
+apply = 0
+tick_length = 0.01
+tick_count = 0
+
+[node name="EnemyWalkingTestAttack" index="0" instance=ExtResource( 1 )]
+effects = [ SubResource( 1 ) ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 
@@ -10,6 +10,59 @@ radius = 48.0
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "attack"
+length = 0.5
+
+[sub_resource type="Animation" id=5]
+resource_name = "death"
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=7]
+resource_name = "move"
+loop = true
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/attack/node = SubResource( 8 )
+states/attack/position = Vector2( 402, 57 )
+states/death/node = SubResource( 9 )
+states/death/position = Vector2( 779, 207 )
+states/idle/node = SubResource( 10 )
+states/idle/position = Vector2( 592, 131 )
+states/move/node = SubResource( 11 )
+states/move/position = Vector2( 773, 57 )
+transitions = [ "idle", "move", SubResource( 12 ), "move", "idle", SubResource( 13 ), "idle", "attack", SubResource( 14 ), "attack", "idle", SubResource( 15 ), "move", "attack", SubResource( 16 ), "idle", "death", SubResource( 17 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -47,5 +100,21 @@ collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 3 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 4 )
+anims/death = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/move = SubResource( 7 )
+
+[node name="AnimTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../AnimPlayer")
+active = true
+parameters/playback = SubResource( 19 )
+
+[node name="AttackTimeout" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="timeout" from="AttackTimeout" to="." method="_on_AttackTimeout_timeout"]

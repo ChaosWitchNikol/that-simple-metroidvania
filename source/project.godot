@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Action",
+"language": "GDScript",
+"path": "res://scripts/Action.gd"
+}, {
+"base": "Action",
+"class": "ActionRay",
+"language": "GDScript",
+"path": "res://scripts/ActionRay.gd"
+}, {
+"base": "Action",
+"class": "ActionRegion",
+"language": "GDScript",
+"path": "res://scripts/ActionRegion.gd"
+}, {
 "base": "Object",
 "class": "C",
 "language": "GDScript",
 "path": "res://scripts/utils/_constants.gd"
+}, {
+"base": "Node",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://scripts/Effect.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -65,7 +85,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utils/_utils.gd"
 } ]
 _global_script_class_icons={
+"Action": "",
+"ActionRay": "",
+"ActionRegion": "",
 "C": "",
+"Effect": "",
 "Enemy": "",
 "EnemyCrawling": "",
 "EnemyFlying": "",

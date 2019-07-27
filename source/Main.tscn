@@ -2,13 +2,13 @@
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/EnemyWalking.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/EnemyFlying.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/EnemyStatic.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/enemies/EnemyWalkingTest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/enemies/EnemyStaticTest.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/enemies/EnemyFlyingTest.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 
@@ -21,46 +21,54 @@ format = 1
 tile_data = PoolIntArray( 393228, 7, 0, 393229, 536870918, 0, 393230, 536870918, 0, 393231, 536870918, 0, 393232, 536870918, 0, 393233, 536870919, 0, 458764, 4, 0, 458769, 536870916, 0, 524292, 7, 0, 524293, 6, 0, 524294, 6, 0, 524295, 6, 0, 524296, 6, 0, 524297, 6, 0, 524298, 6, 0, 524299, 536870919, 0, 524300, 4, 0, 524305, 536870916, 0, 524306, 7, 0, 524307, 6, 0, 524308, 6, 0, 524309, 6, 0, 524310, 6, 0, 524311, 536870918, 0, 524312, 536870918, 0, 524313, 536870918, 0, 524314, 536870918, 0, 524315, 536870918, 0, 524316, 536870918, 0, 524317, 536870918, 0, 524318, 536870918, 0, 524319, 536870918, 0, 524320, 536870918, 0, 524321, 536870918, 0, 524322, 536870918, 0, 524323, 536870919, 0, 589828, 4, 0, 589836, 4, 0, 589841, 536870916, 0, 589859, 536870916, 0, 655364, 4, 0, 655372, 8, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 536870920, 0, 655395, 536870916, 0, 720900, 4, 0, 720931, 536870916, 0, 786436, 4, 0, 786467, 536870916, 0, 851972, 4, 0, 852003, 536870916, 0, 917508, 8, 0, 917509, 1, 0, 917510, 1, 0, 917511, 1, 0, 917512, 1, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917519, 3, 0, 917539, 536870917, 0, 917540, 536870918, 0, 917541, 536870918, 0, 917542, 536870918, 0, 917543, 536870918, 0, 917544, 536870918, 0, 917545, 536870918, 0, 917546, 536870918, 0, 917547, 536870918, 0, 917548, 536870918, 0, 917549, 536870918, 0, 917550, 6, 0, 917551, 6, 0, 917552, 6, 0, 917553, 6, 0, 917554, 6, 0, 917555, 6, 0, 917556, 6, 0, 917557, 6, 0, 917558, 6, 0, 917559, 6, 0, 917560, 6, 0, 917561, 6, 0, 917562, 6, 0, 917563, 6, 0, 917564, 6, 0, 917565, 6, 0, 917566, 536870918, 0, 917567, 536870918, 0, 917568, 536870918, 0, 917569, 536870919, 0, 983055, 4, 0, 983105, 536870916, 0, 1048591, 4, 0, 1048641, 536870916, 0, 1114127, 4, 0, 1114177, 536870916, 0, 1179663, 4, 0, 1179683, 536870915, 0, 1179684, 536870913, 0, 1179685, 536870913, 0, 1179686, 536870913, 0, 1179687, 536870913, 0, 1179688, 536870913, 0, 1179689, 536870913, 0, 1179690, 536870913, 0, 1179691, 536870913, 0, 1179692, 536870913, 0, 1179693, 536870913, 0, 1179694, 536870913, 0, 1179695, 3, 0, 1179713, 536870916, 0, 1245199, 4, 0, 1245219, 536870916, 0, 1245231, 4, 0, 1245249, 536870916, 0, 1310735, 4, 0, 1310755, 536870916, 0, 1310767, 4, 0, 1310771, 536870915, 0, 1310772, 536870913, 0, 1310773, 3, 0, 1310785, 536870916, 0, 1376271, 8, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 1, 0, 1376275, 1, 0, 1376276, 1, 0, 1376277, 1, 0, 1376278, 1, 0, 1376279, 1, 0, 1376280, 1, 0, 1376281, 1, 0, 1376282, 1, 0, 1376283, 1, 0, 1376284, 1, 0, 1376285, 1, 0, 1376286, 1, 0, 1376287, 1, 0, 1376288, 1, 0, 1376289, 1, 0, 1376290, 1, 0, 1376291, 536870920, 0, 1376303, 4, 0, 1376307, 536870917, 0, 1376308, 536870918, 0, 1376309, 5, 0, 1376321, 536870916, 0, 1441828, 7, 0, 1441829, 6, 0, 1441830, 6, 0, 1441831, 6, 0, 1441832, 6, 0, 1441833, 6, 0, 1441834, 6, 0, 1441835, 6, 0, 1441836, 6, 0, 1441837, 6, 0, 1441838, 6, 0, 1441839, 5, 0, 1441857, 536870916, 0, 1507364, 4, 0, 1507393, 536870916, 0, 1572900, 4, 0, 1572929, 536870916, 0, 1638436, 4, 0, 1638455, 536870915, 0, 1638456, 1, 0, 1638457, 1, 0, 1638458, 1, 0, 1638459, 3, 0, 1638465, 536870916, 0, 1703972, 4, 0, 1703991, 536870917, 0, 1703992, 6, 0, 1703993, 6, 0, 1703994, 6, 0, 1703995, 5, 0, 1704001, 536870916, 0, 1769508, 4, 0, 1769537, 536870916, 0, 1835044, 4, 0, 1835073, 536870916, 0, 1900580, 4, 0, 1900609, 536870916, 0, 1966116, 4, 0, 1966145, 536870916, 0, 2031652, 8, 0, 2031653, 1, 0, 2031654, 1, 0, 2031655, 1, 0, 2031656, 1, 0, 2031657, 1, 0, 2031658, 1, 0, 2031659, 1, 0, 2031660, 1, 0, 2031661, 1, 0, 2031662, 536870913, 0, 2031663, 536870913, 0, 2031664, 536870913, 0, 2031665, 536870913, 0, 2031666, 536870913, 0, 2031667, 536870913, 0, 2031668, 536870913, 0, 2031669, 536870913, 0, 2031670, 536870913, 0, 2031671, 536870913, 0, 2031672, 536870913, 0, 2031673, 536870913, 0, 2031674, 536870913, 0, 2031675, 536870913, 0, 2031676, 536870913, 0, 2031677, 536870913, 0, 2031678, 536870913, 0, 2031679, 536870913, 0, 2031680, 536870913, 0, 2031681, 536870920, 0 )
 
 [node name="Hero" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-position = Vector2( 272, 400 )
+position = Vector2( 464, 400 )
 allow_wall_climbing = true
 
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true
 
-[node name="EnemyWalking" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1184, 544 )
-
-[node name="EnemyFlying" parent="." instance=ExtResource( 4 )]
-position = Vector2( 784, 320 )
-
-[node name="EnemyStatic" parent="." instance=ExtResource( 5 )]
-position = Vector2( 352, 304 )
-facing = -1
-
-[node name="EnemyCrawling" parent="." instance=ExtResource( 6 )]
-position = Vector2( 480, 288 )
-movement_speed = 200.0
-
-[node name="EnemyCrawling2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 320, 416 )
-movement_speed = 200.0
-facing = -1
-
-[node name="Pathway" parent="." instance=ExtResource( 7 )]
+[node name="Pathway" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 544, 448 )
+point_wait_tile = 0.01
 start_wait_time = 2.0
 
-[node name="Point2" parent="Pathway" instance=ExtResource( 8 )]
+[node name="Point2" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 0, 128 )
+wait_time = 2.0
 
-[node name="Point4" parent="Pathway" instance=ExtResource( 8 )]
+[node name="Point4" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 544, 128 )
+wait_time = 2.0
 
-[node name="Point3" parent="Pathway" instance=ExtResource( 8 )]
+[node name="Point3" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 544, 0 )
+wait_time = 2.0
 
-[node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 723.999, 576 )
+[node name="Platform" parent="." instance=ExtResource( 5 )]
+position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
-start_node_path = NodePath("../Pathway/Point2")
+
+[node name="Platform2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1088, 576 )
+pathway_node_path = NodePath("../Pathway")
+start_node_path = NodePath("../Pathway/Point4")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyWalkingTest" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 656, 608 )
+attack_timeout = -1.0
+
+[node name="EnemyStaticTest" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 192, 304 )
+attack_timeout = 1.0
+
+[node name="EnemyCrawling2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 464, 304 )
+movement_speed = 200.0
+attack_timeout = -1.0
+
+[node name="EnemyFlyingTest" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 768, 352 )
+collision_mask = 1
