@@ -30,6 +30,13 @@ current = true
 
 [node name="EnemyWalking" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1792, 736 )
+is_passive = false
+gravity_value = 9.8
+mass = 100.0
+movement_speed = 300.0
+facing = 1
+attack_scene = null
+attack_scenes = [  ]
 
 [node name="EnemyFlying" parent="." instance=ExtResource( 4 )]
 position = Vector2( 784, 320 )
@@ -53,7 +60,13 @@ attack_scenes = [  ]
 
 [node name="EnemyCrawling2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 464, 304 )
+is_passive = false
+gravity_value = 9.8
+mass = 100.0
 movement_speed = 200.0
+facing = 1
+attack_scene = null
+attack_scenes = [  ]
 
 [node name="Pathway" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
@@ -74,14 +87,14 @@ position = Vector2( 544, 0 )
 wait_time = 2.0
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 937.331, 576 )
+position = Vector2( 1088, 576 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("")
 movement_speed = 200.0
 tile_width = 2
 
 [node name="Platform2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 694.668, 448 )
+position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
 movement_speed = 200.0
@@ -89,3 +102,9 @@ tile_width = 2
 
 [node name="EnemyWalkingTest" parent="." instance=ExtResource( 10 )]
 position = Vector2( 656, 608 )
+is_passive = false
+gravity_value = 9.8
+mass = 100.0
+movement_speed = 300.0
+facing = 1
+attack_scene = null

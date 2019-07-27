@@ -23,6 +23,14 @@ static func setup_timer(timer_node : Timer, wait_time : float ) -> void:
 		timer_node.wait_time = wait_time
 		timer_node.start()
 
+static func node2string(node: Node) -> String:
+	var props : Dictionary = {}
+	
+	for prop in node.get_property_list():
+		props[prop.name] = node.get(prop.name)
+	
+	return to_json(props)
+	
 
 #==== editor ====
 static func in_editor() -> bool:
