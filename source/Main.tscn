@@ -61,14 +61,14 @@ position = Vector2( 544, 0 )
 wait_time = 2.0
 
 [node name="Platform" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1088, 448 )
+position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("")
 movement_speed = 200.0
 tile_width = 2
 
 [node name="Platform2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 544, 576 )
+position = Vector2( 1088, 576 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
 movement_speed = 200.0
@@ -80,4 +80,4 @@ attack_timeout = -1.0
 
 [node name="EnemyStaticTest" parent="." instance=ExtResource( 10 )]
 position = Vector2( 192, 304 )
-attack_timeout = -1.0
+attack_timeout = 1.0

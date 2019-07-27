@@ -26,4 +26,4 @@ effects = [ SubResource( 1 ), SubResource( 2 ) ]
 movement_speed = 200.0
 
 [node name="Region" parent="." index="0"]
-collision_mask = 2
+collision_mask = 1027
