@@ -14,7 +14,7 @@ func _process_movement(delta: float, on_floor: bool) -> void:
 	if target:
 		var direction : Vector2 = (target.position - position).normalized()
 		linear_velocity = direction * delta * movement_speed * C.TILE_SIZEF
-		
+		$AttackRange.position = direction * $AttackRange.position.length()
 		if linear_velocity.length() > 0:
 			if linear_velocity.x > 0:
 				set_facing(C.FACING.RIGHT)

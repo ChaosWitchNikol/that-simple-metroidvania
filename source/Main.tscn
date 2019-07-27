@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/EnemyWalking.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/EnemyFlying.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Platform.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/enemies/EnemyWalkingTest.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/enemies/EnemyStaticTest.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Pathway.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Point.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/enemies/EnemyWalkingTest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/enemies/EnemyStaticTest.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/EnemyCrawling.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/enemies/EnemyFlyingTest.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 
@@ -28,56 +27,49 @@ allow_wall_climbing = true
 [node name="HeroCam" type="Camera2D" parent="Hero"]
 current = true
 
-[node name="EnemyWalking" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1792, 736 )
-attack_timeout = -1.0
-
-[node name="EnemyFlying" parent="." instance=ExtResource( 4 )]
-position = Vector2( 784, 320 )
-is_passive = true
-attack_timeout = -1.0
-
-[node name="EnemyCrawling2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 464, 304 )
-movement_speed = 200.0
-attack_timeout = -1.0
-
-[node name="Pathway" parent="." instance=ExtResource( 6 )]
+[node name="Pathway" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 544, 448 )
 point_wait_tile = 0.01
 start_wait_time = 2.0
 
-[node name="Point2" parent="Pathway" instance=ExtResource( 7 )]
+[node name="Point2" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 0, 128 )
 wait_time = 2.0
 
-[node name="Point4" parent="Pathway" instance=ExtResource( 7 )]
+[node name="Point4" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 544, 128 )
 wait_time = 2.0
 
-[node name="Point3" parent="Pathway" instance=ExtResource( 7 )]
+[node name="Point3" parent="Pathway" instance=ExtResource( 4 )]
 position = Vector2( 544, 0 )
 wait_time = 2.0
 
-[node name="Platform" parent="." instance=ExtResource( 8 )]
+[node name="Platform" parent="." instance=ExtResource( 5 )]
 position = Vector2( 544, 448 )
 pathway_node_path = NodePath("../Pathway")
-start_node_path = NodePath("")
-movement_speed = 200.0
-tile_width = 2
 
-[node name="Platform2" parent="." instance=ExtResource( 8 )]
+[node name="Platform2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1088, 576 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
-movement_speed = 200.0
-tile_width = 2
 
-[node name="EnemyWalkingTest" parent="." instance=ExtResource( 9 )]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyWalkingTest" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 656, 608 )
 attack_timeout = -1.0
 
-[node name="EnemyStaticTest" parent="." instance=ExtResource( 10 )]
+[node name="EnemyStaticTest" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 192, 304 )
 attack_timeout = 1.0
+
+[node name="EnemyCrawling2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 464, 304 )
+movement_speed = 200.0
+attack_timeout = -1.0
+
+[node name="EnemyFlyingTest" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 768, 352 )
+collision_layer = 4
+collision_mask = 1

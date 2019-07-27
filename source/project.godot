@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://scripts/Action.gd"
 }, {
 "base": "Action",
+"class": "ActionRay",
+"language": "GDScript",
+"path": "res://scripts/ActionRay.gd"
+}, {
+"base": "Action",
 "class": "ActionRegion",
 "language": "GDScript",
 "path": "res://scripts/ActionRegion.gd"
@@ -81,6 +86,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action": "",
+"ActionRay": "",
 "ActionRegion": "",
 "C": "",
 "Effect": "",

@@ -85,6 +85,10 @@ func execute_attack() -> void:
 	
 	if attack_instance is ActionRegion:
 		attack_instance.fire_attack($AttackRange.global_position, target.position)
+	elif attack_instance is ActionRay:
+		attack_instance.parent = $AttackRange
+		attack_instance.target = target
+		return
 	# ALWAYS! leave base Action as last
 	#	having it checked before any action will override
 	#	the following action because of inheritance
