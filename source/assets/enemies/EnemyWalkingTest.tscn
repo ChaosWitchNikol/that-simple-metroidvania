@@ -1,34 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/EnemyWalking.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/actions/attacks/EnemyWalkingTest.attack.tscn" type="PackedScene" id=2]
 
-[sub_resource type="GDScript" id=17]
-script/source = "tool
-extends Enemy
-class_name EnemyWalking
-
-#==== processors ====
-# @override
-func _process_movement(delta: float, on_floor) -> void:
-	if on_floor:
-		if not target:
-			if not can_move_forward():
-				set_facing(facing * -1)
-			move_forward(delta)
-			pass
-	pass
-
-#==== custom funcitons ====
-func can_move_forward() -> bool:
-	return not (test_move(global_transform, forward_vector) or not test_move(global_transform.translated(gravity_vector * C.TILE_SIZEF ), forward_vector * C.HALF_TILE_SIZEF))
-
-func move_forward(delta: float) -> void:
-	linear_velocity = forward_vector * movement_speed * delta * C.TILE_SIZEF"
-
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
-length = 0.5
+length = 0.01
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -36,7 +13,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -94,13 +71,6 @@ transitions = [ "idle", "move", SubResource( 9 ), "move", "idle", SubResource( 1
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
 [node name="EnemyWalkingTest" instance=ExtResource( 1 )]
-script = SubResource( 17 )
-is_passive = false
-gravity_value = 9.8
-mass = 100.0
-movement_speed = 300.0
-facing = 1
-attack_scene = null
 attack_scenes = [ ExtResource( 2 ) ]
 
 [node name="AnimPlayer" parent="." index="4"]

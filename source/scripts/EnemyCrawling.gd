@@ -35,7 +35,7 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 		linear_velocity = forward_vector * movement_speed * delta * C.TILE_SIZEF
 
 
-#==== custom functions ====
+#==== functions ====
 func next_vectors(rotation_type : int = RotationType.NONE) -> void:
 	# calculate new gravity vector
 	var next_gavity_vector : Vector2 = gravity_vector.rotated(PI_HALF * facing * rotation_type)
@@ -47,9 +47,17 @@ func next_vectors(rotation_type : int = RotationType.NONE) -> void:
 	floor_vector = -gravity_vector
 	
 	# rotate Sprite, ArrackRange, View accordingly
-	$Sprite.rotation_degrees = round(rad2deg(forward_vector.angle()))
+	var new_rotation_degrees = round(rad2deg(forward_vector.angle()))
 	if facing == C.FACING.LEFT:
-		$Sprite.rotation_degrees += 180
-	$AttackRange.position = forward_vector * $AttackRange.position.length()
-	$View.position = forward_vector * $View.position.length()
+		new_rotation_degrees += 180
+	_set_node_rotation($Sprite, new_rotation_degrees)
+	_set_node_rotation($AttackRange, new_rotation_degrees)
+	_set_node_rotation($View, new_rotation_degrees)
 
+
+#==== setters ====
+func _set_node_rotation(node: Node2D, new_rotation_degrees: float) -> void:
+	var position_length = node.position.length()
+	if position_length > 0.0:
+		node.position = forward_vector * position_length
+	node.rotation_degrees = new_rotation_degrees

@@ -52,7 +52,7 @@ attack_scene = null
 attack_scenes = [  ]
 
 [node name="EnemyCrawling2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 320, 416 )
+position = Vector2( 464, 304 )
 movement_speed = 200.0
 
 [node name="Pathway" parent="." instance=ExtResource( 7 )]
@@ -74,14 +74,14 @@ position = Vector2( 544, 0 )
 wait_time = 2.0
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1088, 448 )
+position = Vector2( 937.331, 576 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("")
 movement_speed = 200.0
 tile_width = 2
 
 [node name="Platform2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 544, 576 )
+position = Vector2( 694.668, 448 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
 movement_speed = 200.0
@@ -89,4 +89,3 @@ tile_width = 2
 
 [node name="EnemyWalkingTest" parent="." instance=ExtResource( 10 )]
 position = Vector2( 656, 608 )
-collision_layer = 4

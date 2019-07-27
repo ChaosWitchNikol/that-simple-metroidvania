@@ -71,11 +71,14 @@ func call_attack(index : int = 0, target : Node = null) -> void:
 
 func execute_attack() -> void:
 	var attack_instance := (attack_scenes[attack_index] as PackedScene).instance()
-	attack_instance.position = $AttackRange.global_position
 	get_parent().add_child(attack_instance)
 	if attack_instance is ActionRegion:
 		attack_instance.fire_attack($AttackRange.global_position, target.position)
-		print("is action region")
+	# ALWAYS! leave base Action as last
+	#	having it checked before any action will override
+	#	the following action because of inheritance
+	elif attack_instance is Action:
+		attack_instance.apply_effects(target)
 
 
 #==== computers ====
@@ -113,6 +116,4 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 		call_deferred("set_target", body)
 
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
-	print("call_attack", name, " ", target)
-	call_attack()
-	pass # Replace with function body.
+	call_deferred("call_attack")

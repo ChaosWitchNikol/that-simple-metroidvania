@@ -16,6 +16,14 @@ static func gravity_direction2vector(gravity_direction : int) -> Vector2:
 static func gravity_vector2forward_vector(gravity_vector : Vector2, facing : int) -> Vector2:
 	return no_negative_zero_vector2(gravity_vector.rotated(-(PI / 2) * facing).round())
 
+static func setup_timer(timer_node : Timer, wait_time : float ) -> void:
+	if wait_time == -1:
+		timer_node.queue_free()
+	else:
+		timer_node.wait_time = wait_time
+		timer_node.start()
+
+
 #==== editor ====
 static func in_editor() -> bool:
 	return Engine.editor_hint

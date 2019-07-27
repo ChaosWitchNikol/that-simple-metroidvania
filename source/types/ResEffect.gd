@@ -8,6 +8,11 @@ export(C.EFFECT_TARGET) var target_variable : int = C.EFFECT_TARGET.HEALTH
 export(float,0 , 8192) var amount : float = 0
 # either add or subtract
 export(C.EFFECT_SIGN) var variable_sign : int = C.EFFECT_SIGN.PLUS
+# when the effect should be applied
+export(C.EFFECT_APPLY) var apply_at : int = C.EFFECT_APPLY.EVERY_TICK
+# wheather the effect stays attached to target
+#	true - effect 
+export(bool) var is_permanent : int = false
 # how long will the effect stay active
 #	-1 - effect is permanent
 export(float, -1, 1024, 0.01) var duration : float = 0.01 setget _set_duration

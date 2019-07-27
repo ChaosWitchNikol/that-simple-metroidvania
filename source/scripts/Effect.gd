@@ -7,23 +7,17 @@ var amount : float
 var variable_sign : int
 var duration : float
 var tick_time : float
-
+export(C.FACING, "left", "right") var aloha : int
 
 #==== node functions ====
 func _ready() -> void:
 	# setup timers
-	_setup_timer($Duration, duration)
-	_setup_timer($Tick, tick_time)
+	U.setup_timer($Duration, duration)
+	U.setup_timer($Tick, tick_time)
+
 
 
 #==== functions ====
-func _setup_timer(timer : Timer, wait_time : float) -> void:
-	if wait_time == -1:
-		timer.queue_free()
-	else:
-		timer.wait_time = wait_time
-		timer.start()
-
 # will set all the variables and then add instance to the parent
 func create(source : ResEffect) -> Effect:
 	self.target_variable = source.target_variable
@@ -33,3 +27,12 @@ func create(source : ResEffect) -> Effect:
 	self.tick_time = source.tick_time
 	
 	return self
+
+func _handle_ready() -> void:
+	pass
+
+func _handle_tick() -> void:
+	pass
+
+func _handle_duration() -> void:
+	pass

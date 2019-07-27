@@ -2,65 +2,65 @@
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=2]
 radius = 48.0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "attack"
 length = 0.5
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=5]
 resource_name = "death"
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=6]
 resource_name = "idle"
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=7]
 resource_name = "move"
 loop = true
 
-[sub_resource type="AnimationNodeAnimation" id=1]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "attack"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "death"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "move"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 [sub_resource type="AnimationNodeStateMachine" id=18]
-states/attack/node = SubResource( 1 )
+states/attack/node = SubResource( 8 )
 states/attack/position = Vector2( 402, 57 )
-states/death/node = SubResource( 2 )
+states/death/node = SubResource( 9 )
 states/death/position = Vector2( 779, 207 )
-states/idle/node = SubResource( 3 )
+states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 592, 131 )
-states/move/node = SubResource( 4 )
+states/move/node = SubResource( 11 )
 states/move/position = Vector2( 773, 57 )
-transitions = [ "idle", "move", SubResource( 5 ), "move", "idle", SubResource( 6 ), "idle", "attack", SubResource( 7 ), "attack", "idle", SubResource( 8 ), "move", "attack", SubResource( 9 ), "idle", "death", SubResource( 10 ) ]
+transitions = [ "idle", "move", SubResource( 12 ), "move", "idle", SubResource( 13 ), "idle", "attack", SubResource( 14 ), "attack", "idle", SubResource( 15 ), "move", "attack", SubResource( 16 ), "idle", "death", SubResource( 17 ) ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
@@ -74,7 +74,7 @@ script = ExtResource( 1 )
 "enemy_body",
 ]]
 modulate = Color( 0, 0.6, 1, 1 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="View" type="Area2D" parent="." groups=[
 "enemy_view",
@@ -86,7 +86,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="View"]
-shape = SubResource( 12 )
+shape = SubResource( 2 )
 
 [node name="AttackRange" type="Area2D" parent="." groups=[
 "enemy_attack_range",
@@ -99,13 +99,13 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource( 13 )
+shape = SubResource( 3 )
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 14 )
-anims/death = SubResource( 15 )
-anims/idle = SubResource( 16 )
-anims/move = SubResource( 17 )
+anims/attack = SubResource( 4 )
+anims/death = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/move = SubResource( 7 )
 
 [node name="AnimTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 18 )

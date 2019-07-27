@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/ActionRegion.gd" type="Script" id=2]
 [ext_resource path="res://types/ResEffect.gd" type="Script" id=3]
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
 target_variable = 0
 amount = 0.0
@@ -16,7 +16,7 @@ tick_time = 0.01
 
 [node name="ActionRegion" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-effects = [ null, SubResource( 3 ) ]
+effects = [ null, SubResource( 1 ) ]
 
 [node name="Region" type="Area2D" parent="." index="0"]
 editor/display_folded = true
@@ -33,6 +33,5 @@ shape = SubResource( 2 )
 [node name="RemoveTimeout" type="Timer" parent="." index="1"]
 wait_time = 0.01
 one_shot = true
-autostart = true
 [connection signal="body_entered" from="Region" to="." method="_on_Region_body_entered"]
 [connection signal="timeout" from="RemoveTimeout" to="." method="_on_RemoveTimeout_timeout"]
