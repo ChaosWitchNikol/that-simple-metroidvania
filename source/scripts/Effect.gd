@@ -7,7 +7,6 @@ var amount : float
 var variable_sign : int
 var duration : float
 var tick_time : float
-export(C.FACING, "left", "right") var aloha : int
 
 #==== node functions ====
 func _ready() -> void:

@@ -8,16 +8,22 @@ script = ExtResource( 2 )
 target_variable = 0
 amount = 5.0
 variable_sign = -1
+apply_at = 2
 duration = 0.01
 tick_time = 0.01
+tick_length = 0.01
+tick_count = 1
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 target_variable = 1
 amount = 100.0
 variable_sign = -1
+apply_at = 2
 duration = 5.0
 tick_time = -1.0
+tick_length = 0.01
+tick_count = 1
 
 [node name="EnemyCrawlingTestAttack" instance=ExtResource( 1 )]
 effects = [ SubResource( 1 ), SubResource( 2 ) ]

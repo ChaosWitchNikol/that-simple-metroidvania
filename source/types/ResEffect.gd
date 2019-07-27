@@ -10,9 +10,6 @@ export(float,0 , 8192) var amount : float = 0
 export(C.EFFECT_SIGN) var variable_sign : int = C.EFFECT_SIGN.PLUS
 # when the effect should be applied
 export(C.EFFECT_APPLY) var apply_at : int = C.EFFECT_APPLY.EVERY_TICK
-# wheather the effect stays attached to target
-#	true - effect 
-export(bool) var is_permanent : int = false
 # how long will the effect stay active
 #	-1 - effect is permanent
 export(float, -1, 1024, 0.01) var duration : float = 0.01 setget _set_duration
@@ -21,6 +18,9 @@ export(float, -1, 1024, 0.01) var duration : float = 0.01 setget _set_duration
 #		- and duration >= 0.01 change variable at the begging and remove when duration ends
 #	>= 0.01 - and duration = -1 or duration >= 0.01 - vartiable is affected every tick
 export(float, -1, 32, 0.01) var tick_time : float = 0.01 setget _set_tick_time
+
+export(float, 0.01, 4096) var tick_length : float = 0.01
+export(int, -1, 4096) var tick_count : int = 1
 
 
 #==== setters ====
