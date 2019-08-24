@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Point.gd"
 }, {
+"base": "Node",
+"class": "Region",
+"language": "GDScript",
+"path": "res://scripts/Region.gd"
+}, {
 "base": "Resource",
 "class": "ResEffect",
 "language": "GDScript",
@@ -109,6 +114,7 @@ _global_script_class_icons={
 "Pathway": "",
 "Platform": "",
 "Point": "",
+"Region": "",
 "ResEffect": "",
 "Teleport": "",
 "U": ""

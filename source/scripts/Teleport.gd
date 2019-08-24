@@ -4,7 +4,6 @@ class_name Teleport
 
 #==== target teleport ====
 export(NodePath) var target_teleport_path : NodePath
-var target_teleport : Teleport
 #==== parent zone ====
 export(NodePath) var parent_zone_path : NodePath
 
@@ -20,10 +19,10 @@ var is_exit : bool = false
 func _ready() -> void:
 	if U.in_editor():
 		return
+	
 	if not target_teleport_path:
 		queue_free()
 		return
-	target_teleport = get_node(target_teleport_path)
 
 
 
@@ -33,6 +32,8 @@ func _ready() -> void:
 func transport_hero(hero : Hero) -> void:
 	# TODO: take control away from player
 	# TODO: set Cam to hero cam position
+	
+	var target_teleport = get_node(target_teleport_path)
 	
 	# setup
 	$Cam.make_current()
@@ -63,6 +64,12 @@ func transport_hero(hero : Hero) -> void:
 #==== getters ====
 func get_exit_position() -> Vector2:
 	return $ExitPosition.global_position
+
+func get_zone_placeholder() -> InstancePlaceholder:
+	return get_node(parent_zone_path) as InstancePlaceholder
+
+func get_target_teleport_zone_placeholder() -> InstancePlaceholder:
+	return (get_node(target_teleport_path) as Teleport).get_zone_placeholder()
 
 
 #==== setters ====
