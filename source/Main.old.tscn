@@ -48,18 +48,13 @@ position = Vector2( 544, 0 )
 wait_time = 2.0
 
 [node name="Platform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1088, 448 )
-pathway_node_path = NodePath("../Pathway")
-start_node_path = NodePath("")
-movement_speed = 200.0
-tile_width = 2
-
-[node name="Platform2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 544, 576 )
 pathway_node_path = NodePath("../Pathway")
+
+[node name="Platform2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1088, 448 )
+pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
-movement_speed = 200.0
-tile_width = 2
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -104,7 +99,9 @@ attack_timeout = 0.1
 [node name="Teleport" parent="." instance=ExtResource( 10 )]
 position = Vector2( 240, 400 )
 target_teleport_path = NodePath("../Teleport2")
+parent_zone_path = NodePath("")
 
 [node name="Teleport2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1210, 940 )
 target_teleport_path = NodePath("../Teleport")
+parent_zone_path = NodePath("")

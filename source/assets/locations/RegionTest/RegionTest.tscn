@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Region.tscn" type="PackedScene" id=1]
+
+[node name="RegionTest" index="0" instance=ExtResource( 1 )]
+start_zone_path = NodePath("Zones/Zone1")
+
+[node name="Zone1" parent="Zones" index="0" instance_placeholder="res://assets/locations/RegionTest/Zone1.tscn"]
+
+[node name="Zone2" parent="Zones" index="1" instance_placeholder="res://assets/locations/RegionTest/Zone2.tscn"]
+position = Vector2( 1120, -384 )
