@@ -99,9 +99,7 @@ attack_timeout = 0.1
 [node name="Teleport" parent="." instance=ExtResource( 10 )]
 position = Vector2( 240, 400 )
 target_teleport_path = NodePath("../Teleport2")
-parent_zone_path = NodePath("")
 
 [node name="Teleport2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1210, 940 )
 target_teleport_path = NodePath("../Teleport")
-parent_zone_path = NodePath("")

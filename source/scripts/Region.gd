@@ -15,7 +15,7 @@ func _ready() -> void:
 		current_zone = get_node(start_zone_path).create_instance()
 	# connect teleports signals
 	for teleport in $Teleports.get_children():
-		teleport.connect("teleport_entered", self, "_on_teleport_entered")
+		(teleport as Teleport).connect("teleport_entered", self, "_on_teleport_entered")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

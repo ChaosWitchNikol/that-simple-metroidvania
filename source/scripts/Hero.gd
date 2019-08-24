@@ -66,3 +66,23 @@ func _physics_process(delta: float) -> void:
 	
 	#	finally move
 	linear_velocity = move_and_slide_with_snap(linear_velocity, snap_vector, C.FLOOR_VECTOR)
+
+
+func take_controll() -> void:
+	set_process(false)
+	set_physics_process(false)
+	$Cam.clear_current()
+
+func give_controll() -> void:
+	set_process(true)
+	set_physics_process(true)
+	$Cam.make_current()
+
+func jump_to_position(new_position : Vector2) -> void:
+	global_position = new_position
+
+
+
+#==== getters ====
+func get_camera_position() -> Vector2:
+	return $Cam.global_position

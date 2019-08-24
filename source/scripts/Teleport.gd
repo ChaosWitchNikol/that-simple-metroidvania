@@ -2,6 +2,8 @@ tool
 extends Area2D
 class_name Teleport
 
+signal teleport_entered
+
 #==== target teleport ====
 export(NodePath) var target_teleport_path : NodePath
 #==== parent zone ====
@@ -30,10 +32,11 @@ func _ready() -> void:
 
 #==== cutom functions ====
 func transport_hero(hero : Hero) -> void:
-	# TODO: take control away from player
-	# TODO: set Cam to hero cam position
-	
-	var target_teleport = get_node(target_teleport_path)
+	hero.take_controll()
+	$Cam.global_position = hero.get_camera_position()
+		
+	var target_teleport : Teleport = get_node(target_teleport_path)
+	target_teleport.make_exit()
 	
 	# setup
 	$Cam.make_current()
@@ -45,11 +48,19 @@ func transport_hero(hero : Hero) -> void:
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("ffffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
+	
+	# emit signal after the screen is blacked out
+	emit_signal("teleport_entered", self)
+	
+	# move hero to target location
+	hero.jump_to_position(target_teleport.get_exit_position())
+	
 	# move to target location
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
-	# exit the the teleport
+	
+	# exit the the teleport	$Cam.
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.get_exit_position(), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("00ffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
@@ -59,6 +70,10 @@ func transport_hero(hero : Hero) -> void:
 	# clear
 	$Cam/BlackOver.visible = false
 	
+	hero.give_controll()
+
+func make_exit() -> void:
+	is_exit = true
 
 
 #==== getters ====
@@ -73,9 +88,6 @@ func get_target_teleport_zone_placeholder() -> InstancePlaceholder:
 
 
 #==== setters ====
-func set_as_exit() -> void:
-	is_exit = true
-
 func _set_transport_duration(value : float) -> void:
 	if value < 0.01:
 		value = -1
@@ -93,6 +105,7 @@ func _on_Teleport_body_entered(body: PhysicsBody2D) -> void:
 		return
 	if body is Hero:
 		call_deferred("transport_hero", body as Hero)
+		
 	
 
 func _on_Teleport_body_exited(body: PhysicsBody2D) -> void:
