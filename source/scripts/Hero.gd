@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Hero
 
 export(float, 0, 39.2) var gravity : float = C.GRAVITY_VALUE
 export(float, 0, 400) var mass : float = 100
