@@ -142,9 +142,9 @@ window/stretch/aspect="keep"
 2d_physics/layer_2="Hero / Player"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Teleports"
-2d_physics/layer_10="Tilemap Platforms"
-2d_physics/layer_11="Actions Hero / Player"
-2d_physics/layer_12="Actions Enemies"
+2d_physics/layer_11="Tilemap Platforms"
+2d_physics/layer_12="Actions Hero / Player"
+2d_physics/layer_13="Actions Enemies"
 
 [rendering]
 

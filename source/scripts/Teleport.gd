@@ -13,19 +13,32 @@ export(NodePath) var parent_zone_path : NodePath
 export(float, -1, 1024, 0.01) var transport_duration : float = 1 setget _set_transport_duration
 export(float, -1, 16, 0.01) var takeover_duration : float = 0.3 setget _set_takeover_duration
 
+#==== interaction ====
+export(bool) var force_interaction : bool = false setget _set_force_interaction
+
+#==== exit location ====
+export(bool) var center_to_exit_x : bool = false
+export(bool) var center_to_exit_y : bool = false
+
 #==== variables ====
 var is_exit : bool = false
 
 
+
+
 #==== node functions ====
 func _ready() -> void:
+	# set wall collision shape same as collision
+	$Wall/Collision.shape = $TeleportCollision.shape
+	
 	if U.in_editor():
 		return
 	
 	if not target_teleport_path:
 		queue_free()
 		return
-
+	
+	_override_children()
 
 
 
@@ -76,6 +89,29 @@ func make_exit() -> void:
 	is_exit = true
 
 
+func _override_children() -> void:
+	# overrride for wall collision shape
+	if has_node("WallCollision"):
+		var collision : CollisionShape2D= get_node("WallCollision")
+		$Wall/Collision.shape = collision.shape
+		collision.queue_free()
+	# override for normal collision
+	if has_node("Collision"):
+		var col : CollisionShape2D = get_node("Collision")
+		$TeleportCollision.shape = col.shape
+		col.queue_free()
+	# override for interact collision
+	if has_node("InteractCollision"):
+		var col : CollisionShape2D = get_node("InteractCollision")
+		$Interact/Collision.shape = col.shape
+		col.queue_free()
+	# override for exit
+	if has_node("Exit"):
+		var exit : Node2D = get_node("Exit")
+		$ExitPosition.position = exit.position
+		exit.queue_free()
+		
+
 #==== getters ====
 func get_exit_position() -> Vector2:
 	return $ExitPosition.global_position
@@ -98,6 +134,10 @@ func _set_takeover_duration(value : float) -> void:
 		value = -1
 	takeover_duration = value
 
+func _set_force_interaction(value : bool) -> void:
+	force_interaction = value
+	$Interact.visible = value
+	$Interact/Collision.disabled = !value
 
 #==== signals ====
 func _on_Teleport_body_entered(body: PhysicsBody2D) -> void:

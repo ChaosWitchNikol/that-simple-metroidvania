@@ -23,7 +23,6 @@ tile_data = PoolIntArray( 393228, 7, 0, 393229, 536870918, 0, 393230, 536870918,
 
 [node name="Hero" parent="." instance=ExtResource( 2 )]
 position = Vector2( 464, 400 )
-z_index = 11
 allow_wall_climbing = true
 
 [node name="HeroCam" type="Camera2D" parent="Hero"]
@@ -48,11 +47,11 @@ position = Vector2( 544, 0 )
 wait_time = 2.0
 
 [node name="Platform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 544, 576 )
+position = Vector2( 800.665, 576 )
 pathway_node_path = NodePath("../Pathway")
 
 [node name="Platform2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1088, 448 )
+position = Vector2( 831.334, 448 )
 pathway_node_path = NodePath("../Pathway")
 start_node_path = NodePath("../Pathway/Point4")
 
