@@ -9,8 +9,8 @@ const PI_HALF : float = PI / 2
 
 #==== node functions ====
 func _ready() -> void:
-	set_pixel_snap(true)	
-	next_vectors()
+	set_pixel_snap(true)
+#	next_vectors()
 
 
 #==== processors ====

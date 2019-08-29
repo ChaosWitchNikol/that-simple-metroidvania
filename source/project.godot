@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Action",
 "language": "GDScript",
-"path": "res://scripts/Action.gd"
+"path": "res://nodes/actions/Action.gd"
 }, {
 "base": "Action",
 "class": "ActionRay",
 "language": "GDScript",
-"path": "res://scripts/ActionRay.gd"
+"path": "res://nodes/actions/Ray/ActionRay.gd"
 }, {
 "base": "Action",
 "class": "ActionRegion",
 "language": "GDScript",
-"path": "res://scripts/ActionRegion.gd"
+"path": "res://nodes/actions/Region/ActionRegion.gd"
 }, {
 "base": "Object",
 "class": "C",
@@ -32,57 +32,57 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Effect",
 "language": "GDScript",
-"path": "res://scripts/Effect.gd"
+"path": "res://nodes/effects/Effect.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://scripts/Enemy.gd"
+"path": "res://nodes/enemies/Enemy.gd"
 }, {
 "base": "Enemy",
 "class": "EnemyCrawling",
 "language": "GDScript",
-"path": "res://scripts/EnemyCrawling.gd"
+"path": "res://nodes/enemies/Crawling/EnemyCrawling.gd"
 }, {
 "base": "Enemy",
 "class": "EnemyFlying",
 "language": "GDScript",
-"path": "res://scripts/EnemyFlying.gd"
+"path": "res://nodes/enemies/Flying/EnemyFlying.gd"
 }, {
 "base": "Enemy",
 "class": "EnemyStatic",
 "language": "GDScript",
-"path": "res://scripts/EnemyStatic.gd"
+"path": "res://nodes/enemies/Static/EnemyStatic.gd"
 }, {
 "base": "Enemy",
 "class": "EnemyWalking",
 "language": "GDScript",
-"path": "res://scripts/EnemyWalking.gd"
+"path": "res://nodes/enemies/Walking/EnemyWalking.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Hero",
 "language": "GDScript",
-"path": "res://scripts/Hero.gd"
+"path": "res://nodes/Hero/Hero.gd"
 }, {
 "base": "Node2D",
 "class": "Pathway",
 "language": "GDScript",
-"path": "res://scripts/Pathway.gd"
+"path": "res://nodes/Pathway/Pathway.gd"
 }, {
 "base": "Node2D",
 "class": "Platform",
 "language": "GDScript",
-"path": "res://scripts/Platform.gd"
+"path": "res://nodes/Platform/Platform.gd"
 }, {
 "base": "Position2D",
 "class": "Point",
 "language": "GDScript",
-"path": "res://scripts/Point.gd"
+"path": "res://nodes/Pathway/Point/Point.gd"
 }, {
 "base": "Node",
 "class": "Region",
 "language": "GDScript",
-"path": "res://scripts/Region.gd"
+"path": "res://nodes/environment/Region/Region.gd"
 }, {
 "base": "Resource",
 "class": "ResEffect",
@@ -92,7 +92,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Teleport",
 "language": "GDScript",
-"path": "res://scripts/Teleport.gd"
+"path": "res://nodes/environment/Teleport/Teleport.gd"
 }, {
 "base": "Node",
 "class": "U",
@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Warp",
 "language": "GDScript",
-"path": "res://scripts/Warp.gd"
+"path": "res://nodes/environment/Warp/Warp.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -129,7 +129,7 @@ _global_script_class_icons={
 [application]
 
 config/name="That simple Metroidvania"
-run/main_scene="res://Main.old.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [debug]
