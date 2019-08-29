@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EnemyWalking.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://scripts/Hero.gd"
+}, {
 "base": "Node2D",
 "class": "Pathway",
 "language": "GDScript",
@@ -74,15 +79,30 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Point.gd"
 }, {
+"base": "Node",
+"class": "Region",
+"language": "GDScript",
+"path": "res://scripts/Region.gd"
+}, {
 "base": "Resource",
 "class": "ResEffect",
 "language": "GDScript",
 "path": "res://types/ResEffect.gd"
 }, {
+"base": "Area2D",
+"class": "Teleport",
+"language": "GDScript",
+"path": "res://scripts/Teleport.gd"
+}, {
 "base": "Node",
 "class": "U",
 "language": "GDScript",
 "path": "res://scripts/utils/_utils.gd"
+}, {
+"base": "Area2D",
+"class": "Warp",
+"language": "GDScript",
+"path": "res://scripts/Warp.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -95,17 +115,21 @@ _global_script_class_icons={
 "EnemyFlying": "",
 "EnemyStatic": "",
 "EnemyWalking": "",
+"Hero": "",
 "Pathway": "",
 "Platform": "",
 "Point": "",
+"Region": "",
 "ResEffect": "",
-"U": ""
+"Teleport": "",
+"U": "",
+"Warp": ""
 }
 
 [application]
 
 config/name="That simple Metroidvania"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Main.old.tscn"
 config/icon="res://icon.png"
 
 [debug]
@@ -117,6 +141,16 @@ shapes/collision/shape_color=Color( 1, 1, 1, 0.392157 )
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[layer_names]
+
+2d_physics/layer_1="Tilemap Solid"
+2d_physics/layer_2="Hero / Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Teleports"
+2d_physics/layer_11="Tilemap Platforms"
+2d_physics/layer_12="Actions Hero / Player"
+2d_physics/layer_13="Actions Enemies"
 
 [rendering]
 

@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Teleport.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 48 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 48 )
+
+[node name="Teleport" type="Area2D"]
+monitorable = false
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 1 )
+transport_duration = 2.0
+takeover_duration = 1.0
+
+[node name="TeleportCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 0, 0.882353, 1, 1 )
+shape = SubResource( 1 )
+
+[node name="ExitPosition" type="Position2D" parent="."]
+
+[node name="Cam" type="Camera2D" parent="."]
+editor/display_folded = true
+z_index = 10
+drag_margin_h_enabled = false
+smoothing_enabled = true
+
+[node name="BlackOver" type="ColorRect" parent="Cam"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -673.0
+margin_top = -564.0
+margin_right = 675.0
+margin_bottom = 566.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CamTweens" type="Tween" parent="."]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+editor/display_folded = true
+collision_layer = 0
+collision_mask = 6148
+
+[node name="Collision" type="CollisionShape2D" parent="Wall"]
+modulate = Color( 0.615686, 0, 1, 1 )
+shape = SubResource( 1 )
+
+[node name="Interact" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Interact"]
+shape = SubResource( 2 )
+disabled = true
+[connection signal="body_entered" from="." to="." method="_on_Teleport_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Teleport_body_exited"]
