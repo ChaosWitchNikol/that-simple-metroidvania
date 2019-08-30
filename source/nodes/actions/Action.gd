@@ -4,7 +4,7 @@ class_name Action
 
 
 #==== preloads ====
-var effect_scene : PackedScene = preload("res://scenes/Effect.tscn")
+export(PackedScene) var effect_scene : PackedScene
 
 
 #==== exports ====

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://nodes/actions/Action.gd" type="Script" id=1]
+[ext_resource path="res://nodes/effects/Effect.tscn" type="PackedScene" id=2]
+
+[node name="Action" type="Node"]
+script = ExtResource( 1 )
+effect_scene = ExtResource( 2 )

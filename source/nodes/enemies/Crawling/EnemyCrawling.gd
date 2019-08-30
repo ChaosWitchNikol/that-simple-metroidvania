@@ -8,8 +8,11 @@ const PI_HALF : float = PI / 2
 
 
 #==== node functions ====
+func _enter_tree() -> void:
+	set_pixel_snap(true)
+
 func _ready() -> void:
-	set_pixel_snap(true)	
+	set_pixel_snap(true)
 	next_vectors()
 
 
@@ -19,14 +22,14 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 	if on_floor:
 		# test for wall ahead of enemy
 		# do inner circle rotation
-		if test_move(transform, forward_vector):
+		if test_move(global_transform, forward_vector):
 			linear_velocity = Vector2()
 			position += gravity_vector
 			next_vectors(RotationType.INNER)
 			return
 		# test for gap ahead of enemy
 		# do outer circle rotation
-		elif not test_move(transform.translated(forward_vector * sm), gravity_vector):
+		elif not test_move(global_transform.translated(forward_vector * sm), gravity_vector):
 			linear_velocity = Vector2()
 			position += forward_vector + gravity_vector
 			next_vectors(RotationType.OUTER)
