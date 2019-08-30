@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/enemies/EnemyWalkingTest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/enemies/EnemyCrawlingTest.tscn" type="PackedScene" id=5]
 
-[node name="Zone2" index="0" instance=ExtResource( 1 )]
+[node name="Zone2" instance=ExtResource( 1 )]
 
 [node name="Map" parent="." index="0"]
 editor/display_folded = true
@@ -29,5 +29,5 @@ tile_width = 3
 position = Vector2( 544, 272 )
 
 [node name="EnemyCrawlingTest" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 112, 496 )
-movement_speed = 10.0
+position = Vector2( 112, 464 )
+movement_speed = 200.0
