@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Object",
 "class": "C",
 "language": "GDScript",
-"path": "res://scripts/utils/_constants.gd"
+"path": "res://utils/constants.gd"
 }, {
 "base": "Node",
 "class": "Effect",
@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "U",
 "language": "GDScript",
-"path": "res://scripts/utils/_utils.gd"
+"path": "res://utils/utils.gd"
 }, {
 "base": "Area2D",
 "class": "Warp",

@@ -23,6 +23,6 @@ position = Vector2( 0, 448 )
 wait_time = 1.0
 
 [node name="Platform" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 464, 461.334 )
+position = Vector2( 464, 148 )
 pathway_node_path = NodePath("../Pathway")
 tile_width = 3
