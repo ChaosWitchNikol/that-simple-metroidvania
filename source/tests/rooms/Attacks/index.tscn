@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://tests/rooms/@TestRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tests/rooms/Attacks/AttacksTestRoom.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://nodes/attacks/AttackHandler.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tests/rooms/Attacks/DirectAttack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tests/rooms/Attacks/AttackBullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tests/rooms/Attacks/Target.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="AttacksTestRoom" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Map" parent="Zone" index="0"]
+tile_data = PoolIntArray( 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 1, 0, 1114143, 1, 0 )
+
+[node name="Direct" type="Node" parent="." index="2"]
+
+[node name="Sprite" type="Sprite" parent="Direct" index="0"]
+position = Vector2( 183.292, 442.479 )
+texture = ExtResource( 3 )
+
+[node name="AttackHandler" parent="Direct/Sprite" index="0" instance=ExtResource( 4 )]
+attack_scene = ExtResource( 5 )
+is_reciever = false
+
+[node name="Bullet" type="Node" parent="." index="3"]
+
+[node name="Sprite" type="Sprite" parent="Bullet" index="0"]
+position = Vector2( 309.306, 270.642 )
+texture = ExtResource( 3 )
+
+[node name="AttackHandler" parent="Bullet/Sprite" index="0" instance=ExtResource( 4 )]
+attack_scene = ExtResource( 6 )
+
+[node name="Target" type="KinematicBody2D" parent="." index="4"]
+position = Vector2( 816, 448 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Target" index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" index="1"]
+shape = SubResource( 1 )
+
+[node name="AttackHandler" parent="Target" index="2" instance=ExtResource( 4 )]
+
+[editable path="Zone"]

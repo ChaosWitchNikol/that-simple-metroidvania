@@ -133,6 +133,11 @@ _global_script_classes=[ {
 "class": "Warp",
 "language": "GDScript",
 "path": "res://nodes/environment/Warp/Warp.gd"
+}, {
+"base": "Node2D",
+"class": "_TestRoom",
+"language": "GDScript",
+"path": "res://tests/rooms/@TestRoom.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -159,7 +164,8 @@ _global_script_class_icons={
 "ResEffect": "",
 "Teleport": "",
 "U": "",
-"Warp": ""
+"Warp": "",
+"_TestRoom": ""
 }
 
 [application]

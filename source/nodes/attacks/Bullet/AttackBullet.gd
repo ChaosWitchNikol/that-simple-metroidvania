@@ -2,7 +2,6 @@ tool
 extends Attack
 class_name AttackBullet
 
-
 #==== exports ====
 export(float, -1024, 1024, 0.1) var movement_speed : float = 0
 #==== variables ====
@@ -31,3 +30,11 @@ func fire_bullet(target_pos : Vector2, origin_pos : Vector2 = Vector2.ZERO, spee
 #==== signals ====
 func _on_Bullet_body_entered(body: PhysicsBody2D) -> void:
 	call_deferred("execute_on", body)
+	call_deferred("queue_free")
+
+
+
+#==== getters ====
+func get_class() -> String:
+	return "AttackBullet"
+

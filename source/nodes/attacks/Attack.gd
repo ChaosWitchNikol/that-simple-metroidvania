@@ -47,3 +47,9 @@ func _set_effects(array : Array) -> void:
 		if not array[index] or not array[index] is EffectSrc:
 			array[index] = EffectSrc.new()
 	effects = array
+
+
+
+#==== getters ====
+func get_class() -> String:
+	return "Attack"
