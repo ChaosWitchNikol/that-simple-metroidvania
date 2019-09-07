@@ -131,4 +131,5 @@ parameters/playback = SubResource( 19 )
 [node name="AttackHandler" parent="." instance=ExtResource( 2 )]
 [connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_AttackRange_body_exited"]
 [connection signal="cooled_down" from="AttackHandler" to="." method="_on_AttackHandler_cooled_down"]

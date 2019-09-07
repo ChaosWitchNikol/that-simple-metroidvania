@@ -16,4 +16,5 @@ static func apply_efects_to_node2D(node : Node2D, effects : Array) -> void:
 			if child.get_class() == "AttackHandler" and not handler:
 				handler = child
 				break
-		handler.recieve_attack(effects)
+		if handler:
+			handler.recieve_attack(effects)

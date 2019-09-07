@@ -14,6 +14,8 @@ var linear_velocity := Vector2()
 var jumps_count : int = 0
 var jump_timeout : float = 0
 
+var health : float = 10
+
 
 
 func _process(delta: float) -> void:

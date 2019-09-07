@@ -7,6 +7,7 @@ class_name Enemy
 #==== life ====
 export(bool) var is_passive : bool = false
 var target : Node setget set_target
+var target_in_range : bool = false
 #==== gravity ====
 export(float) var gravity_value : float = C.GRAVITY_VALUE
 export(float) var mass : float = 100
@@ -36,11 +37,7 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	print(">> ", name)
-	if attack_timeout == -1:
-		print("aloha")
-		$AttackTimeout.queue_free()
-	else:
-		$AttackTimeout.wait_time = attack_timeout
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -69,7 +66,8 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 
 #==== functions ====
 func attack() -> void:
-	$AttackHandler.emit_attack(target)
+	if target_in_range:
+		$AttackHandler.emit_attack(target)
 
 
 
@@ -124,12 +122,18 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 
 
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
-	$AnimPlayer.call_deferred("play", "attack")
+	if body == target:
+		target_in_range = true
+		$AnimPlayer.call_deferred("play", "attack")
 
 
-func _on_AttackTimeout_timeout() -> void:
-	print("call attack")
-
+func _on_AttackRange_body_exited(body: PhysicsBody2D) -> void:
+	if body == target:
+		target_in_range = false
+		
 
 func _on_AttackHandler_cooled_down() -> void:
 	$AnimPlayer.call_deferred("play", "attack")
+
+
+
