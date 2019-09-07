@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://nodes/attacks/Attack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://nodes/attacks/Bullet/AttackBullet.gd" type="Script" id=2]
+[ext_resource path="res://types/EffectSrc.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+variable = 0
+value = 0.0
+target_self = false
+
+[node name="AttackBullet" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+effects = [ SubResource( 1 ) ]
