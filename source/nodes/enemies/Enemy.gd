@@ -66,7 +66,7 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 
 #==== functions ====
 func attack() -> void:
-	if target_in_range:
+	if target and target_in_range:
 		$AttackHandler.emit_attack(target)
 
 

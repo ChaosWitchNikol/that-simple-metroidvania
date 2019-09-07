@@ -24,13 +24,15 @@ func fire_bullet(target_pos : Vector2, origin_pos : Vector2 = Vector2.ZERO, spee
 	if speed != 0:
 		movement_speed = speed
 	
-
+func execute_on(target : Node2D) -> void:
+	.execute_on(target)
+	queue_free()
 
 
 #==== signals ====
 func _on_Bullet_body_entered(body: PhysicsBody2D) -> void:
 	call_deferred("execute_on", body)
-	call_deferred("queue_free")
+
 
 
 
