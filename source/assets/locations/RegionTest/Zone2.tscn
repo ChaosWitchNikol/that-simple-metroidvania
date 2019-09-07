@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://nodes/environment/Zone/Zone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://nodes/Platform/Platform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/enemies/EnemyWalkingTest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/enemies/EnemyCrawlingTest.tscn" type="PackedScene" id=5]
 
 [node name="Zone2" instance=ExtResource( 1 )]
 
@@ -16,18 +14,21 @@ tile_data = PoolIntArray( -524282, 536870918, 0, -524281, 536870918, 0, -524280,
 
 [node name="Platform" parent="Map" index="0" instance=ExtResource( 3 )]
 position = Vector2( 720, 416 )
+pathway_node_path = NodePath("")
+start_node_path = NodePath("")
+movement_speed = 200.0
 tile_width = 4
 
 [node name="Platform2" parent="Map" index="1" instance=ExtResource( 3 )]
 position = Vector2( 736, -48 )
+pathway_node_path = NodePath("")
+start_node_path = NodePath("")
+movement_speed = 200.0
+tile_width = 2
 
 [node name="Platform3" parent="Map" index="2" instance=ExtResource( 3 )]
 position = Vector2( 368, 96 )
-tile_width = 3
-
-[node name="EnemyWalkingTest" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 544, 272 )
-
-[node name="EnemyCrawlingTest" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 112, 464 )
+pathway_node_path = NodePath("")
+start_node_path = NodePath("")
 movement_speed = 200.0
+tile_width = 3

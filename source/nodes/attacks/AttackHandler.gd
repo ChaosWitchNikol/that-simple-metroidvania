@@ -1,6 +1,9 @@
 extends HandlerNode
 class_name AttackHandler
 
+
+signal cooled_down
+
 #==== exports ====
 export(PackedScene) var attack_scene : PackedScene
 export(float, 0.01, 4096, 0.01) var cooldown : float = 0.01 
@@ -57,3 +60,9 @@ func recieve_attack(effects : Array) -> void:
 #==== getters ====
 func get_class() -> String:
 	return "AttackHandler"
+
+
+
+#==== signals ====
+func _on_AttackCooldown_timeout() -> void:
+	emit_signal("cooled_down")

@@ -68,41 +68,15 @@ func _process_movement(delta : float, on_floor : bool) -> void:
 
 
 #==== functions ====
-#	create request for attack
-func call_attack(index : int = 0, target : Node = null) -> void:
-	if not can_attack(index):
-		return
-	if target:
-		self.target = target
-	attack_index = index
-	$AnimPlayer.play("attack")
+func attack() -> void:
+	$AttackHandler.emit_attack(target)
 
-
-func execute_attack() -> void:
-	var attack_instance := (attack_scenes[attack_index] as PackedScene).instance()
-	
-	get_parent().add_child(attack_instance)
-	
-	if attack_instance is ActionRegion:
-		attack_instance.fire_attack($AttackRange.global_position, target.position)
-	elif attack_instance is ActionRay:
-		attack_instance.parent = $AttackRange
-		attack_instance.target = target
-		return
-	# ALWAYS! leave base Action as last
-	#	having it checked before any action will override
-	#	the following action because of inheritance
-	elif attack_instance is Action:
-		attack_instance.apply_effects(target)
-	
-	# start attack timeout in case that there is AttackTimeout node
-	if has_node("AttackTimeout"):
-		$AttackTimeout.start()
 
 
 #==== computers ====
 func can_attack(attack_index : int) -> bool:
 	return attack_scenes.size() > 0 and attack_index >= 0 and attack_index < attack_scenes.size()
+
 
 
 #==== setters ====
@@ -138,6 +112,7 @@ func set_process_gravity(value : bool) -> void:
 func set_process_movement(value : bool) -> void:
 	_can_process_movement = value
 
+
 func set_pixel_snap(value : bool) -> void:
 	_pixel_snap = value
 
@@ -149,10 +124,12 @@ func _on_View_body_entered(body: PhysicsBody2D) -> void:
 
 
 func _on_AttackRange_body_entered(body: PhysicsBody2D) -> void:
-	print("call attack")
-	call_deferred("call_attack")
+	$AnimPlayer.call_deferred("play", "attack")
 
 
 func _on_AttackTimeout_timeout() -> void:
 	print("call attack")
-	call_deferred("call_attack")
+
+
+func _on_AttackHandler_cooled_down() -> void:
+	$AnimPlayer.call_deferred("play", "attack")
