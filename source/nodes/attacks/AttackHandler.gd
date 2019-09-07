@@ -3,6 +3,7 @@ class_name AttackHandler
 
 #==== exports ====
 export(PackedScene) var attack_scene : PackedScene
+export(float, 0.01, 4096, 0.01) var cooldown : float = 0.01 
 export(bool) var is_emitter : bool = true
 export(bool) var is_reciever : bool = true
 
@@ -18,12 +19,13 @@ func _ready() -> void:
 	available_variables.health = "health" in P
 	available_variables.movement_speed = "movement_speed" in P
 	print(P.name, " AttackHandler ", available_variables, " emmiter: ", is_emitter, " reviever: ", is_reciever)
+	
 
 
 
 #==== functions ====
 func emit_attack(target : Node2D) -> void:
-	if not is_emitter:
+	if not is_emitter or not $AttackCooldown.is_stopped():
 		return
 	
 	var attack := attack_scene.instance()
@@ -35,6 +37,8 @@ func emit_attack(target : Node2D) -> void:
 		get_tree().get_root().add_child(attack)
 		attack.execute_on(target)
 		attack.queue_free()
+	
+	$AttackCooldown.start(cooldown)
 
 
 

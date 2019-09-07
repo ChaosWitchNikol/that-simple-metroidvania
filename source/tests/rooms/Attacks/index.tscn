@@ -25,6 +25,7 @@ texture = ExtResource( 3 )
 
 [node name="AttackHandler" parent="Direct/Sprite" index="0" instance=ExtResource( 4 )]
 attack_scene = ExtResource( 5 )
+cooldown = 1.0
 is_reciever = false
 
 [node name="Bullet" type="Node" parent="." index="3"]
@@ -35,6 +36,7 @@ texture = ExtResource( 3 )
 
 [node name="AttackHandler" parent="Bullet/Sprite" index="0" instance=ExtResource( 4 )]
 attack_scene = ExtResource( 6 )
+cooldown = 1.0
 
 [node name="Target" type="KinematicBody2D" parent="." index="4"]
 position = Vector2( 816, 448 )
