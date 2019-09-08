@@ -9,21 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Action",
-"language": "GDScript",
-"path": "res://nodes/actions/Action.gd"
-}, {
-"base": "Action",
-"class": "ActionRay",
-"language": "GDScript",
-"path": "res://nodes/actions/Ray/ActionRay.gd"
-}, {
-"base": "Action",
-"class": "ActionRegion",
-"language": "GDScript",
-"path": "res://nodes/actions/Region/ActionRegion.gd"
-}, {
 "base": "Area2D",
 "class": "Attack",
 "language": "GDScript",
@@ -48,11 +33,6 @@ _global_script_classes=[ {
 "class": "C",
 "language": "GDScript",
 "path": "res://utils/constants.gd"
-}, {
-"base": "Node",
-"class": "Effect",
-"language": "GDScript",
-"path": "res://nodes/effects/Effect.gd"
 }, {
 "base": "Resource",
 "class": "EffectSrc",
@@ -114,11 +94,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://nodes/environment/Region/Region.gd"
 }, {
-"base": "Resource",
-"class": "ResEffect",
-"language": "GDScript",
-"path": "res://types/ResEffect.gd"
-}, {
 "base": "Area2D",
 "class": "Teleport",
 "language": "GDScript",
@@ -145,15 +120,11 @@ _global_script_classes=[ {
 "path": "res://tests/rooms/@TestRoom.gd"
 } ]
 _global_script_class_icons={
-"Action": "",
-"ActionRay": "",
-"ActionRegion": "",
 "Attack": "",
 "AttackBullet": "",
 "AttackHandler": "",
 "AttackUtils": "",
 "C": "",
-"Effect": "",
 "EffectSrc": "",
 "Enemy": "",
 "EnemyCrawling": "",
@@ -166,7 +137,6 @@ _global_script_class_icons={
 "Platform": "",
 "Point": "",
 "Region": "",
-"ResEffect": "",
 "Teleport": "",
 "U": "",
 "UniqueHandlerNode": "",
