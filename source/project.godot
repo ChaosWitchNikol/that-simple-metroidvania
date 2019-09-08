@@ -129,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://utils/utils.gd"
 }, {
+"base": "HandlerNode",
+"class": "UniqueHandlerNode",
+"language": "GDScript",
+"path": "res://types/UniqueHandlerNode.gd"
+}, {
 "base": "Area2D",
 "class": "Warp",
 "language": "GDScript",
@@ -164,6 +169,7 @@ _global_script_class_icons={
 "ResEffect": "",
 "Teleport": "",
 "U": "",
+"UniqueHandlerNode": "",
 "Warp": "",
 "_TestRoom": ""
 }
