@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://nodes/Hero/InputController.gd" type="Script" id=1]
+
+[node name="InputController" type="Node"]
+script = ExtResource( 1 )
+unique_name = "hero_controll"
+is_current = true

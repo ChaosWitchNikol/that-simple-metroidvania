@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://nodes/enemies/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://nodes/attacks/AttackHandler.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -14,6 +15,20 @@ extents = Vector2( 16, 16 )
 [sub_resource type="Animation" id=4]
 resource_name = "attack"
 length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "death"
@@ -113,8 +128,8 @@ anim_player = NodePath("../AnimPlayer")
 active = true
 parameters/playback = SubResource( 19 )
 
-[node name="AttackTimeout" type="Timer" parent="."]
-one_shot = true
+[node name="AttackHandler" parent="." instance=ExtResource( 2 )]
 [connection signal="body_entered" from="View" to="." method="_on_View_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
-[connection signal="timeout" from="AttackTimeout" to="." method="_on_AttackTimeout_timeout"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_AttackRange_body_exited"]
+[connection signal="cooled_down" from="AttackHandler" to="." method="_on_AttackHandler_cooled_down"]

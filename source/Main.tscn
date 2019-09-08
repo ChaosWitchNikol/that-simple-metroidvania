@@ -6,6 +6,6 @@
 [node name="Main" type="Node2D"]
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
-position = Vector2( 880, 570 )
+position = Vector2( 910, 90 )
 
 [node name="RegionTest" parent="." instance=ExtResource( 2 )]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://nodes/attacks/Attack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://types/EffectSrc.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+variable = "health"
+value = -5.0
+target_self = false
+
+[node name="Attack" index="0" instance=ExtResource( 1 )]
+effects = [ SubResource( 1 ) ]
