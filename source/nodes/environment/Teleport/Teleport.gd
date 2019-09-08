@@ -3,6 +3,7 @@ extends Area2D
 class_name Teleport
 
 signal teleport_entered
+signal teleport_exited
 
 #==== target teleport ====
 export(NodePath) var target_teleport_path : NodePath
@@ -65,13 +66,15 @@ func transport_hero(hero : Hero) -> void:
 	# emit signal after the screen is blacked out
 	emit_signal("teleport_entered", self)
 	
-	# move hero to target location
-	hero.jump_to_position(target_teleport.get_exit_position())
-	
 	# move to target location
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
+	
+	# move hero to target location
+	hero.jump_to_position(target_teleport.get_exit_position())
+	
+	emit_signal("teleport_exited", self)
 	
 	# exit the the teleport	$Cam.
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.get_exit_position(), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
