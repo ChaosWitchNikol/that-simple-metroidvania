@@ -2,6 +2,7 @@ tool
 extends Area2D
 class_name Attack
 
+
 #==== exports ====
 export(Array, Resource) var effects : Array setget _set_effects
 #==== variables ====

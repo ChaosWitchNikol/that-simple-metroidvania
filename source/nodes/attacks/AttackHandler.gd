@@ -1,6 +1,7 @@
 extends HandlerNode
 class_name AttackHandler
 
+const EffectDurationScene : PackedScene = preload("res://nodes/attacks/EffectDuration.tscn")
 
 signal cooled_down
 
@@ -53,7 +54,11 @@ func recieve_attack(effects : Array) -> void:
 		if not available_variables.has(effect.variable) or not available_variables.get(effect.variable):
 			continue
 		P.set(effect.variable, P.get(effect.variable) + effect.value)
-		print(U.object2string(P, [effect.variable]))
+		if effect.duration > 0:
+			var effect_duration := EffectDurationScene.instance()
+			effect_duration.assemble(P, effect)
+			P.add_child(effect_duration)
+		print(P)
 
 
 
