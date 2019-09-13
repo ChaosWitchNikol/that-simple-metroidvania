@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/images/doors-front.png" type="Texture" id=1]
 [ext_resource path="res://nodes/environment/Door/Door.gd" type="Script" id=2]
@@ -10,9 +10,12 @@ extents = Vector2( 48, 48 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 48 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 48 )
+
 [node name="Door" type="Sprite"]
 self_modulate = Color( 0.00784314, 0.862745, 0, 1 )
-z_index = 1000
+z_index = 11
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 color_front = Color( 0.00784314, 0.862745, 0, 1 )
@@ -26,16 +29,24 @@ texture = ExtResource( 3 )
 [node name="Body" type="StaticBody2D" parent="Back"]
 position = Vector2( -16, 0 )
 collision_layer = 0
-collision_mask = 6148
+collision_mask = 4100
 
 [node name="Collision" type="CollisionShape2D" parent="Back/Body"]
 self_modulate = Color( 0.47451, 0.341176, 0.270588, 1 )
 shape = SubResource( 1 )
 
 [node name="Body" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 6150
+collision_mask = 0
 
 [node name="Collision" type="CollisionShape2D" parent="Body"]
 self_modulate = Color( 0.235294, 1, 0.341176, 1 )
 shape = SubResource( 2 )
+
+[node name="Lock" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2048
+
+[node name="Collision" type="CollisionShape2D" parent="Lock"]
+shape = SubResource( 3 )
+[connection signal="area_entered" from="Lock" to="." method="_on_Lock_area_entered"]

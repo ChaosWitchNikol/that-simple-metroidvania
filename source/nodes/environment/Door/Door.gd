@@ -36,3 +36,9 @@ func _set_color_back(value : Color) -> void:
 		_set_color_back(value)
 		return
 	$Back.self_modulate = value
+
+
+
+#==== signals ====
+func _on_Lock_area_entered(area: Area2D) -> void:
+	print("player action entered")
