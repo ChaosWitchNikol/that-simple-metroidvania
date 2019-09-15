@@ -58,7 +58,6 @@ func recieve_attack(effects : Array) -> void:
 			var effect_duration := EffectDurationScene.instance()
 			effect_duration.assemble(P, effect)
 			P.add_child(effect_duration)
-		print(P)
 
 
 

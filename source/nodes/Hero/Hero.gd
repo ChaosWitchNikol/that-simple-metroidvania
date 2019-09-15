@@ -18,6 +18,9 @@ var health : float = 10
 
 
 
+var facing : int = C.FACING.RIGHT
+
+
 #==== functions ====
 func take_controll() -> void:
 	$Cam.clear_current()
@@ -31,7 +34,19 @@ func jump_to_position(new_position : Vector2) -> void:
 	global_position = new_position
 
 
+func fire() -> void:
+	$AttackHandler.emit_attack($AttackTarget)
 
 #==== getters ====
 func get_camera_position() -> Vector2:
 	return $Cam.global_position
+
+
+#==== setters ====
+func set_facing(value : int) -> void:
+	if value == facing:
+		return
+	
+	facing = value
+	$AttackTarget.position.x = abs($AttackTarget.position.x) * facing
+	$Sprite.flip_h = facing == C.FACING.LEFT

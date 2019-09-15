@@ -8,3 +8,5 @@ script = ExtResource( 1 )
 [node name="Zones" type="Node" parent="."]
 
 [node name="Teleports" type="Node" parent="."]
+
+[node name="Doors" type="Node" parent="."]

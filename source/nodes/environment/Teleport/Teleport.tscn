@@ -9,6 +9,8 @@ extents = Vector2( 16, 48 )
 extents = Vector2( 24, 48 )
 
 [node name="Teleport" type="Area2D"]
+z_index = 20
+z_as_relative = false
 monitorable = false
 collision_layer = 8
 collision_mask = 2
@@ -23,8 +25,8 @@ shape = SubResource( 1 )
 [node name="ExitPosition" type="Position2D" parent="."]
 
 [node name="Cam" type="Camera2D" parent="."]
-editor/display_folded = true
 z_index = 10
+z_as_relative = false
 drag_margin_h_enabled = false
 smoothing_enabled = true
 
@@ -41,7 +43,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="CamTweens" type="Tween" parent="."]
 
 [node name="Wall" type="StaticBody2D" parent="."]
-editor/display_folded = true
+visible = false
 collision_layer = 0
 collision_mask = 6148
 
@@ -50,7 +52,6 @@ modulate = Color( 0.615686, 0, 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Interact" type="Area2D" parent="."]
-editor/display_folded = true
 visible = false
 monitorable = false
 collision_layer = 0
