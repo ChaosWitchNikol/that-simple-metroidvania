@@ -4,8 +4,8 @@ func _process(delta: float) -> void:
 	if not is_current:
 		return
 	#	change sprite facing whenever linear velocity is different than zero
-	if P.linear_velocity.x != 0:
-		P.get_node("Sprite").flip_h = P.linear_velocity.x < 0
+#	if P.linear_velocity.x != 0:
+#		P.get_node("Sprite").flip_h = P.linear_velocity.x < 0
 	
 	#	decrease delay between jumps
 	if P.jump_timeout > 0:
@@ -55,3 +55,15 @@ func _physics_process(delta: float) -> void:
 	
 	#	finally move
 	P.linear_velocity = P.move_and_slide_with_snap(P.linear_velocity, snap_vector, C.FLOOR_VECTOR)
+
+
+
+func _unhandled_key_input(event: InputEventKey) -> void:
+	if event.is_action_pressed("ui_left"):
+		P.set_facing(C.FACING.LEFT)
+	
+	if event.is_action_pressed("ui_right"):
+		P.set_facing(C.FACING.RIGHT)
+	
+	if event.is_action_pressed("ui_select"):
+		P.fire()

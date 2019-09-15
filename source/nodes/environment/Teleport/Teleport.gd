@@ -4,6 +4,7 @@ class_name Teleport
 
 signal teleport_entered
 signal teleport_exited
+signal is_being_exited
 
 #==== target teleport ====
 export(NodePath) var target_teleport_path : NodePath
@@ -68,6 +69,7 @@ func transport_hero(hero : Hero) -> void:
 	
 	# move to target location
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, target_teleport.get_exit_position(), transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
 	
@@ -75,12 +77,13 @@ func transport_hero(hero : Hero) -> void:
 	hero.jump_to_position(target_teleport.get_exit_position())
 	
 	emit_signal("teleport_exited", self)
+	target_teleport.emit_signal("is_being_exited")
 	
 	# exit the the teleport	$Cam.
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.get_exit_position(), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("00ffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
-	$CamTweens.start()
+#	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
 	
 	# clear
@@ -119,11 +122,14 @@ func _override_children() -> void:
 func get_exit_position() -> Vector2:
 	return $ExitPosition.global_position
 
+
 func get_zone_placeholder() -> InstancePlaceholder:
 	return get_node(parent_zone_path) as InstancePlaceholder
 
+
 func get_target_teleport_zone_placeholder() -> InstancePlaceholder:
 	return (get_node(target_teleport_path) as Teleport).get_zone_placeholder()
+
 
 
 #==== setters ====
@@ -132,15 +138,19 @@ func _set_transport_duration(value : float) -> void:
 		value = -1
 	transport_duration = value
 
+
 func _set_takeover_duration(value : float) -> void:
 	if value < 0.01:
 		value = -1
 	takeover_duration = value
 
+
 func _set_force_interaction(value : bool) -> void:
 	force_interaction = value
 	$Interact.visible = value
 	$Interact/Collision.disabled = !value
+
+
 
 #==== signals ====
 func _on_Teleport_body_entered(body: PhysicsBody2D) -> void:
@@ -148,8 +158,7 @@ func _on_Teleport_body_entered(body: PhysicsBody2D) -> void:
 		return
 	if body is Hero:
 		call_deferred("transport_hero", body as Hero)
-		
-	
+
 
 func _on_Teleport_body_exited(body: PhysicsBody2D) -> void:
 	if not is_exit:
