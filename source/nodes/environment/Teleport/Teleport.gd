@@ -2,6 +2,9 @@ tool
 extends Area2D
 class_name Teleport
 
+const EF_INVERT : int = 1
+const EF_TRIM : int = 2
+
 signal teleport_entered
 signal teleport_exited
 signal is_being_exited
@@ -16,23 +19,22 @@ export(float, -1, 1024, 0.01) var transport_duration : float = 1 setget _set_tra
 export(float, -1, 16, 0.01) var takeover_duration : float = 0.3 setget _set_takeover_duration
 
 #==== interaction ====
-export(bool) var force_interaction : bool = false setget _set_force_interaction
+export(bool) var force_interaction : bool = false
 
 #==== exit location ====
-export(bool) var center_to_exit_x : bool = false
-export(bool) var center_to_exit_y : bool = false
+export(int, FLAGS, "Invert", "Trim") var exit_x : int
+export(int, FLAGS, "Invert", "Trim") var exit_y : int
+
 
 #==== variables ====
 var is_exit : bool = false
+var interacting_hero : Hero
 
 
 
 
 #==== node functions ====
 func _ready() -> void:
-	# set wall collision shape same as collision
-	$Wall/Collision.shape = $TeleportCollision.shape
-	
 	if U.in_editor():
 		return
 	
@@ -73,14 +75,16 @@ func transport_hero(hero : Hero) -> void:
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
 	
+	var exit_position : Vector2 = get_exit_position(target_teleport, hero)
+	
 	# move hero to target location
-	hero.jump_to_position(target_teleport.get_exit_position())
+	hero.jump_to_position(exit_position)
 	
 	emit_signal("teleport_exited", self)
 	target_teleport.emit_signal("is_being_exited")
 	
 	# exit the the teleport	$Cam.
-	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.get_exit_position(), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, exit_position, takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("00ffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 #	$CamTweens.start()
@@ -96,31 +100,33 @@ func make_exit() -> void:
 
 
 func _override_children() -> void:
-	# overrride for wall collision shape
-	if has_node("WallCollision"):
-		var collision : CollisionShape2D= get_node("WallCollision")
-		$Wall/Collision.shape = collision.shape
-		collision.queue_free()
 	# override for normal collision
 	if has_node("Collision"):
 		var col : CollisionShape2D = get_node("Collision")
 		$TeleportCollision.shape = col.shape
 		col.queue_free()
-	# override for interact collision
-	if has_node("InteractCollision"):
-		var col : CollisionShape2D = get_node("InteractCollision")
-		$Interact/Collision.shape = col.shape
-		col.queue_free()
-	# override for exit
-	if has_node("Exit"):
-		var exit : Node2D = get_node("Exit")
-		$ExitPosition.position = exit.position
-		exit.queue_free()
 		
 
+
 #==== getters ====
-func get_exit_position() -> Vector2:
-	return $ExitPosition.global_position
+func get_exit_position(target_teleport : Teleport, hero : Hero) -> Vector2:
+	var exit_position : Vector2 = target_teleport.global_position
+	if target_teleport.has_node("Exit"):
+		exit_position = target_teleport.get_node("Exit").global_position
+	
+	var position_offset : Vector2 = (hero.global_position - global_position)
+	# check for possible invertion of XY
+	if exit_x & EF_INVERT:
+		position_offset.x *= -1
+	if exit_y & EF_INVERT:
+		position_offset.y *= -1
+	# check for possible trim of XY
+	if exit_x & EF_TRIM:
+		position_offset.x = 0
+	if exit_y & EF_TRIM:
+		position_offset.y = 0
+	
+	return exit_position + position_offset
 
 
 func get_zone_placeholder() -> InstancePlaceholder:
@@ -145,10 +151,7 @@ func _set_takeover_duration(value : float) -> void:
 	takeover_duration = value
 
 
-func _set_force_interaction(value : bool) -> void:
-	force_interaction = value
-	$Interact.visible = value
-	$Interact/Collision.disabled = !value
+
 
 
 
@@ -157,11 +160,16 @@ func _on_Teleport_body_entered(body: PhysicsBody2D) -> void:
 	if is_exit:
 		return
 	if body is Hero:
-		call_deferred("transport_hero", body as Hero)
+		if force_interaction:
+			interacting_hero = body as Hero
+		else:
+			call_deferred("transport_hero", body as Hero)
 
 
 func _on_Teleport_body_exited(body: PhysicsBody2D) -> void:
 	if not is_exit:
 		return
+	if force_interaction and body == interacting_hero:
+		interacting_hero = null
 	# reset the exit
 	is_exit = false

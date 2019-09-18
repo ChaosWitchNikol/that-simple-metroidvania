@@ -22,7 +22,11 @@ func _ready() -> void:
 #==== signals ====
 func _on_teleport_entered(teleport: Teleport) -> void:
 	previous_zone = current_zone
-	current_zone = teleport.get_target_teleport_zone_placeholder().create_instance()
+	var zone_placeholder = teleport.get_target_teleport_zone_placeholder()
+	if not zone_placeholder:
+		print(teleport.name, " target no zone placeholder")
+		return
+	current_zone = zone_placeholder.create_instance()
 
 func _on_teleport_exited(teleport : Teleport) -> void:
 	$Zones.remove_child(previous_zone)
