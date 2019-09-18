@@ -4,7 +4,7 @@
 [ext_resource path="res://nodes/environment/Teleport/Teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/environment/Door/Door.tscn" type="PackedScene" id=3]
 
-[node name="RegionTest" instance=ExtResource( 1 )]
+[node name="RegionTest" index="0" instance=ExtResource( 1 )]
 start_zone_path = NodePath("Zones/Zone1")
 
 [node name="Zones" parent="." index="0"]
@@ -22,27 +22,25 @@ position = Vector2( 2400, -640 )
 position = Vector2( 2256, -560 )
 target_teleport_path = NodePath("../Z3toZ2")
 parent_zone_path = NodePath("../../Zones/Zone2")
+exit_x = 1
 
 [node name="Z3toZ2" parent="Teleports" index="1" instance=ExtResource( 2 )]
 position = Vector2( 2416, -560 )
 target_teleport_path = NodePath("../Z2toZ3")
 parent_zone_path = NodePath("../../Zones/Zone3")
+exit_x = 1
 
 [node name="Zone1ToZone2" parent="Teleports" index="2" instance=ExtResource( 2 )]
 position = Vector2( 992, 80 )
 target_teleport_path = NodePath("../Zone2ToZone1")
 parent_zone_path = NodePath("../../Zones/Zone1")
-
-[node name="Exit" type="Position2D" parent="Teleports/Zone1ToZone2" index="6"]
-position = Vector2( -16, 16 )
+exit_x = 1
 
 [node name="Zone2ToZone1" parent="Teleports" index="3" instance=ExtResource( 2 )]
 position = Vector2( 1184, 80 )
 target_teleport_path = NodePath("../Zone1ToZone2")
 parent_zone_path = NodePath("../../Zones/Zone2")
-
-[node name="Exit" type="Position2D" parent="Teleports/Zone2ToZone1" index="6"]
-position = Vector2( 16, 16 )
+exit_x = 1
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 976, 80 )
