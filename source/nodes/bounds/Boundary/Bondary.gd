@@ -22,6 +22,6 @@ func get_limits() -> Dictionary:
 		"limit_left": bounds.left,
 		"limit_top": bounds.top,
 		"limit_right": bounds.right,
-		"limits_bottom": bounds.bot
+		"limit_bottom": bounds.bot
 	}
 	

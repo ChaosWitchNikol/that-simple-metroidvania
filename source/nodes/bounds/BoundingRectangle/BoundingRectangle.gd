@@ -31,7 +31,10 @@ export(int) var pad_left : int = 0 setget _set_pad_left
 func _ready() -> void:
 	if U.in_editor():
 		print(HALF_HEIGHT, " ", HALF_WIDTH, " ", UNIT)
-		scale = MIN_SCALE
+		if scale.x < MIN_SCALE.x:
+			scale.x = MIN_SCALE.x
+		if scale.y < MIN_SCALE.y:
+			scale.y = MIN_SCALE.y
 	else:
 		visible = false
 		call_deferred("spawn_boundary")
@@ -67,7 +70,7 @@ func _draw() -> void:
 #==== functions ====
 func spawn_boundary() -> void:
 	var instance := BondaryScene.instance()
-	instance.assemble(_get_rect_center(), get_bounds(), _get_rect_extents())
+	instance.assemble(global_position, get_bounds(), _get_rect_extents())
 	instance.connect("ready", self, "_on_Boundary_ready")
 	get_parent().add_child(instance)
 
@@ -124,7 +127,7 @@ func get_left() -> int:
 
 
 func _get_rect_extents() -> Vector2:
-	return Vector2(get_width() / 2, get_height() / 2)
+	return Vector2(HALF_UNIT.x * scale.x, HALF_UNIT.y * scale.y)
 
 func _get_rect_center() -> Vector2:
 	return Vector2(

@@ -7,9 +7,14 @@
 [node name="Main" type="Node2D"]
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
-position = Vector2( 910, 90 )
+position = Vector2( 880, 592 )
 
 [node name="RegionTest" parent="." instance=ExtResource( 2 )]
 
 [node name="BoundingRectangle" parent="." instance=ExtResource( 3 )]
-pad_right = 512
+position = Vector2( 512, 336 )
+scale = Vector2( 32, 21 )
+
+[node name="BoundingRectangle2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1712, -238 )
+scale = Vector2( 35, 24.875 )
