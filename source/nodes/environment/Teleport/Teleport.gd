@@ -50,7 +50,7 @@ func _ready() -> void:
 #==== cutom functions ====
 func transport_hero(hero : Hero) -> void:
 	hero.take_controll()
-	$Cam.global_position = hero.get_camera_position()
+	$Cam.global_position = hero.get_camera().get_camera_screen_center()
 		
 	var target_teleport : Teleport = get_node(target_teleport_path)
 	target_teleport.make_exit()
@@ -69,31 +69,40 @@ func transport_hero(hero : Hero) -> void:
 	# emit signal after the screen is blacked out
 	emit_signal("teleport_entered", self)
 	
+	var exit_position : Vector2 = get_exit_position(target_teleport, hero)
+	
+	hero.jump_to_position(exit_position)
+	
 	# move to target location
 	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, target_teleport.get_exit_position(), transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, exit_position, (transport_duration / 5) * 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
 	
-	var exit_position : Vector2 = get_exit_position(target_teleport, hero)
 	
 	# move hero to target location
-	hero.jump_to_position(exit_position)
+#	hero.jump_to_position(exit_position)
 	
 	emit_signal("teleport_exited", self)
 	target_teleport.emit_signal("is_being_exited")
 	
+	hero.get_camera().make_current()
+	var camera_position : Vector2 = hero.get_camera().get_camera_screen_center()
+	$Cam.make_current()
+	
 	# exit the the teleport	$Cam.
-	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, exit_position, takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, camera_position, takeover_duration * 0.75, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("00ffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
-#	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
+	
+	
 	
 	# clear
 	$Cam/BlackOver.visible = false
 	
 	hero.give_controll()
+
 
 func make_exit() -> void:
 	is_exit = true

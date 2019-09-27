@@ -42,6 +42,10 @@ func get_camera_position() -> Vector2:
 	return $Cam.global_position
 
 
+func get_camera() -> Camera2D:
+	return $Cam as Camera2D
+
+
 #==== setters ====
 func set_facing(value : int) -> void:
 	if value == facing:
