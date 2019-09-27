@@ -69,33 +69,37 @@ func transport_hero(hero : Hero) -> void:
 	# emit signal after the screen is blacked out
 	emit_signal("teleport_entered", self)
 	
-	var exit_position : Vector2 = get_exit_position(target_teleport, hero)
 	
-	hero.jump_to_position(exit_position)
+	var exit_position : Vector2 = get_exit_position(target_teleport, hero)
+	var half_point : Vector2 = (target_teleport.global_position - global_position) / 2 + global_position
+
+	# move to halfpoint
+	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, half_point, transport_duration / 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, half_point, transport_duration / 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.start()
+	yield($CamTweens, "tween_all_completed")
+
+
+	emit_signal("teleport_exited", self)
+	target_teleport.emit_signal("is_being_exited")
+	
 	
 	# move to target location
-	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, exit_position, (transport_duration / 5) * 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, target_teleport.global_position, transport_duration / 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property(hero, "global_position", hero.global_position, exit_position, transport_duration / 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
 	
-	
-	# move hero to target location
-#	hero.jump_to_position(exit_position)
-	
-	emit_signal("teleport_exited", self)
-	target_teleport.emit_signal("is_being_exited")
 	
 	hero.get_camera().make_current()
 	var camera_position : Vector2 = hero.get_camera().get_camera_screen_center()
 	$Cam.make_current()
 	
 	# exit the the teleport	$Cam.
-	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, camera_position, takeover_duration * 0.75, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CamTweens.interpolate_property($Cam, "global_position", $Cam.global_position, camera_position, takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.interpolate_property($Cam/BlackOver, "self_modulate", $Cam/BlackOver.self_modulate, Color("00ffffff"), takeover_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CamTweens.start()
 	yield($CamTweens, "tween_all_completed")
-	
 	
 	
 	# clear
