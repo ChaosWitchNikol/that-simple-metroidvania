@@ -7,7 +7,7 @@ extents = Vector2( 48, 16 )
 
 [node name="Warp" type="Area2D"]
 monitorable = false
-collision_layer = 0
+collision_layer = 8
 collision_mask = 2
 script = ExtResource( 1 )
 

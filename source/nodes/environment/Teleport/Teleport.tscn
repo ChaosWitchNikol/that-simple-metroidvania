@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 z_index = 10
 z_as_relative = false
 drag_margin_h_enabled = false
-smoothing_enabled = true
+drag_margin_v_enabled = false
 
 [node name="BlackOver" type="ColorRect" parent="Cam"]
 visible = false

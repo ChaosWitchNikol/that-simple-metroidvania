@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://utils/attack_utils.gd"
 }, {
+"base": "Area2D",
+"class": "Boundary",
+"language": "GDScript",
+"path": "res://nodes/bounds/Boundary/Bondary.gd"
+}, {
 "base": "Object",
 "class": "C",
 "language": "GDScript",
@@ -139,6 +144,7 @@ _global_script_class_icons={
 "AttackBullet": "",
 "AttackHandler": "",
 "AttackUtils": "",
+"Boundary": "",
 "C": "",
 "Door": "",
 "EffectDuration": "",
@@ -183,7 +189,8 @@ window/stretch/aspect="keep"
 2d_physics/layer_1="Tilemap Solid"
 2d_physics/layer_2="Hero / Player"
 2d_physics/layer_3="Enemies"
-2d_physics/layer_4="Teleports"
+2d_physics/layer_4="Teleports / Warps"
+2d_physics/layer_5="Boundaries"
 2d_physics/layer_11="Tilemap Platforms"
 2d_physics/layer_12="Actions Hero / Player"
 2d_physics/layer_13="Actions Enemies"

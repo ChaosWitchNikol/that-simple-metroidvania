@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://nodes/Hero/Hero.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/player/HeroTestAttackBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/Hero/InputController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nodes/Hero/WarpController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://nodes/bounds/BoundedCamera/BoundedCamera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -26,9 +27,6 @@ texture = ExtResource( 2 )
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Cam" type="Camera2D" parent="."]
-current = true
-
 [node name="AttackHandler" parent="." instance=ExtResource( 3 )]
 attack_scene = ExtResource( 4 )
 cooldown = 0.5
@@ -40,3 +38,5 @@ unique_name = "hero_controll"
 
 [node name="AttackTarget" type="Position2D" parent="."]
 position = Vector2( 20, 0 )
+
+[node name="Cam" parent="." instance=ExtResource( 7 )]
