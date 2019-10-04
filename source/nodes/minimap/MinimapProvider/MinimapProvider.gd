@@ -1,8 +1,9 @@
-extends Node2D
+extends Node
 class_name MinimapProvider
 
 
 export(float, 0, 8192, 0.00001 ) var nscale : float = 1
+export(PackedScene) var minimap : PackedScene
 
 #==== node functions ====
 func _enter_tree() -> void:

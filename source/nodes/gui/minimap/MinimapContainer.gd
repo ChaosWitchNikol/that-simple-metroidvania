@@ -2,7 +2,7 @@ tool
 extends ViewportContainer
 
 
-var minimaps : Array = []
+var providers : Array = []
 
 
 
@@ -13,8 +13,25 @@ func _ready() -> void:
 	if U.in_editor():
 		return
 	
-	minimaps = get_tree().get_nodes_in_group(C.GROUP_MINIMAP_PROVIDER)
+	providers = get_tree().get_nodes_in_group(C.GROUP_MINIMAP_PROVIDER)
+	setup_minimap()
 	
+
+
+#==== functions ====
+func setup_minimap() -> void:
+	if not providers or providers.empty():
+		return 
+	
+	var p : MinimapProvider = providers[0]
+	if not p.minimap:
+		return 
+		
+	var minimap : Node2D = p.minimap.instance()
+	minimap.scale /= p.nscale
+	
+	$Viewport.add_child(minimap)
+
 
 
 
@@ -25,6 +42,7 @@ func _set_viewport_size(size : Vector2 = Vector2()) -> void:
 	if not U.in_editor():
 		return
 	$Viewport.size = size
+
 
 
 
