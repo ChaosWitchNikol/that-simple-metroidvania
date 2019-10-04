@@ -90,6 +90,11 @@ _global_script_classes=[ {
 "path": "res://nodes/Hero/Hero.gd"
 }, {
 "base": "Node2D",
+"class": "MinimapProvider",
+"language": "GDScript",
+"path": "res://nodes/minimap/MinimapProvider/MinimapProvider.gd"
+}, {
+"base": "Node2D",
 "class": "Pathway",
 "language": "GDScript",
 "path": "res://nodes/Pathway/Pathway.gd"
@@ -156,6 +161,7 @@ _global_script_class_icons={
 "EnemyWalking": "",
 "HandlerNode": "",
 "Hero": "",
+"MinimapProvider": "",
 "Pathway": "",
 "Platform": "",
 "Point": "",

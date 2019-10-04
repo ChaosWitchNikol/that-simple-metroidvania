@@ -8,6 +8,7 @@ static func in_editor() -> bool:
 
 
 
+
 #==== vectors ====
 static func no_negative_zero_vector2(src : Vector2) -> Vector2:
 	if src.x == -0:
@@ -66,3 +67,12 @@ static func node2dict(node : Node, keys : Array = []) -> Dictionary:
 static func node2string(node : Node, keys : Array = []) -> String:	
 	return to_json(node2dict(node, keys))
 
+
+
+#==== groups ====
+static func add_node_to_groups(node : Node, groups : Array = [], persistent : bool = false) -> void:
+	if not groups or groups.empty():
+		return
+	
+	for group in groups:
+		node.add_to_group(group, persistent)

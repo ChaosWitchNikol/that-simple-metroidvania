@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://nodes/environment/Region/Region.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/environment/Teleport/Teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/environment/Door/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/tilesets/minimap.tileset.png" type="Texture" id=4]
 
-[node name="RegionTest" instance=ExtResource( 1 )]
+[sub_resource type="TileSet" id=1]
+0/name = "minimap.tileset.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "minimap.tileset.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 16, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="RegionTest" index="0" instance=ExtResource( 1 )]
 start_zone_path = NodePath("Zones/Zone1")
 
 [node name="Zone1" parent="Zones" index="0" instance_placeholder="res://assets/locations/RegionTest/Zone1.tscn"]
@@ -28,7 +51,7 @@ parent_zone_path = NodePath("../../Zones/Zone3")
 exit_x = 1
 
 [node name="Zone1ToZone2" parent="Teleports" index="2" instance=ExtResource( 2 )]
-position = Vector2( 992, 80 )
+position = Vector2( 304, 80 )
 target_teleport_path = NodePath("../Zone2ToZone1")
 parent_zone_path = NodePath("../../Zones/Zone1")
 exit_x = 1
@@ -40,10 +63,19 @@ parent_zone_path = NodePath("../../Zones/Zone2")
 exit_x = 1
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
-position = Vector2( 976, 80 )
+position = Vector2( 288, 80 )
 flip_h = true
 teleport_path = NodePath("../../Teleports/Zone1ToZone2")
 
 [node name="Door2" parent="Doors" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1200, 80 )
 teleport_path = NodePath("../../Teleports/Zone2ToZone1")
+
+[node name="MinimapProvider" parent="." index="3"]
+position = Vector2( -1184, -768 )
+
+[node name="MinimapTiles" type="TileMap" parent="MinimapProvider" index="0"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
+format = 1
