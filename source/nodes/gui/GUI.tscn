@@ -5,7 +5,7 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="MinimapContainer" parent="." instance=ExtResource( 1 )]
-margin_left = 752.0
-margin_top = 32.0
-margin_right = 992.0
-margin_bottom = 176.0
+margin_left = 864.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 144.0
