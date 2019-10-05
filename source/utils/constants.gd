@@ -37,4 +37,6 @@ enum EFFECT_STACK_TYPE { DURATION, VALUE, NONE }
 #== minimap ==
 const GROUP_MINIMAP : String = "g_minimap"
 const GROUP_MINIMAP_PROVIDER : String = "g_minimap_provider"
-#== bounds
+#== bounds ==
+#== hero ==
+const GROUP_HERO : String = "g_hero"

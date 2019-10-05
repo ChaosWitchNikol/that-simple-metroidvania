@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://nodes/gui/minimap/MinimapContainer.gd" type="Script" id=1]
+[ext_resource path="res://nodes/gui/minimap/MinimapPointer.tscn" type="PackedScene" id=2]
 
 [node name="MinimapContainer" type="ViewportContainer"]
 margin_right = 224.0
@@ -17,4 +18,8 @@ usage = 0
 render_target_update_mode = 3
 gui_disable_input = true
 gui_snap_controls_to_pixels = false
+
+[node name="MinimapPointer" parent="Viewport" instance=ExtResource( 2 )]
+modulate = Color( 1, 0.772549, 0, 1 )
+z_index = 100
 [connection signal="item_rect_changed" from="." to="." method="_on_MinimapContainer_item_rect_changed"]
