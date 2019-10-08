@@ -80,8 +80,3 @@ func set_rect_size(size: Vector2) -> void:
 
 
 
-#==== signals ====
-#=== tool ===
-func _on_MinimapContainer_item_rect_changed() -> void:
-	pass
-#	_set_viewport_size(rect_size)

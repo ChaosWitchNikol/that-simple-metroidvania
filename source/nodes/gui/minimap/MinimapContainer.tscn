@@ -20,4 +20,3 @@ gui_snap_controls_to_pixels = false
 
 [node name="HeroPointer" parent="Viewport" instance=ExtResource( 2 )]
 z_index = 100
-[connection signal="item_rect_changed" from="." to="." method="_on_MinimapContainer_item_rect_changed"]
