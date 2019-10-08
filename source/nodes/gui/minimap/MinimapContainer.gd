@@ -2,30 +2,40 @@ tool
 extends ViewportContainer
 
 
+export(Color) var hero_color : Color = "#ffd100"
+
+
+onready var hero_pointer := $Viewport/HeroPointer
+
 var providers : Array = []
 
 var nscale : float = 1
 var minimap : Node2D
 
-var follow : Node2D
 
 
 
 #==== node functions ====
 func _ready() -> void:
-	_set_viewport_size(rect_size)
+	set_process(false)
+#	_set_viewport_size(rect_size)
 	
 	if U.in_editor():
+		set_process(true)
 		return
-	set_process(false)
 	providers = get_tree().get_nodes_in_group(C.GROUP_MINIMAP_PROVIDER)
 	setup_minimap()
 	setup_pointer()
 	
 
+
 func _process(delta: float) -> void:
+	if not U.in_editor():
+		return
 	
-	$Viewport/MinimapPointer.global_position = follow.global_position / (nscale * 2 ) 
+	if $Viewport.size.x != rect_size.x or $Viewport.size.y != rect_size.y:
+		$Viewport.size = rect_size
+	
 
 
 #==== functions ====
@@ -45,17 +55,13 @@ func setup_minimap() -> void:
 
 
 func setup_pointer() -> void:
-	$Viewport/MinimapPointer.scale /= nscale
-	$Viewport/MinimapPointer.scale *= 2
 	var heroes := get_tree().get_nodes_in_group(C.GROUP_HERO)
 	
 	if not heroes or heroes.empty():
 		set_process(false)
 		return 
 	
-	follow = heroes[0]
-	set_process(true)
-
+	hero_pointer.setup(heroes[0], nscale, hero_color)
 
 
 
@@ -68,10 +74,14 @@ func _set_viewport_size(size : Vector2 = Vector2()) -> void:
 		return
 	$Viewport.size = size
 
+func set_rect_size(size: Vector2) -> void:
+	rect_size = size
+	print(size)
 
 
 
 #==== signals ====
 #=== tool ===
 func _on_MinimapContainer_item_rect_changed() -> void:
-	_set_viewport_size(rect_size)
+	pass
+#	_set_viewport_size(rect_size)

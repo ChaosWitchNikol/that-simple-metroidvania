@@ -4,8 +4,10 @@
 [ext_resource path="res://nodes/gui/minimap/MinimapPointer.gd" type="Script" id=2]
 
 [node name="MinimapPointer" type="Sprite"]
+scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Cam" type="Camera2D" parent="."]
+z_index = -100
 current = true

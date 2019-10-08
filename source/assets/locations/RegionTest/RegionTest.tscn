@@ -69,7 +69,8 @@ position = Vector2( 1632, -144 )
 teleport_path = NodePath("../../Teleports/Z3toZ2")
 
 [node name="BRZone1" parent="Bounds" index="0" instance=ExtResource( 4 )]
-position = Vector2( -128, 304 )
+position = Vector2( -128, 222 )
+scale = Vector2( 32, 23.875 )
 
 [node name="BRZone2" parent="Bounds" index="1" instance=ExtResource( 4 )]
 position = Vector2( 992, -242 )
@@ -79,5 +80,5 @@ scale = Vector2( 34, 24.875 )
 position = Vector2( 2112, -128 )
 
 [node name="MinimapProvider" parent="." index="4"]
-nscale = 4.0
+nscale = 6.0
 minimap = ExtResource( 5 )
