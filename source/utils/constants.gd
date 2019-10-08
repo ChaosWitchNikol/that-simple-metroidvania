@@ -30,3 +30,13 @@ enum EFFECT_TARGET { HEALTH, MOVEMENT_SPEED }
 enum EFFECT_SIGN { PLUS = 1, MINUS = -1}
 enum EFFECT_APPLY { IMMEDIATELY, EVERY_TICK }
 enum EFFECT_STACK_TYPE { DURATION, VALUE, NONE }
+
+
+
+#==== groups ====
+#== minimap ==
+const GROUP_MINIMAP : String = "g_minimap"
+const GROUP_MINIMAP_PROVIDER : String = "g_minimap_provider"
+#== bounds ==
+#== hero ==
+const GROUP_HERO : String = "g_hero"

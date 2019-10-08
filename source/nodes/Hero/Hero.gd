@@ -20,6 +20,9 @@ var health : float = 10
 
 var facing : int = C.FACING.RIGHT
 
+func _enter_tree() -> void:
+	U.add_node_to_groups(self, [C.GROUP_HERO])
+
 
 #==== functions ====
 func take_controll() -> void:

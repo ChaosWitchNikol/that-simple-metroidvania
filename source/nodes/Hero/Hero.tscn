@@ -39,4 +39,10 @@ unique_name = "hero_controll"
 [node name="AttackTarget" type="Position2D" parent="."]
 position = Vector2( 20, 0 )
 
-[node name="Cam" parent="." instance=ExtResource( 7 )]
+[node name="Cam" parent="." groups=[
+"hero_camera",
+] instance=ExtResource( 7 )]
+drag_margin_left = 0.1
+drag_margin_top = 0.05
+drag_margin_right = 0.1
+drag_margin_bottom = 0.05
