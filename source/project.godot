@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://utils/constants.gd"
 }, {
 "base": "Area2D",
+"class": "CollectableContainer",
+"language": "GDScript",
+"path": "res://nodes/collectables/CollectableContainer/CollectableContainer.gd"
+}, {
+"base": "Area2D",
 "class": "Door",
 "language": "GDScript",
 "path": "res://nodes/environment/Door/Door.gd"
@@ -151,6 +156,7 @@ _global_script_class_icons={
 "AttackUtils": "",
 "Boundary": "",
 "C": "",
+"CollectableContainer": "",
 "Door": "",
 "EffectDuration": "",
 "EffectSrc": "",
@@ -200,6 +206,7 @@ window/stretch/aspect="keep"
 2d_physics/layer_11="Tilemap Platforms"
 2d_physics/layer_12="Actions Hero / Player"
 2d_physics/layer_13="Actions Enemies"
+2d_physics/layer_14="Collectables"
 
 [rendering]
 
