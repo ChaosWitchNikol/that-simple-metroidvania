@@ -28,25 +28,33 @@ editor/display_folded = true
 position = Vector2( 1520, -144 )
 target_teleport_path = NodePath("../Z3toZ2")
 parent_zone_path = NodePath("../../Zones/Zone2")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Z3toZ2" parent="Teleports" index="1" instance=ExtResource( 2 )]
 position = Vector2( 1616, -144 )
 target_teleport_path = NodePath("../Z2toZ3")
 parent_zone_path = NodePath("../../Zones/Zone3")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Zone1ToZone2" parent="Teleports" index="2" instance=ExtResource( 2 )]
 position = Vector2( 368, 80 )
 target_teleport_path = NodePath("../Zone2ToZone1")
 parent_zone_path = NodePath("../../Zones/Zone1")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Zone2ToZone1" parent="Teleports" index="3" instance=ExtResource( 2 )]
 position = Vector2( 464, 80 )
 target_teleport_path = NodePath("../Zone1ToZone2")
 parent_zone_path = NodePath("../../Zones/Zone2")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Doors" parent="." index="2"]
 editor/display_folded = true
@@ -58,6 +66,7 @@ teleport_path = NodePath("../../Teleports/Zone1ToZone2")
 
 [node name="Door2" parent="Doors" index="1" instance=ExtResource( 3 )]
 position = Vector2( 480, 80 )
+flip_h = false
 teleport_path = NodePath("../../Teleports/Zone2ToZone1")
 
 [node name="Door3" parent="Doors" index="2" instance=ExtResource( 3 )]
@@ -67,6 +76,7 @@ teleport_path = NodePath("../../Teleports/Z2toZ3")
 
 [node name="Door4" parent="Doors" index="3" instance=ExtResource( 3 )]
 position = Vector2( 1632, -144 )
+flip_h = false
 teleport_path = NodePath("../../Teleports/Z3toZ2")
 
 [node name="CollectableContainer" parent="Collectables" index="0" instance=ExtResource( 4 )]
@@ -82,14 +92,26 @@ position = Vector2( 560, -256 )
 visible = false
 position = Vector2( -128, 222 )
 scale = Vector2( 32, 23.875 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
 [node name="BRZone2" parent="Bounds" index="1" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 992, -242 )
 scale = Vector2( 34, 24.875 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
 [node name="BRZone3" parent="Bounds" index="2" instance=ExtResource( 5 )]
 position = Vector2( 2112, -128 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
 [node name="MinimapProvider" parent="." index="5"]
 nscale = 6.0

@@ -95,6 +95,11 @@ _global_script_classes=[ {
 "path": "res://nodes/Hero/Hero.gd"
 }, {
 "base": "Node",
+"class": "HeroUtils",
+"language": "GDScript",
+"path": "res://utils/hero_utils.gd"
+}, {
+"base": "Node",
 "class": "MinimapProvider",
 "language": "GDScript",
 "path": "res://nodes/minimap/MinimapProvider/MinimapProvider.gd"
@@ -134,6 +139,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://types/UniqueHandlerNode.gd"
 }, {
+"base": "Resource",
+"class": "UpgradeSrc",
+"language": "GDScript",
+"path": "res://types/UpgradeSrc.gd"
+}, {
 "base": "Area2D",
 "class": "Warp",
 "language": "GDScript",
@@ -167,6 +177,7 @@ _global_script_class_icons={
 "EnemyWalking": "",
 "HandlerNode": "",
 "Hero": "",
+"HeroUtils": "",
 "MinimapProvider": "",
 "Pathway": "",
 "Platform": "",
@@ -175,6 +186,7 @@ _global_script_class_icons={
 "Teleport": "",
 "U": "",
 "UniqueHandlerNode": "",
+"UpgradeSrc": "",
 "Warp": "",
 "Zone": "",
 "_TestRoom": ""
