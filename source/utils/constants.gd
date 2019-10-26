@@ -40,3 +40,10 @@ const GROUP_MINIMAP_PROVIDER : String = "g_minimap_provider"
 #== bounds ==
 #== hero ==
 const GROUP_HERO : String = "g_hero"
+#== collectable ==
+const GROUP_COLLECTABLE : String = "g_collectable"
+const GROUP_COLLECTABLE_CONTAINER : String = "g_collectable_container"
+const GROUP_COLLECTABLE_HANDLER : String = "g_collectable_handler"
+
+#==== collectables ====
+enum COLLECTABLE_TYPE { UPGRADE, BOOST, WEAPON }

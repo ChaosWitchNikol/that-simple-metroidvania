@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://nodes/collectables/CollectableHandler/CollectableHandler.gd" type="Script" id=1]
+
+[node name="CollectableHandler" type="Node" groups=[
+"g_collectable",
+"g_collectable_handler",
+]]
+script = ExtResource( 1 )

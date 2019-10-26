@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="CollectableContainer" type="Area2D"]
+[node name="CollectableContainer" type="Area2D" groups=[
+"g_collectable",
+"g_collectable_container",
+]]
 input_pickable = false
 monitorable = false
 collision_layer = 8192
