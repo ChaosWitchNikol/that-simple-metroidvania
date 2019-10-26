@@ -20,11 +20,14 @@ var health : float = 10
 
 var facing : int = C.FACING.RIGHT
 
+#==== node functions ====
 func _enter_tree() -> void:
 	U.add_node_to_groups(self, [C.GROUP_HERO])
 
 
+
 #==== functions ====
+#== teleport ==
 func take_controll() -> void:
 	$Cam.clear_current()
 	$WarpController.make_current()
@@ -37,8 +40,17 @@ func jump_to_position(new_position : Vector2) -> void:
 	global_position = new_position
 
 
+#== input ==
 func fire() -> void:
 	$AttackHandler.emit_attack($AttackTarget)
+
+
+#== collectables ==
+func collectable_collected(type : int, item : Resource) -> void:
+	print(type, U.object2string(item))
+	pass
+
+
 
 #==== getters ====
 func get_camera_position() -> Vector2:

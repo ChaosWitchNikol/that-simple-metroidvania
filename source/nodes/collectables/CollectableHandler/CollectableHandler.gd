@@ -1,6 +1,8 @@
 extends HandlerNode
-
-
+class_name CollectableHandler
+"""
+	Handles adding non persistant collectables into global save
+"""
 
 
 #==== node funcitons ====
@@ -17,5 +19,5 @@ func _ready() -> void:
 
 #==== signals ====
 func _on_CollectableContainer_collected(type : int, item : Resource) -> void:
-	print(type, item)
-	pass
+	if P.has_method("collectable_collected"):
+		P.call_deferred("collectable_collected", type, item)
