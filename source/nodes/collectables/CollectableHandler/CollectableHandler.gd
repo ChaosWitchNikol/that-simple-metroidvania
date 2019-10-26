@@ -18,6 +18,6 @@ func _ready() -> void:
 
 
 #==== signals ====
-func _on_CollectableContainer_collected(type : int, item : Resource) -> void:
+func _on_CollectableContainer_collected(item : Resource) -> void:
 	if P.has_method("collectable_collected"):
-		P.call_deferred("collectable_collected", type, item)
+		P.call_deferred("collectable_collected", item)

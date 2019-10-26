@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-unique_name = ""
-display_name = ""
-variable_name = 0
-add_amount = 0.0
-size = 8192
+unique_name = "jump_1"
+display_name = "Jump force 1"
+variable_name = 2
+add_amount = 1.0
+size = 64

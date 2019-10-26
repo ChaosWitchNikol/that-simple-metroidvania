@@ -4,11 +4,11 @@
 [ext_resource path="res://nodes/environment/Teleport/Teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/environment/Door/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nodes/collectables/CollectableContainer/CollectableContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/upgrades/test_value.tres" type="Resource" id=5]
+[ext_resource path="res://assets/upgrades/speed_1.tres" type="Resource" id=5]
 [ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/locations/RegionTest/Minimap.tscn" type="PackedScene" id=7]
 
-[node name="RegionTest" index="0" instance=ExtResource( 1 )]
+[node name="RegionTest" instance=ExtResource( 1 )]
 start_zone_path = NodePath("Zones/Zone1")
 
 [node name="Zones" parent="." index="0"]

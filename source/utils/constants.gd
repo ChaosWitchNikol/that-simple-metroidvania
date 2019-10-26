@@ -46,4 +46,19 @@ const GROUP_COLLECTABLE_CONTAINER : String = "g_collectable_container"
 const GROUP_COLLECTABLE_HANDLER : String = "g_collectable_handler"
 
 #==== collectables ====
-enum COLLECTABLE_TYPE { UPGRADE, BOOST, WEAPON }
+enum COLLECTABLE_TYPE { UPGRADE_VALUE, UPGRADE_FLAG, BOOST_VALUE, WEAPON }
+
+
+
+#==== class names ====
+class ClassNames:
+	#==== handlers ====
+	const ValueUpgradeHandler : String = "ValueUpgradeHandler"
+	
+	#==== types ====
+	const EffectSrc : String = "EffectSrc"
+	const FlagUpgradeSrc : String = "FlatUpgradeSrc"
+	const ValueUpgradeSrc : String = "ValueUpgradeSrc"
+	
+	#==== nodes ====
+	const Hero : String = "Hero"

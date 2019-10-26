@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-unique_name = ""
-display_name = ""
-variable_name = 0
-add_amount = 0.0
-size = 8192
+unique_name = "speed_1"
+display_name = "Speed 1"
+variable_name = 1
+add_amount = 100.0
+size = 64
