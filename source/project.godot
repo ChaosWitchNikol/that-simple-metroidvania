@@ -150,6 +150,11 @@ _global_script_classes=[ {
 "path": "res://types/UniqueHandlerNode.gd"
 }, {
 "base": "Resource",
+"class": "ValueBoostSrc",
+"language": "GDScript",
+"path": "res://types/ValueBoostSrc.gd"
+}, {
+"base": "Resource",
 "class": "ValueUpgradeSrc",
 "language": "GDScript",
 "path": "res://types/ValueUpgradeSrc.gd"
@@ -198,6 +203,7 @@ _global_script_class_icons={
 "Teleport": "",
 "U": "",
 "UniqueHandlerNode": "",
+"ValueBoostSrc": "",
 "ValueUpgradeSrc": "",
 "Warp": "",
 "Zone": "",

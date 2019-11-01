@@ -59,6 +59,7 @@ class ClassNames:
 	const EffectSrc : String = "EffectSrc"
 	const FlagUpgradeSrc : String = "FlatUpgradeSrc"
 	const ValueUpgradeSrc : String = "ValueUpgradeSrc"
+	const ValueBoostSrc : String = "ValueBoostSrc"
 	
 	#==== nodes ====
 	const Hero : String = "Hero"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://types/ValueBoostSrc.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+unique_name = "speed_1"
+variable = 1
+add_amount = 50.0
+duration = 2.0
