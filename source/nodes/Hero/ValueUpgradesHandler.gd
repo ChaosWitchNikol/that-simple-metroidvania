@@ -11,7 +11,7 @@ func add_upgrade(upgrade : ValueUpgradeSrc) -> void:
 	var new_upgrade : Dictionary = { 
 		"name": upgrade.display_name,
 		"amount": upgrade.add_amount,
-		"variable": upgrade.variable_name,
+		"variable": upgrade.variable,
 		"active": true,
 	}
 	var new_upgrade_key : String = upgrade.unique_name

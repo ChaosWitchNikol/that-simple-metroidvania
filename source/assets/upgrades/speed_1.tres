@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 unique_name = "speed_1"
 display_name = "Speed 1"
-variable_name = 1
+variable = 1
 add_amount = 100.0
 size = 64
