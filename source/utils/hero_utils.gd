@@ -12,3 +12,7 @@ class VariableNames:
 	const ALLOWED_JUMPS : String = "allowed_jumps"
 	const JUMP_DELAY : String = "jump_delay"
 	const ALLOW_WALL_CLIMBING : String = "allow_wall_climbing"
+
+
+static func variable2string(variable : int = Variables.MAX_HEALTH) -> String:
+	return Variables.keys()[variable]

@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 unique_name = "speed_1"
 variable = 1
-add_amount = 50.0
+add_amount = 125.0
 duration = 2.0

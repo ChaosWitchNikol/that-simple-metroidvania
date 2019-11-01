@@ -55,6 +55,9 @@ func collectable_collected(item : Resource) -> void:
 		C.ClassNames.ValueUpgradeSrc:
 			print("value upgrade collected")
 			$ValueUpgradesHandler.add_upgrade(item)
+		C.ClassNames.ValueBoostSrc:
+			print("value boost collected")
+			$ValueBoostsHandler.add_boost(item)
 			
 		
 
