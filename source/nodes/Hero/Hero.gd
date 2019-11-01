@@ -77,10 +77,10 @@ func _get_mass() -> float:
 	return mass
 
 func _get_movement_speed() -> float:
-	return movement_speed + $ValueUpgradesHandler.get_movement_speed()
+	return movement_speed + $ValueUpgradesHandler.get_movement_speed() + $ValueBoostsHandler.get_movement_speed()
 
 func _get_jump_force() -> float:
-	return jump_force + $ValueUpgradesHandler.get_jump_force()
+	return jump_force + $ValueUpgradesHandler.get_jump_force() + $ValueBoostsHandler.get_jump_force()
 
 func _get_allowed_jumps() -> int:
 	return allowed_jumps
