@@ -5,7 +5,7 @@ class_name ValueUpgradeSrc
 export(String) var unique_name : String
 export(String) var display_name : String
 
-export(HeroUtils.Variables) var variable : int = HeroUtils.Variables.MAX_HEALTH
+export(WUBsUtils.Variables) var variable : int = WUBsUtils.Variables.MAX_HEALTH
 export(float, -4096, 4096, 0.01) var add_amount : float = 0
 export(int, 0, 8192) var size : int = 64
 

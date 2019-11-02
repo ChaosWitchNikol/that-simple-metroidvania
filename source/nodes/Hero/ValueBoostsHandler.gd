@@ -46,12 +46,12 @@ func _get_boosts_variable_type_amount(variable_type : int) -> float:
 
 #== by variable name
 func get_max_health() -> float:
-	return _get_boosts_variable_type_amount(HeroUtils.Variables.MAX_HEALTH)
+	return _get_boosts_variable_type_amount(WUBsUtils.Variables.MAX_HEALTH)
 
 
 func get_jump_force() -> float:
-	return _get_boosts_variable_type_amount(HeroUtils.Variables.JUMP_FORCE)
+	return _get_boosts_variable_type_amount(WUBsUtils.Variables.JUMP_FORCE)
 
 
 func get_movement_speed() -> float:
-	return _get_boosts_variable_type_amount(HeroUtils.Variables.MOVEMENT_SPEED)
+	return _get_boosts_variable_type_amount(WUBsUtils.Variables.MOVEMENT_SPEED)

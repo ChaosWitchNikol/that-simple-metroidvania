@@ -68,10 +68,10 @@ func _get_active_upgrades_variable_type_amount_i(upgrade_variable_type : int) ->
 
 #== by variable name ==
 func get_max_health() -> float:
-	return _get_active_upgrades_variable_type_amount(HeroUtils.Variables.MAX_HEALTH)
+	return _get_active_upgrades_variable_type_amount(WUBsUtils.Variables.MAX_HEALTH)
 
 func get_jump_force() -> float:
-	return _get_active_upgrades_variable_type_amount(HeroUtils.Variables.JUMP_FORCE)
+	return _get_active_upgrades_variable_type_amount(WUBsUtils.Variables.JUMP_FORCE)
 
 func get_movement_speed() -> float:
-	return _get_active_upgrades_variable_type_amount(HeroUtils.Variables.MOVEMENT_SPEED)
+	return _get_active_upgrades_variable_type_amount(WUBsUtils.Variables.MOVEMENT_SPEED)
