@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-unique_name = "wall_climb_1"
 display_name = "Wall Climb 1"
-variable = null
-size = null
+unique_name = "wall_climb_1"
+upgrade_name = ""
+variable = 0
+flag_on = true
+size = 64

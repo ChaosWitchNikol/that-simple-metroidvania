@@ -20,7 +20,7 @@ func add_upgrade(upgrade : ValueUpgradeSrc) -> void:
 	if next_index > 0:
 		new_upgrade_key += "@" + str(next_index)
 		
-	print("added upgrade", new_upgrade_key, new_upgrade)
+	print("added value upgrade", new_upgrade_key, new_upgrade)
 	
 	upgrades[new_upgrade_key] = new_upgrade
 
