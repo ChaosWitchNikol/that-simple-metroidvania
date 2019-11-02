@@ -44,8 +44,8 @@ func _get_active_upgrades() -> Dictionary:
 func _is_upgrade_flag_type_on(flag_name : int) -> bool:
 	var flag_on : bool = false
 	
-	for upgrade in upgrades:
-		if upgrade.on and upgrade.active:
+	for upgrade in upgrades.values():
+		if upgrade.variable == flag_name and upgrade.active and upgrade.on:
 			flag_on = true
 			break
 			
