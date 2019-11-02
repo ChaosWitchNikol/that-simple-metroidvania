@@ -58,7 +58,9 @@ func collectable_collected(item : Resource) -> void:
 		C.ClassNames.ValueBoostSrc:
 			print("value boost collected")
 			$ValueBoostsHandler.add_boost(item)
-			
+		C.ClassNames.FlagUpgradeSrc:
+			print("flag upgrade collected")
+			$FlagUpgradesHandler.add_upgrade(item)
 		
 
 
@@ -92,7 +94,7 @@ func _get_jump_delay() -> float:
 	return jump_delay
 
 func _get_allow_wall_climbing() -> bool:
-	return allow_wall_climbing
+	return allow_wall_climbing || $FlagUpgradesHandler.get_allow_wall_climbing()
 
 #==== node getters ====
 func get_class() -> String:
