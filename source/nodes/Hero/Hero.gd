@@ -61,6 +61,9 @@ func collectable_collected(item : Resource) -> void:
 		C.ClassNames.FlagUpgradeSrc:
 			print("flag upgrade collected")
 			$FlagUpgradesHandler.add_upgrade(item)
+		C.ClassNames.FlagBoostSrc:
+			print("flag boost collected")
+			$FlagBoostHandler.add_boost(item)
 		
 
 
