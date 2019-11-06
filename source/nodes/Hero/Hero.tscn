@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://nodes/Hero/Hero.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://nodes/Hero/ValueUpgradesHandler.tscn" type="PackedScene" id=9]
 [ext_resource path="res://nodes/Hero/ValueBoostsHandler.tscn" type="PackedScene" id=10]
 [ext_resource path="res://nodes/Hero/FlagUpgradesHandler.tscn" type="PackedScene" id=11]
+[ext_resource path="res://nodes/Hero/FlagBoostHandler.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -57,3 +58,5 @@ unique_name = "hero_controll"
 [node name="ValueBoostsHandler" parent="." instance=ExtResource( 10 )]
 
 [node name="FlagUpgradesHandler" parent="." instance=ExtResource( 11 )]
+
+[node name="FlagBoostHandler" parent="." instance=ExtResource( 12 )]

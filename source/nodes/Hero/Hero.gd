@@ -94,7 +94,7 @@ func _get_jump_delay() -> float:
 	return jump_delay
 
 func _get_allow_wall_climbing() -> bool:
-	return allow_wall_climbing || $FlagUpgradesHandler.get_allow_wall_climbing()
+	return allow_wall_climbing || $FlagUpgradesHandler.get_allow_wall_climbing() || $FlagBoostHandler.get_allow_wall_climbing()
 
 #==== node getters ====
 func get_class() -> String:
