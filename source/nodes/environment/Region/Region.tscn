@@ -12,6 +12,8 @@ script = ExtResource( 1 )
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Collectables" type="Node" parent="."]
+
 [node name="Bounds" type="Node" parent="."]
 
 [node name="MinimapProvider" parent="." instance=ExtResource( 2 )]

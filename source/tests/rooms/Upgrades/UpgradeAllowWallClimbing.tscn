@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tests/rooms/@TestRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tests/rooms/Upgrades/UpgradeAllowWallClimbing.gd" type="Script" id=2]
+[ext_resource path="res://nodes/Hero/Hero.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/collectables/CollectableContainer/CollectableContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/upgrades/wall_climb_1.tres" type="Resource" id=5]
+
+[node name="UpgradeAllowWallClimbing" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" parent="." index="0"]
+editor/display_folded = false
+
+[node name="Left" type="Label" parent="CanvasLayer" index="2"]
+margin_left = 10.0
+margin_top = 230.0
+margin_right = 40.0
+margin_bottom = 244.0
+rect_scale = Vector2( 2.5, 2 )
+text = "Left"
+
+[node name="Jump" type="Label" parent="CanvasLayer" index="3"]
+margin_left = 80.0
+margin_top = 190.0
+margin_right = 112.0
+margin_bottom = 204.0
+rect_scale = Vector2( 2.5, 2 )
+text = "Jump"
+
+[node name="Right" type="Label" parent="CanvasLayer" index="4"]
+margin_left = 160.0
+margin_top = 230.0
+margin_right = 192.0
+margin_bottom = 244.0
+rect_scale = Vector2( 2.5, 2 )
+text = "Right"
+
+[node name="Label2" type="Label" parent="CanvasLayer" index="5"]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 119.0
+margin_bottom = 74.0
+rect_scale = Vector2( 2, 2 )
+text = "Can climb walls:"
+
+[node name="Allow" type="Label" parent="CanvasLayer" index="6"]
+modulate = Color( 0.027451, 0.92549, 0, 1 )
+margin_left = 230.0
+margin_top = 60.0
+margin_right = 333.0
+margin_bottom = 74.0
+rect_scale = Vector2( 2, 2 )
+text = "False"
+
+[node name="Map" parent="." index="1"]
+modulate = Color( 1, 0.690196, 0.415686, 1 )
+tile_data = PoolIntArray( 65538, 7, 0, 65539, 536870918, 0, 65540, 536870918, 0, 65541, 536870918, 0, 65542, 536870918, 0, 65543, 536870918, 0, 65544, 536870918, 0, 65545, 536870918, 0, 65546, 536870918, 0, 65547, 536870918, 0, 65548, 536870918, 0, 65549, 536870918, 0, 65550, 536870918, 0, 65551, 536870918, 0, 65552, 536870918, 0, 65553, 536870918, 0, 65554, 536870918, 0, 65555, 536870918, 0, 65556, 536870918, 0, 65557, 536870918, 0, 65558, 536870918, 0, 65559, 536870918, 0, 65560, 536870919, 0, 131074, 4, 0, 131096, 536870916, 0, 196610, 4, 0, 196632, 536870916, 0, 262146, 4, 0, 262168, 536870916, 0, 327682, 4, 0, 327704, 536870916, 0, 393218, 4, 0, 393240, 536870916, 0, 458754, 4, 0, 458776, 536870916, 0, 524290, 4, 0, 524312, 536870916, 0, 589826, 4, 0, 589848, 536870916, 0, 655362, 4, 0, 655375, 536870915, 0, 655376, 536870913, 0, 655377, 536870913, 0, 655378, 536870913, 0, 655379, 536870913, 0, 655380, 536870913, 0, 655381, 536870913, 0, 655382, 536870913, 0, 655383, 536870913, 0, 655384, 536870920, 0, 720898, 4, 0, 720911, 536870916, 0, 786434, 4, 0, 786447, 536870916, 0, 851970, 4, 0, 851983, 536870916, 0, 917506, 4, 0, 917519, 536870916, 0, 983042, 4, 0, 983055, 536870916, 0, 1048578, 4, 0, 1048591, 536870916, 0, 1114114, 4, 0, 1114127, 536870916, 0, 1179650, 8, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 536870920, 0 )
+
+[node name="Hero" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 318.414, 521.359 )
+
+[node name="CollectableContainer" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 169.121, 527.191 )
+item = ExtResource( 5 )

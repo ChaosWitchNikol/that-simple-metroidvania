@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tests/rooms/@TestRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tests/rooms/Upgrades/UpgradeJump.gd" type="Script" id=2]
+[ext_resource path="res://nodes/Hero/Hero.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/collectables/CollectableContainer/CollectableContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/upgrades/jump_1.tres" type="Resource" id=5]
+
+[node name="UpgradeJump" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" parent="." index="0"]
+editor/display_folded = false
+
+[node name="Label2" type="Label" parent="CanvasLayer" index="2"]
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 88.0
+margin_bottom = 86.0
+rect_scale = Vector2( 2, 2 )
+text = "Jump force:"
+
+[node name="JumpForce" type="Label" parent="CanvasLayer" index="3"]
+modulate = Color( 0, 1, 0.0392157, 1 )
+margin_left = 168.0
+margin_top = 72.0
+margin_right = 280.0
+margin_bottom = 86.0
+rect_scale = Vector2( 2, 2 )
+text = "0"
+
+[node name="Label3" type="Label" parent="CanvasLayer" index="4"]
+margin_left = 16.0
+margin_top = 192.0
+margin_right = 90.0
+margin_bottom = 206.0
+rect_scale = Vector2( 2, 2 )
+text = "Max height:"
+
+[node name="Label4" type="Label" parent="CanvasLayer" index="5"]
+margin_left = 16.0
+margin_top = 232.0
+margin_right = 90.0
+margin_bottom = 246.0
+rect_scale = Vector2( 2, 2 )
+text = "Height:"
+
+[node name="MaxHeight" type="Label" parent="CanvasLayer" index="6"]
+modulate = Color( 0.77713, 0.574219, 1, 1 )
+margin_left = 176.0
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 206.0
+rect_scale = Vector2( 2, 2 )
+text = "0"
+
+[node name="Height" type="Label" parent="CanvasLayer" index="7"]
+modulate = Color( 1, 0.32549, 0.482353, 1 )
+margin_left = 176.0
+margin_top = 232.0
+margin_right = 320.0
+margin_bottom = 246.0
+rect_scale = Vector2( 2, 2 )
+text = "0"
+
+[node name="Map" parent="." index="1"]
+modulate = Color( 1, 0.760784, 0.505882, 1 )
+tile_data = PoolIntArray( 131150, 536870915, 0, 131151, 536870920, 0, 131153, 4, 0, 131156, 536870916, 0, 196686, 536870917, 0, 196687, 536870919, 0, 196689, 4, 0, 196692, 536870916, 0, 262223, 536870916, 0, 262225, 4, 0, 262228, 536870916, 0, 327759, 536870916, 0, 327761, 4, 0, 327764, 536870916, 0, 393294, 536870915, 0, 393295, 536870920, 0, 393297, 4, 0, 393300, 536870916, 0, 458830, 536870917, 0, 458831, 536870919, 0, 458833, 4, 0, 458836, 536870916, 0, 524367, 536870916, 0, 524369, 4, 0, 524372, 536870916, 0, 589903, 536870916, 0, 589905, 4, 0, 589908, 536870916, 0, 655438, 536870915, 0, 655439, 536870920, 0, 655441, 4, 0, 655444, 536870916, 0, 720974, 536870917, 0, 720975, 536870919, 0, 720977, 4, 0, 720980, 536870916, 0, 786511, 536870916, 0, 786513, 4, 0, 786516, 536870916, 0, 852047, 536870916, 0, 852049, 4, 0, 852052, 536870916, 0, 917582, 536870915, 0, 917583, 536870920, 0, 917585, 4, 0, 917588, 536870916, 0, 983118, 536870917, 0, 983119, 536870919, 0, 983121, 4, 0, 983124, 536870916, 0, 1048655, 536870916, 0, 1048657, 4, 0, 1048660, 536870916, 0, 1114191, 536870916, 0, 1114193, 4, 0, 1114196, 536870916, 0, 1179726, 536870915, 0, 1179727, 536870920, 0, 1179729, 4, 0, 1179732, 536870916, 0, 1245262, 536870917, 0, 1245263, 536870919, 0, 1245265, 4, 0, 1245268, 536870916, 0, 1310799, 536870916, 0, 1310801, 4, 0, 1310804, 536870916, 0, 1376335, 536870916, 0, 1376337, 4, 0, 1376340, 536870916, 0, 1441870, 536870915, 0, 1441871, 536870920, 0, 1441873, 4, 0, 1441876, 536870916, 0, 1507406, 536870917, 0, 1507407, 536870919, 0, 1507409, 4, 0, 1507412, 536870916, 0, 1572943, 536870916, 0, 1572945, 4, 0, 1572948, 536870916, 0, 1638479, 536870916, 0, 1638481, 4, 0, 1638484, 536870916, 0, 1704014, 536870915, 0, 1704015, 536870920, 0, 1704017, 4, 0, 1704020, 536870916, 0, 1769550, 536870917, 0, 1769551, 536870919, 0, 1769553, 4, 0, 1769556, 536870916, 0, 1835087, 536870916, 0, 1835089, 4, 0, 1835092, 536870916, 0, 1900623, 536870916, 0, 1900625, 4, 0, 1900628, 536870916, 0, 1966158, 536870915, 0, 1966159, 536870920, 0, 1966161, 4, 0, 1966164, 536870916, 0, 2031694, 536870917, 0, 2031695, 536870919, 0, 2031697, 4, 0, 2031700, 536870916, 0, 2097231, 536870916, 0, 2097233, 4, 0, 2097236, 536870916, 0, 2162767, 536870916, 0, 2162769, 4, 0, 2162772, 536870916, 0, 2228302, 536870915, 0, 2228303, 536870920, 0, 2228305, 4, 0, 2228308, 536870916, 0, 2293838, 536870917, 0, 2293839, 536870919, 0, 2293841, 4, 0, 2293844, 536870916, 0, 2359375, 536870916, 0, 2359377, 4, 0, 2359380, 536870916, 0, 2424911, 536870916, 0, 2424913, 4, 0, 2424916, 536870916, 0, 2490446, 536870915, 0, 2490447, 536870920, 0, 2490449, 4, 0, 2490452, 536870916, 0, 2555982, 536870917, 0, 2555983, 536870919, 0, 2555985, 4, 0, 2555988, 536870916, 0, 2621519, 536870916, 0, 2621521, 4, 0, 2621524, 536870916, 0, 2687055, 536870916, 0, 2687057, 4, 0, 2687060, 536870916, 0, 2752590, 536870915, 0, 2752591, 536870920, 0, 2752593, 4, 0, 2752596, 536870916, 0, 2818126, 536870917, 0, 2818127, 536870919, 0, 2818129, 4, 0, 2818132, 536870916, 0, 2883663, 536870916, 0, 2883665, 4, 0, 2883668, 536870916, 0, 2949199, 536870916, 0, 2949201, 4, 0, 2949204, 536870916, 0, 3014734, 536870915, 0, 3014735, 536870920, 0, 3014737, 4, 0, 3014740, 536870916, 0, 3080270, 536870917, 0, 3080271, 536870919, 0, 3080273, 4, 0, 3080276, 536870916, 0, 3145807, 536870916, 0, 3145809, 4, 0, 3145812, 536870916, 0, 3211343, 536870916, 0, 3211345, 4, 0, 3211348, 536870916, 0, 3276878, 536870915, 0, 3276879, 536870920, 0, 3276881, 4, 0, 3276884, 536870916, 0, 3342414, 536870917, 0, 3342415, 536870919, 0, 3342417, 4, 0, 3342420, 536870916, 0, 3407951, 536870916, 0, 3407953, 4, 0, 3407956, 536870916, 0, 3473487, 536870916, 0, 3473489, 4, 0, 3473492, 536870916, 0, 3539022, 536870915, 0, 3539023, 536870920, 0, 3539025, 4, 0, 3539028, 536870916, 0, 3604558, 536870917, 0, 3604559, 536870919, 0, 3604561, 4, 0, 3604564, 536870916, 0, 3670095, 536870916, 0, 3670097, 4, 0, 3670100, 536870916, 0, 3735631, 536870916, 0, 3735633, 4, 0, 3735636, 536870916, 0, 3801166, 536870915, 0, 3801167, 536870920, 0, 3801169, 4, 0, 3801172, 536870916, 0, 3866702, 536870917, 0, 3866703, 536870919, 0, 3866705, 4, 0, 3866708, 536870916, 0, 3932239, 536870916, 0, 3932241, 4, 0, 3932244, 536870916, 0, 3997775, 536870916, 0, 3997777, 4, 0, 3997780, 536870916, 0, 4063310, 536870915, 0, 4063311, 536870920, 0, 4063313, 4, 0, 4063316, 536870916, 0, 4128846, 536870917, 0, 4128847, 536870919, 0, 4128849, 4, 0, 4128852, 536870916, 0, 4194383, 536870916, 0, 4194385, 4, 0, 4194388, 536870916, 0, 4259919, 536870916, 0, 4259921, 4, 0, 4259924, 536870916, 0, 4325454, 536870915, 0, 4325455, 536870920, 0, 4325457, 4, 0, 4325460, 536870916, 0, 4390990, 536870917, 0, 4390991, 536870919, 0, 4390993, 4, 0, 4390996, 536870916, 0, 4456527, 536870916, 0, 4456529, 4, 0, 4456532, 536870916, 0, 4522063, 536870916, 0, 4522065, 4, 0, 4522068, 536870916, 0, 4587577, 536870913, 0, 4587578, 536870913, 0, 4587579, 536870913, 0, 4587580, 536870913, 0, 4587581, 536870913, 0, 4587582, 536870913, 0, 4587583, 536870913, 0, 4587584, 536870913, 0, 4587585, 536870913, 0, 4587586, 536870913, 0, 4587587, 536870913, 0, 4587588, 536870913, 0, 4587589, 536870913, 0, 4587590, 536870913, 0, 4587591, 536870913, 0, 4587592, 536870913, 0, 4587593, 536870913, 0, 4587594, 536870913, 0, 4587595, 536870913, 0, 4587596, 536870913, 0, 4587597, 536870913, 0, 4587598, 536870913, 0, 4587599, 536870920, 0, 4587601, 8, 0, 4587602, 536870913, 0, 4587603, 536870913, 0, 4587604, 536870920, 0 )
+
+[node name="Hero" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 2656, 2208 )
+
+[node name="JumpUpgrades" type="Node" parent="." index="3"]
+
+[node name="CollectableContainer" parent="JumpUpgrades" index="0" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 2072 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer4" parent="JumpUpgrades" index="1" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1880 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer8" parent="JumpUpgrades" index="2" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1504 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer9" parent="JumpUpgrades" index="3" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1120 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer14" parent="JumpUpgrades" index="4" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 736 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer2" parent="JumpUpgrades" index="5" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 2008 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer11" parent="JumpUpgrades" index="6" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1632 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer13" parent="JumpUpgrades" index="7" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1248 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer16" parent="JumpUpgrades" index="8" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 864 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer5" parent="JumpUpgrades" index="9" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1816 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer3" parent="JumpUpgrades" index="10" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1944 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer6" parent="JumpUpgrades" index="11" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1752 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer10" parent="JumpUpgrades" index="12" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 1376 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer12" parent="JumpUpgrades" index="13" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 992 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer15" parent="JumpUpgrades" index="14" instance=ExtResource( 4 )]
+modulate = Color( 0.662745, 1, 0.329412, 1 )
+position = Vector2( 2656, 608 )
+item = ExtResource( 5 )

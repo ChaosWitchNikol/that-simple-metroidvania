@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://nodes/environment/Region/Region.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/environment/Teleport/Teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/environment/Door/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/locations/RegionTest/Minimap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://nodes/collectables/CollectableContainer/CollectableContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/upgrades/speed_1.tres" type="Resource" id=5]
+[ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/locations/RegionTest/Minimap.tscn" type="PackedScene" id=7]
 
 [node name="RegionTest" instance=ExtResource( 1 )]
 start_zone_path = NodePath("Zones/Zone1")
@@ -27,25 +29,33 @@ editor/display_folded = true
 position = Vector2( 1520, -144 )
 target_teleport_path = NodePath("../Z3toZ2")
 parent_zone_path = NodePath("../../Zones/Zone2")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Z3toZ2" parent="Teleports" index="1" instance=ExtResource( 2 )]
 position = Vector2( 1616, -144 )
 target_teleport_path = NodePath("../Z2toZ3")
 parent_zone_path = NodePath("../../Zones/Zone3")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Zone1ToZone2" parent="Teleports" index="2" instance=ExtResource( 2 )]
 position = Vector2( 368, 80 )
 target_teleport_path = NodePath("../Zone2ToZone1")
 parent_zone_path = NodePath("../../Zones/Zone1")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Zone2ToZone1" parent="Teleports" index="3" instance=ExtResource( 2 )]
 position = Vector2( 464, 80 )
 target_teleport_path = NodePath("../Zone1ToZone2")
 parent_zone_path = NodePath("../../Zones/Zone2")
+force_interaction = false
 exit_x = 1
+exit_y = 0
 
 [node name="Doors" parent="." index="2"]
 editor/display_folded = true
@@ -57,6 +67,7 @@ teleport_path = NodePath("../../Teleports/Zone1ToZone2")
 
 [node name="Door2" parent="Doors" index="1" instance=ExtResource( 3 )]
 position = Vector2( 480, 80 )
+flip_h = false
 teleport_path = NodePath("../../Teleports/Zone2ToZone1")
 
 [node name="Door3" parent="Doors" index="2" instance=ExtResource( 3 )]
@@ -66,19 +77,44 @@ teleport_path = NodePath("../../Teleports/Z2toZ3")
 
 [node name="Door4" parent="Doors" index="3" instance=ExtResource( 3 )]
 position = Vector2( 1632, -144 )
+flip_h = false
 teleport_path = NodePath("../../Teleports/Z3toZ2")
 
-[node name="BRZone1" parent="Bounds" index="0" instance=ExtResource( 4 )]
+[node name="CollectableContainer" parent="Collectables" index="0" instance=ExtResource( 4 )]
+position = Vector2( 288, 80 )
+item = ExtResource( 5 )
+
+[node name="CollectableContainer2" parent="Collectables" index="1" instance=ExtResource( 4 )]
+position = Vector2( 864, -112 )
+
+[node name="CollectableContainer3" parent="Collectables" index="2" instance=ExtResource( 4 )]
+position = Vector2( 560, -256 )
+
+[node name="BRZone1" parent="Bounds" index="0" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( -128, 222 )
 scale = Vector2( 32, 23.875 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
-[node name="BRZone2" parent="Bounds" index="1" instance=ExtResource( 4 )]
+[node name="BRZone2" parent="Bounds" index="1" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 992, -242 )
 scale = Vector2( 34, 24.875 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
-[node name="BRZone3" parent="Bounds" index="2" instance=ExtResource( 4 )]
+[node name="BRZone3" parent="Bounds" index="2" instance=ExtResource( 6 )]
 position = Vector2( 2112, -128 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
 
-[node name="MinimapProvider" parent="." index="4"]
+[node name="MinimapProvider" parent="." index="5"]
 nscale = 6.0
-minimap = ExtResource( 5 )
+minimap = ExtResource( 7 )

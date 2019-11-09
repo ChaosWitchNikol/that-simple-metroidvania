@@ -40,6 +40,16 @@ _global_script_classes=[ {
 "path": "res://utils/constants.gd"
 }, {
 "base": "Area2D",
+"class": "CollectableContainer",
+"language": "GDScript",
+"path": "res://nodes/collectables/CollectableContainer/CollectableContainer.gd"
+}, {
+"base": "HandlerNode",
+"class": "CollectableHandler",
+"language": "GDScript",
+"path": "res://nodes/collectables/CollectableHandler/CollectableHandler.gd"
+}, {
+"base": "Area2D",
 "class": "Door",
 "language": "GDScript",
 "path": "res://nodes/environment/Door/Door.gd"
@@ -78,6 +88,16 @@ _global_script_classes=[ {
 "class": "EnemyWalking",
 "language": "GDScript",
 "path": "res://nodes/enemies/Walking/EnemyWalking.gd"
+}, {
+"base": "Resource",
+"class": "FlagBoostSrc",
+"language": "GDScript",
+"path": "res://types/FlagBoostSrc.gd"
+}, {
+"base": "Resource",
+"class": "FlagUpgradeSrc",
+"language": "GDScript",
+"path": "res://types/FlagUpgradeSrc.gd"
 }, {
 "base": "Node",
 "class": "HandlerNode",
@@ -129,6 +149,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://types/UniqueHandlerNode.gd"
 }, {
+"base": "Resource",
+"class": "ValueBoostSrc",
+"language": "GDScript",
+"path": "res://types/ValueBoostSrc.gd"
+}, {
+"base": "Resource",
+"class": "ValueUpgradeSrc",
+"language": "GDScript",
+"path": "res://types/ValueUpgradeSrc.gd"
+}, {
+"base": "Node",
+"class": "WUBsUtils",
+"language": "GDScript",
+"path": "res://utils/wubs_utils.gd"
+}, {
 "base": "Area2D",
 "class": "Warp",
 "language": "GDScript",
@@ -151,6 +186,8 @@ _global_script_class_icons={
 "AttackUtils": "",
 "Boundary": "",
 "C": "",
+"CollectableContainer": "",
+"CollectableHandler": "",
 "Door": "",
 "EffectDuration": "",
 "EffectSrc": "",
@@ -159,6 +196,8 @@ _global_script_class_icons={
 "EnemyFlying": "",
 "EnemyStatic": "",
 "EnemyWalking": "",
+"FlagBoostSrc": "",
+"FlagUpgradeSrc": "",
 "HandlerNode": "",
 "Hero": "",
 "MinimapProvider": "",
@@ -169,6 +208,9 @@ _global_script_class_icons={
 "Teleport": "",
 "U": "",
 "UniqueHandlerNode": "",
+"ValueBoostSrc": "",
+"ValueUpgradeSrc": "",
+"WUBsUtils": "",
 "Warp": "",
 "Zone": "",
 "_TestRoom": ""
@@ -200,6 +242,7 @@ window/stretch/aspect="keep"
 2d_physics/layer_11="Tilemap Platforms"
 2d_physics/layer_12="Actions Hero / Player"
 2d_physics/layer_13="Actions Enemies"
+2d_physics/layer_14="Collectables"
 
 [rendering]
 

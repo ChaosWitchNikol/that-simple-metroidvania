@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://types/FlagBoostSrc.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+unique_name = "allow_wall_climbing_test"
+variable = 0
+flag_on = true
+duration = 3.0

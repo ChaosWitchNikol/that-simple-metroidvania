@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://types/ValueUpgradeSrc.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+unique_name = ""
+display_name = ""
+variable_name = 0
+add_amount = 0.0
+size = 8192

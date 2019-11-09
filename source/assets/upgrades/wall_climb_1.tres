@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://types/FlagUpgradeSrc.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+display_name = "Wall Climb 1"
+unique_name = "wall_climb_1"
+upgrade_name = ""
+variable = 0
+flag_on = true
+size = 64
