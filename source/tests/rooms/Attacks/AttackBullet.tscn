@@ -7,12 +7,14 @@
 script = ExtResource( 2 )
 variable = "health"
 value = -20.0
+duration = 0.0
 target_self = false
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 variable = "movenemt_speed"
 value = -200.0
+duration = 0.0
 target_self = true
 
 [node name="AttackBullet" instance=ExtResource( 1 )]
