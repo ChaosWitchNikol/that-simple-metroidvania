@@ -2,8 +2,7 @@ extends Resource
 class_name BossAttackPatternSrc
 
 
-# percentage of propability
-export(float, 0, 1) var pop : float = 0
+export(int, 1, 1024) var magnitude : int = 1
 export(PackedScene) var attack_scene : PackedScene
 export(float, 0.01, 1000, 0.01) var cooldown : float = 0.01
 
