@@ -4,12 +4,12 @@
 [ext_resource path="res://types/BossAttackPatternSrc.gd" type="Script" id=2]
 [ext_resource path="res://types/BossPhaseSrc.gd" type="Script" id=3]
 
-[sub_resource type="Resource" id=5]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 cooldown = 0.01
 magnitude = 1
 
-[sub_resource type="Resource" id=6]
+[sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 cooldown = 0.01
 magnitude = 1
@@ -17,7 +17,7 @@ magnitude = 1
 [sub_resource type="Resource" id=3]
 script = ExtResource( 3 )
 min_health_percent = 1.0
-attack_patterns = [ SubResource( 5 ), SubResource( 6 ) ]
+attack_patterns = [ SubResource( 1 ), SubResource( 2 ) ]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 48 )
