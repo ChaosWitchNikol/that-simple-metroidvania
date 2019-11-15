@@ -20,9 +20,23 @@ var snap_vector : Vector2 = C.SNAP_VECTOR
 var floor_vector : Vector2 = C.FLOOR_VECTOR
 
 
+#==== node functions ====
+func _ready() -> void:
+	print("==== boss: %s ====" % name)
+	for ph in phases:
+		print(U.object2string(ph, ["min_health_percent"]))
+	phases = BossUtils.sort_phases(phases)
+	for ph in phases:
+		print(U.object2string(ph, ["min_health_percent"]))
+	print("==== boss ====")
+
+
+
+#==== getters ====
 func get_current_phase() -> BossPhaseSrc:
 	if phases.empty():
 		return null
+	
 	return null
 	
 

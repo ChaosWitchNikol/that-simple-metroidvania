@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://types/BossPhaseSrc.gd"
 }, {
+"base": "Node",
+"class": "BossUtils",
+"language": "GDScript",
+"path": "res://utils/boss_utils.gd"
+}, {
 "base": "Area2D",
 "class": "Boundary",
 "language": "GDScript",
@@ -202,6 +207,7 @@ _global_script_class_icons={
 "Boss": "",
 "BossAttackPatternSrc": "",
 "BossPhaseSrc": "",
+"BossUtils": "",
 "Boundary": "",
 "C": "",
 "CollectableContainer": "",
