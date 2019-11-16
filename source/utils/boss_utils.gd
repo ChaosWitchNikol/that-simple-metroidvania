@@ -5,10 +5,10 @@ class_name BossUtils
 
 class BossPhasesComparer:
 	static func compare_desc(a: BossPhaseSrc, b: BossPhaseSrc) -> bool:
-		return a.min_health_percent > b.min_health_percent
+		return a.start_at_health_percent > b.start_at_health_percent
 	
 	static func compare_asc(a: BossPhaseSrc, b: BossPhaseSrc) -> bool:
-		return a.min_health_percent < b.min_health_percent 
+		return a.start_at_health_percent < b.start_at_health_percent 
 
 const SORT_DIRECTIONS : Array = ["desc", "asc"]
 

@@ -9,18 +9,18 @@
 [ext_resource path="res://types/BossPhaseSrc.gd" type="Script" id=7]
 [ext_resource path="res://tests/rooms/Bosses/@rose/BossRosePhase2Handler.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 112 )
-
-[sub_resource type="Resource" id=1]
-script = ExtResource( 7 )
-min_health_percent = 0.7
-attack_patterns = [  ]
-handler_scene = ExtResource( 6 )
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 7 )
-min_health_percent = 0.35
+start_at_health_percent = 1.0
+attack_patterns = [  ]
+handler_scene = ExtResource( 6 )
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 7 )
+start_at_health_percent = 0.5
 attack_patterns = [  ]
 handler_scene = ExtResource( 8 )
 
@@ -77,7 +77,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( 80, 416 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Hero" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( -250, 470 )
@@ -93,10 +93,9 @@ pad_left = 0
 [node name="Boss" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 896, 464 )
 max_health = 100.0
-phases = [ SubResource( 1 ), SubResource( 2 ) ]
+phases = [ SubResource( 2 ), SubResource( 3 ) ]
 facing = -1
 
 [node name="BossHealthTimer" type="Timer" parent="." index="6"]
-autostart = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="BossHealthTimer" to="." method="_on_BossHealthTimer_timeout"]

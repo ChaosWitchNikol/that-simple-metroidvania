@@ -30,9 +30,10 @@ func _ready() -> void:
 		return
 	
 	health = max_health # set up health
-	phases = BossUtils.sort_phases(phases, "asc") # order phases by health percentage asc
-	
+	phases = BossUtils.sort_phases(phases) # order phases by health percentage asc
 	update_current_phase()
+	print(phases, current_phase_src)
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -42,7 +43,7 @@ func _physics_process(delta: float) -> void:
 #==== functions ====
 func update_current_phase() -> void:
 	var new_phase_src : BossPhaseSrc = get_phase_by_health_percent(health_percent)
-	print(new_phase_src, current_phase_src)
+	
 	if new_phase_src == current_phase_src:
 		return
 	
@@ -65,7 +66,7 @@ func get_phase_by_health_percent(health_percent : float) -> BossPhaseSrc:
 		return null
 	var current_phase : BossPhaseSrc = phases[0]
 	for phase in phases:
-		if phase.min_health_percent <= health_percent:
+		if health_percent <= phase.start_at_health_percent :
 			current_phase = phase
 	return current_phase
 	
@@ -74,7 +75,7 @@ func get_phase_by_health_percent(health_percent : float) -> BossPhaseSrc:
 #==== setters ====
 func _set_health(value : float) -> void:
 	health = value
-	health_percent = (max_health / 100) * health
+	health_percent = ((max_health / 100) * health) / 100
 	update_current_phase()
 
 

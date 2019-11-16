@@ -4,7 +4,7 @@ class_name BossPhaseSrc
 
 
 
-export(float, 0, 1) var min_health_percent : float = 1
+export(float, 0, 1) var start_at_health_percent : float = 1
 export(Array, Resource) var attack_patterns : Array = [] setget _set_attack_patterns
 export(PackedScene) var handler_scene : PackedScene
 

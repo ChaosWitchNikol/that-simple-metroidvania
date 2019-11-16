@@ -27,6 +27,7 @@ func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 	if body is Hero:
 		call_deferred("_set_boss_target", body as Hero)
 		$CanvasLayer/BossControl.visible = true
+		$BossHealthTimer.call_deferred("start")
 
 func _on_BossHealthTimer_timeout() -> void:
 	call_deferred("_decrease_boss_health", 1)
