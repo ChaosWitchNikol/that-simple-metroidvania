@@ -1,4 +1,3 @@
-tool
 extends Node
 class_name StM
 
@@ -10,13 +9,15 @@ export(NodePath) var initial_state_path : NodePath setget _set_initial_state_pat
 var _state : StMState
 
 
-
+#==== node functions ====
 func _ready() -> void:
-	if U.in_editor():
-		return
-	
 	host = get_parent()
 
+
+func _physics_process(delta: float) -> void:
+	if _state:
+		_state.process_state(self, delta)
+		
 
 
 #==== setters ====
