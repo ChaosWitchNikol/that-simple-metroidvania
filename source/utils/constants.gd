@@ -67,7 +67,10 @@ class ClassNames:
 	
 	#==== nodes ====
 	const Hero : String = "Hero"
+	#== Boss ==
 	const Boss : String = "Boss"
+	const BossPhaseList : String = "BossPhaseList"
+	const BossPhase : String = "BossPahse"
 	
 	#== StM ==
 	const StM : String = "StM"

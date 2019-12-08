@@ -44,6 +44,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://nodes/Boss/Boss.OLD.gd"
 }, {
+"base": "StM",
+"class": "BossPhase",
+"language": "GDScript",
+"path": "res://nodes/Boss/BossPhase.gd"
+}, {
+"base": "Node",
+"class": "BossPhaseList",
+"language": "GDScript",
+"path": "res://nodes/Boss/BossPhaseList.gd"
+}, {
 "base": "Resource",
 "class": "BossPhaseSrc",
 "language": "GDScript",
@@ -227,6 +237,8 @@ _global_script_class_icons={
 "Boss": "",
 "BossAttackPatternSrc": "",
 "BossOld": "",
+"BossPhase": "",
+"BossPhaseList": "",
 "BossPhaseSrc": "",
 "BossUtils": "",
 "Boundary": "",
