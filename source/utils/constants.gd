@@ -64,3 +64,8 @@ class ClassNames:
 	
 	#==== nodes ====
 	const Hero : String = "Hero"
+	
+	#== StM ==
+	const StM : String = "StM"
+	const StMState : String = "StMState"
+	const StMTransition : String = "StMTransition"
