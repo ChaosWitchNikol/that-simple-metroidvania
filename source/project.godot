@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
-"path": "res://nodes/Boss/Boss.gd"
+"path": "res://nodes/Boss/Boss.OLD.gd"
 }, {
 "base": "Resource",
 "class": "BossAttackPatternSrc",
