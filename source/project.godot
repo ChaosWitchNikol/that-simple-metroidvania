@@ -32,12 +32,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
-"path": "res://nodes/Boss/Boss.OLD.gd"
+"path": "res://nodes/Boss/Boss.gd"
 }, {
 "base": "Resource",
 "class": "BossAttackPatternSrc",
 "language": "GDScript",
 "path": "res://types/BossAttackPatternSrc.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "BossOld",
+"language": "GDScript",
+"path": "res://nodes/Boss/Boss.OLD.gd"
 }, {
 "base": "Resource",
 "class": "BossPhaseSrc",
@@ -221,6 +226,7 @@ _global_script_class_icons={
 "AttackUtils": "",
 "Boss": "",
 "BossAttackPatternSrc": "",
+"BossOld": "",
 "BossPhaseSrc": "",
 "BossUtils": "",
 "Boundary": "",

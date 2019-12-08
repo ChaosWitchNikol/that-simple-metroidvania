@@ -1,6 +1,6 @@
 tool
 extends KinematicBody2D
-class_name Boss
+class_name BossOld
 
 #==== variables ====
 #==== life ====
