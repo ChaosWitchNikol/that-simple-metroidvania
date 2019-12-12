@@ -2,7 +2,7 @@
 
 [ext_resource path="res://nodes/Boss/Boss.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/rect_tall.png" type="Texture" id=2]
-[ext_resource path="res://nodes/Boss/BossPhaseList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/Boss/BossPhaseList.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 48 )
@@ -18,4 +18,5 @@ texture = ExtResource( 2 )
 modulate = Color( 0.333333, 0.560784, 1, 1 )
 shape = SubResource( 1 )
 
-[node name="BossPhaseList" parent="." instance=ExtResource( 3 )]
+[node name="PhaseList" type="Node" parent="."]
+script = ExtResource( 3 )
