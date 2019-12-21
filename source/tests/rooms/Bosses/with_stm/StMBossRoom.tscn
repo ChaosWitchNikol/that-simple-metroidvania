@@ -1,18 +1,176 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://tests/rooms/@TestRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tests/rooms/Bosses/with_stm/StMBossRoom.gd" type="Script" id=2]
 [ext_resource path="res://nodes/Hero/Hero.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tests/rooms/Bosses/with_stm/StMBossTest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/AnimationPlayer.gd" type="Script" id=5]
+[ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FaceLeft"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "set_facing"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FaceRight"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1 ],
+"method": "set_facing"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle2"
+
+[sub_resource type="Animation" id=7]
+resource_name = "MoveLeft"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 960, 528 ), Vector2( 48, 528 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "MoveRight"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 48, 528 ), Vector2( 976, 528 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "FaceLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "FaceRight"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "MoveLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "MoveRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=3]
+states/FaceLeft/node = SubResource( 9 )
+states/FaceLeft/position = Vector2( 242, 135 )
+states/FaceRight/node = SubResource( 10 )
+states/FaceRight/position = Vector2( 1304, 174 )
+states/Idle/node = SubResource( 11 )
+states/Idle/position = Vector2( 703, 301 )
+states/Idle2/node = SubResource( 12 )
+states/Idle2/position = Vector2( 949, 116 )
+states/MoveLeft/node = SubResource( 13 )
+states/MoveLeft/position = Vector2( 568, 68 )
+states/MoveRight/node = SubResource( 14 )
+states/MoveRight/position = Vector2( 1005, 316 )
+transitions = [ "Idle", "FaceLeft", SubResource( 15 ), "FaceLeft", "MoveLeft", SubResource( 16 ), "MoveLeft", "Idle2", SubResource( 17 ), "Idle2", "FaceRight", SubResource( 18 ), "FaceRight", "MoveRight", SubResource( 19 ), "MoveRight", "Idle", SubResource( 20 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
 
 [node name="StMBoss" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Map" parent="." index="1"]
-tile_data = PoolIntArray( 0, 536870918, 0, 1, 536870918, 0, 2, 536870918, 0, 3, 536870918, 0, 4, 536870918, 0, 5, 536870918, 0, 6, 536870918, 0, 7, 536870918, 0, 8, 536870918, 0, 9, 536870918, 0, 10, 536870918, 0, 11, 536870918, 0, 12, 536870918, 0, 13, 536870918, 0, 14, 536870918, 0, 15, 536870918, 0, 16, 536870918, 0, 17, 536870918, 0, 18, 536870918, 0, 19, 536870918, 0, 20, 536870918, 0, 21, 536870918, 0, 22, 536870918, 0, 23, 536870918, 0, 24, 536870918, 0, 25, 536870918, 0, 26, 536870918, 0, 27, 536870918, 0, 28, 536870918, 0, 29, 536870918, 0, 30, 536870918, 0, 31, 536870918, 0, 32, 536870919, 0, 131071, 4, 0, 65568, 536870916, 0, 196607, 4, 0, 131104, 536870916, 0, 262143, 4, 0, 196640, 536870916, 0, 327679, 4, 0, 262176, 536870916, 0, 393215, 4, 0, 327712, 536870916, 0, 458751, 4, 0, 393248, 536870916, 0, 524287, 4, 0, 458784, 536870916, 0, 589823, 4, 0, 524320, 536870916, 0, 655359, 4, 0, 589856, 536870916, 0, 720895, 4, 0, 655392, 536870916, 0, 786428, 7, 0, 786429, 6, 0, 786430, 6, 0, 786431, 5, 0, 720928, 536870916, 0, 851964, 4, 0, 786464, 536870916, 0, 917500, 4, 0, 852000, 536870916, 0, 983036, 4, 0, 917536, 536870916, 0, 1048572, 4, 0, 983072, 536870916, 0, 1114108, 4, 0, 1048608, 536870916, 0, 1179644, 4, 0, 1114144, 536870916, 0, 1245180, 8, 0, 1245181, 1, 0, 1245182, 1, 0, 1245183, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0, 1179680, 536870920, 0 )
+tile_data = PoolIntArray( 0, 536870918, 0, 2, 536870918, 0, 3, 536870918, 0, 4, 536870918, 0, 5, 536870918, 0, 6, 536870918, 0, 7, 536870918, 0, 8, 536870918, 0, 9, 536870918, 0, 10, 536870918, 0, 11, 536870918, 0, 12, 536870918, 0, 13, 536870918, 0, 14, 536870918, 0, 15, 536870918, 0, 16, 536870918, 0, 17, 536870918, 0, 18, 536870918, 0, 19, 536870918, 0, 20, 536870918, 0, 21, 536870918, 0, 22, 536870918, 0, 23, 536870918, 0, 24, 536870918, 0, 25, 536870918, 0, 26, 536870918, 0, 27, 536870918, 0, 28, 536870918, 0, 29, 536870918, 0, 30, 536870918, 0, 31, 536870919, 0, 65536, 4, 0, 65567, 536870916, 0, 131072, 4, 0, 131103, 536870916, 0, 196608, 4, 0, 196639, 536870916, 0, 262144, 4, 0, 262175, 536870916, 0, 327680, 4, 0, 327711, 536870916, 0, 393216, 4, 0, 393247, 536870916, 0, 458752, 4, 0, 458783, 536870916, 0, 524288, 4, 0, 524319, 536870916, 0, 589824, 4, 0, 589855, 536870916, 0, 655360, 4, 0, 655391, 536870916, 0, 786429, 7, 0, 786430, 6, 0, 786431, 6, 0, 720896, 5, 0, 720927, 536870916, 0, 851965, 4, 0, 786463, 536870916, 0, 917501, 4, 0, 851999, 536870916, 0, 983037, 4, 0, 917535, 536870916, 0, 1048573, 4, 0, 983071, 536870916, 0, 1114109, 4, 0, 1048607, 536870916, 0, 1179645, 4, 0, 1114143, 536870916, 0, 1245181, 8, 0, 1245182, 1, 0, 1245183, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 536870920, 0 )
 
 [node name="Hero" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( -50, 520 )
 
 [node name="Boss" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( 840, 530 )
+position = Vector2( 366.342, 528 )
+facing = -1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss" index="3"]
+anims/FaceLeft = SubResource( 1 )
+anims/FaceRight = SubResource( 2 )
+anims/Idle = SubResource( 5 )
+anims/Idle2 = SubResource( 6 )
+anims/MoveLeft = SubResource( 7 )
+anims/MoveRight = SubResource( 8 )
+script = ExtResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Boss" index="4"]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 4 )
+
+[node name="BoundingRectangle" parent="." index="4" instance=ExtResource( 6 )]
+position = Vector2( 512, 304 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
