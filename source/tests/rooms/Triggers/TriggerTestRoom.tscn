@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://tests/rooms/@TestRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tests/rooms/Triggers/TriggerTestRoom.gd" type="Script" id=2]
+[ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/Trigger/Trigger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/minimap-cutout.png" type="Texture" id=5]
+[ext_resource path="res://nodes/Hero/Hero.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tests/rooms/Triggers/CPUParticles2DEnter.gd" type="Script" id=7]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.00888889, 0.573333, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="TriggerTestRoom" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" parent="." index="0"]
+editor/display_folded = false
+
+[node name="Map" parent="." index="1"]
+tile_data = PoolIntArray( 327679, 7, 0, 262144, 536870918, 0, 262145, 536870918, 0, 262146, 536870918, 0, 262147, 536870918, 0, 262148, 536870918, 0, 262149, 536870918, 0, 262150, 536870918, 0, 262151, 536870918, 0, 262152, 536870918, 0, 262153, 536870918, 0, 262154, 536870918, 0, 262155, 536870918, 0, 262156, 536870918, 0, 262157, 536870918, 0, 262158, 536870918, 0, 262159, 536870918, 0, 262160, 536870918, 0, 262161, 536870918, 0, 262162, 536870918, 0, 262163, 536870918, 0, 262164, 536870918, 0, 262165, 536870918, 0, 262166, 536870918, 0, 262167, 536870918, 0, 262168, 536870918, 0, 262169, 536870918, 0, 262170, 536870918, 0, 262171, 536870918, 0, 262172, 536870918, 0, 262173, 536870918, 0, 262174, 536870918, 0, 262175, 536870918, 0, 262176, 536870918, 0, 262177, 536870918, 0, 262178, 536870918, 0, 262179, 536870918, 0, 262180, 536870918, 0, 262181, 536870918, 0, 262182, 536870918, 0, 262183, 536870918, 0, 262184, 536870918, 0, 262185, 536870918, 0, 262186, 536870918, 0, 262187, 536870918, 0, 262188, 536870918, 0, 262189, 536870919, 0, 393215, 4, 0, 327725, 536870916, 0, 458751, 4, 0, 393261, 536870916, 0, 524287, 4, 0, 458797, 536870916, 0, 589823, 4, 0, 524333, 536870916, 0, 655359, 4, 0, 589869, 536870916, 0, 720895, 4, 0, 655405, 536870916, 0, 786431, 4, 0, 720941, 536870916, 0, 851967, 4, 0, 786477, 536870916, 0, 917503, 4, 0, 852013, 536870916, 0, 983039, 4, 0, 917549, 536870916, 0, 1048575, 8, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 983070, 1, 0, 983071, 1, 0, 983072, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 983076, 1, 0, 983077, 1, 0, 983078, 1, 0, 983079, 1, 0, 983080, 1, 0, 983081, 1, 0, 983082, 1, 0, 983083, 1, 0, 983084, 1, 0, 983085, 536870920, 0 )
+
+[node name="BoundingRectangle" parent="." index="2" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 720, 300 )
+scale = Vector2( 47.25, 18.75 )
+pad_top = 0
+pad_right = 0
+pad_bot = 0
+pad_left = 0
+
+[node name="TriggerEnter" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 270, 460 )
+
+[node name="TriggerLeave" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 730, 460 )
+type = 1
+
+[node name="TriggerInteract" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 1230, 460 )
+type = 2
+
+[node name="Sprite" type="Sprite" parent="." index="6"]
+modulate = Color( 1, 0.972549, 0.262745, 0.494118 )
+position = Vector2( 290.262, 544.854 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 5 )
+offset = Vector2( -9.26256, -38.7906 )
+
+[node name="Sprite2" type="Sprite" parent="." index="7"]
+modulate = Color( 1, 0.972549, 0.262745, 0.494118 )
+position = Vector2( 750, 540 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 5 )
+offset = Vector2( -9.26256, -38.7906 )
+
+[node name="Sprite3" type="Sprite" parent="." index="8"]
+modulate = Color( 1, 0.972549, 0.262745, 0.494118 )
+position = Vector2( 1250, 540 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 5 )
+offset = Vector2( -9.26256, -38.7906 )
+
+[node name="Hero" parent="." index="9" instance=ExtResource( 6 )]
+position = Vector2( 40, 440 )
+
+[node name="CPUParticles2DEnter" type="CPUParticles2D" parent="." index="10"]
+position = Vector2( 270, 470 )
+rotation = -1.5708
+emitting = false
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+spread = 70.0
+gravity = Vector2( 0, 0 )
+linear_accel = 33.85
+radial_accel = 100.0
+radial_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 32.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+script = ExtResource( 7 )
+trigger_path = NodePath("../TriggerEnter")
+
+[node name="CPUParticles2DLeave" type="CPUParticles2D" parent="." index="11"]
+position = Vector2( 730, 470 )
+rotation = -1.5708
+emitting = false
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+spread = 70.0
+gravity = Vector2( 0, 0 )
+linear_accel = 33.85
+radial_accel = 100.0
+radial_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 32.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+script = ExtResource( 7 )
+trigger_path = NodePath("../TriggerLeave")
+
+[node name="CPUParticles2DInteract" type="CPUParticles2D" parent="." index="12"]
+position = Vector2( 1230, 470 )
+rotation = -1.5708
+emitting = false
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+spread = 70.0
+gravity = Vector2( 0, 0 )
+linear_accel = 33.85
+radial_accel = 100.0
+radial_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 32.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+script = ExtResource( 7 )
+trigger_path = NodePath("../TriggerInteract")
+
+[node name="Label2" type="Label" parent="." index="13"]
+margin_left = 220.0
+margin_top = 340.0
+margin_right = 272.0
+margin_bottom = 354.0
+rect_scale = Vector2( 2, 2 )
+text = "OnEnter"
+
+[node name="Label3" type="Label" parent="." index="14"]
+margin_left = 670.0
+margin_top = 330.0
+margin_right = 726.0
+margin_bottom = 344.0
+rect_scale = Vector2( 2, 2 )
+text = "OnLeave"
+
+[node name="Label4" type="Label" parent="." index="15"]
+margin_left = 1170.0
+margin_top = 330.0
+margin_right = 1226.0
+margin_bottom = 344.0
+rect_scale = Vector2( 2, 2 )
+text = "OnInput"
