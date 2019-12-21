@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://nodes/Boss/BossPhase.gd" type="Script" id=1]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Idle.gd" type="Script" id=2]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Idle.toAttack.gd" type="Script" id=3]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Idle.toMove.gd" type="Script" id=4]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Attack.gd" type="Script" id=5]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Attack.toIdle.gd" type="Script" id=6]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Move.gd" type="Script" id=7]
+[ext_resource path="res://tests/rooms/Bosses/with_stm/Phase1.Move.toIdle.gd" type="Script" id=8]
+
+[node name="StMPhase1" type="Node"]
+script = ExtResource( 1 )
+initial_state_path = NodePath("Idle")
+active_at_health_percent = 1.0
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="toAttack" type="Node" parent="Idle"]
+script = ExtResource( 3 )
+target_state_path = NodePath("../../Attack")
+
+[node name="toMove" type="Node" parent="Idle"]
+script = ExtResource( 4 )
+target_state_path = NodePath("../../Move")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="toIdle" type="Node" parent="Attack"]
+script = ExtResource( 6 )
+target_state_path = NodePath("../../Idle")
+
+[node name="Move" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="toIdle" type="Node" parent="Move"]
+script = ExtResource( 8 )
+target_state_path = NodePath("../../Idle")

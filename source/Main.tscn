@@ -8,6 +8,7 @@
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 528 )
+mass = 80.583
 
 [node name="RegionTest" parent="." instance=ExtResource( 2 )]
 

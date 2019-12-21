@@ -76,3 +76,4 @@ static func add_node_to_groups(node : Node, groups : Array = [], persistent : bo
 	
 	for group in groups:
 		node.add_to_group(group, persistent)
+

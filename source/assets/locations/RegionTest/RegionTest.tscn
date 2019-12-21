@@ -8,7 +8,7 @@
 [ext_resource path="res://nodes/bounds/BoundingRectangle/BoundingRectangle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/locations/RegionTest/Minimap.tscn" type="PackedScene" id=7]
 
-[node name="RegionTest" instance=ExtResource( 1 )]
+[node name="RegionTest" index="0" instance=ExtResource( 1 )]
 start_zone_path = NodePath("Zones/Zone1")
 
 [node name="Zones" parent="." index="0"]
@@ -91,7 +91,6 @@ position = Vector2( 864, -112 )
 position = Vector2( 560, -256 )
 
 [node name="BRZone1" parent="Bounds" index="0" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( -128, 222 )
 scale = Vector2( 32, 23.875 )
 pad_top = 0
@@ -100,7 +99,6 @@ pad_bot = 0
 pad_left = 0
 
 [node name="BRZone2" parent="Bounds" index="1" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 992, -242 )
 scale = Vector2( 34, 24.875 )
 pad_top = 0

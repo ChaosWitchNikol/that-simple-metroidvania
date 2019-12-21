@@ -62,8 +62,15 @@ class ClassNames:
 	const FlagBoostSrc : String = "FlagBoostSrc"
 	const ValueBoostSrc : String = "ValueBoostSrc"
 	
+	const BossPhaseSrc : String = "BossPhaseSrc"
+	const BossAttackPatternSrc : String ="BossAttackPatternSrc"
+	
 	#==== nodes ====
 	const Hero : String = "Hero"
+	#== Boss ==
+	const Boss : String = "Boss"
+	const BossPhaseList : String = "BossPhaseList"
+	const BossPhase : String = "BossPahse"
 	
 	#== StM ==
 	const StM : String = "StM"
